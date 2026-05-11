@@ -19,7 +19,7 @@ set -uo pipefail
 # ---------------------------------------------------------------------------
 
 readonly IMAGE="node:22-alpine"
-readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly CONTAINER_APP="/app"
 readonly VOL_MODULES="paraty_geoservices_node_modules"
 readonly VOL_DIST="paraty_geoservices_dist"

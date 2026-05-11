@@ -8,37 +8,30 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 ## Architecture
 
-- The codebase is organized into three stable source layers:
+- The codebase is organized into stable source layers:
   - `src/domain/`
   - `src/application/`
   - `src/infrastructure/`
 - Maintain strict separation between these layers. Place new modules in the appropriate subdirectory.
 
-## Design Principles
-
-- Follow dependency inversion: depend on abstractions, not concrete implementations.
-- Do not cross architecture boundaries in a way that violates the domain/application/infrastructure separation.
-
 ## Validation
 
-- Use `npm test` to run tests.
-- Use `npm run build` to build the project.
+- Run tests with: `npm test`
+- Build the project with: `npm run build`
 
 ## Reference Documentation
 
-- See `README.md` for project overview and usage.
-- See `CHANGELOG.md` for notable changes.
+- For project overview and usage, see `README.md`.
+- For notable changes, see `CHANGELOG.md`.
 
 ## Build Artifacts
 
-- The published package entry points are:
-  - `main`: `dist/index.js`
-  - `types`: `dist/index.d.ts`
+- Package entry points:
+  - Main: `dist/index.js`
+  - Types: `dist/index.d.ts`
 - Do not edit files in `dist/`; it is generated output.
 
 ## Workflow Surfaces
 
-- Project-local workflow configuration: `.workflow-config.yaml`
+- Workflow configuration: `.workflow-config.yaml`
 - Runtime artifacts and cache: `.ai_workflow/`
-
-Keep this file focused on durable Copilot guidance. For implementation specifics, always refer to the authoritative documentation.
