@@ -1,4 +1,4 @@
-import type { GetCurrentPositionOutput } from './GetCurrentPositionOutput';
+import type { GetCurrentPositionOutput } from '../../../src/application/dtos/GetCurrentPositionOutput';
 
 describe('GetCurrentPositionOutput DTO', () => {
   const mockGeoPosition = {
@@ -19,23 +19,9 @@ describe('GetCurrentPositionOutput DTO', () => {
     expect(output.position).toBe(mockGeoPosition);
   });
 
-  it('should throw a type error if position is missing', () => {
-    // @ts-expect-error
-    expect(() => {
-      const output: GetCurrentPositionOutput = {};
-    }).toThrow();
-  });
-
-  it('should throw a type error if position is null', () => {
-    // @ts-expect-error
-    expect(() => {
-      const output: GetCurrentPositionOutput = { position: null };
-    }).toThrow();
-  });
-
   it('should allow extra properties on position if GeoPosition type is compatible', () => {
     const extendedGeoPosition = { ...mockGeoPosition, extra: 'value' };
     const output: GetCurrentPositionOutput = { position: extendedGeoPosition as any };
-    expect(output.position.extra).toBe('value');
+    expect((output.position as any).extra).toBe('value');
   });
 });

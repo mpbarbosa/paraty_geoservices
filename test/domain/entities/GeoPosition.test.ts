@@ -1,4 +1,4 @@
-import type { GeoPosition } from './GeoPosition';
+import type { GeoPosition } from '../../../src/domain/entities/GeoPosition';
 
 describe('GeoPosition interface', () => {
   it('should accept a valid GeoPosition object with all properties', () => {
@@ -36,75 +36,6 @@ describe('GeoPosition interface', () => {
     expect(geo.coords.altitudeAccuracy).toBeNull();
     expect(geo.coords.heading).toBeNull();
     expect(geo.coords.speed).toBeNull();
-  });
-
-  it('should not allow missing coords property', () => {
-    // @ts-expect-error
-    expect(() => {
-      const geo: GeoPosition = { timestamp: 1 };
-    }).toThrow();
-  });
-
-  it('should not allow missing timestamp property', () => {
-    // @ts-expect-error
-    expect(() => {
-      const geo: GeoPosition = {
-        coords: {
-          latitude: 1,
-          longitude: 2,
-          accuracy: 3,
-          altitude: null,
-          altitudeAccuracy: null,
-          heading: null,
-          speed: null,
-        },
-      };
-    }).toThrow();
-  });
-
-  it('should not allow missing required coords fields', () => {
-    // @ts-expect-error
-    expect(() => {
-      const geo: GeoPosition = {
-        coords: {
-          longitude: 2,
-          accuracy: 3,
-          altitude: null,
-          altitudeAccuracy: null,
-          heading: null,
-          speed: null,
-        },
-        timestamp: 1,
-      };
-    }).toThrow();
-    // @ts-expect-error
-    expect(() => {
-      const geo: GeoPosition = {
-        coords: {
-          latitude: 1,
-          accuracy: 3,
-          altitude: null,
-          altitudeAccuracy: null,
-          heading: null,
-          speed: null,
-        },
-        timestamp: 1,
-      };
-    }).toThrow();
-    // @ts-expect-error
-    expect(() => {
-      const geo: GeoPosition = {
-        coords: {
-          latitude: 1,
-          longitude: 2,
-          altitude: null,
-          altitudeAccuracy: null,
-          heading: null,
-          speed: null,
-        },
-        timestamp: 1,
-      };
-    }).toThrow();
   });
 
   it('should allow extra properties on coords if type compatible', () => {

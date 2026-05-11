@@ -1,7 +1,7 @@
 import {
   GetCurrentPositionUseCase,
   WatchPositionUseCase,
-} from './index';
+} from '../../../src/application/use-cases/index';
 
 describe('use-cases/index exports', () => {
   it('should export GetCurrentPositionUseCase as a constructor', () => {

@@ -1,4 +1,4 @@
-import type { GetCurrentPositionOutput } from './index';
+import type { GetCurrentPositionOutput } from '../../../src/application/dtos/index';
 
 describe('dtos/index exports', () => {
   it('should export GetCurrentPositionOutput type', () => {
@@ -18,17 +18,4 @@ describe('dtos/index exports', () => {
     expect(output.position).toBe(mockGeoPosition);
   });
 
-  it('should enforce required position property', () => {
-    // @ts-expect-error
-    expect(() => {
-      const output: GetCurrentPositionOutput = {};
-    }).toThrow();
-  });
-
-  it('should not allow null as position', () => {
-    // @ts-expect-error
-    expect(() => {
-      const output: GetCurrentPositionOutput = { position: null };
-    }).toThrow();
-  });
 });

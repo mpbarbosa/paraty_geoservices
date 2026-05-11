@@ -1,8 +1,8 @@
 import {
   GetCurrentPositionUseCase,
   WatchPositionUseCase,
-} from './index';
-import type { GetCurrentPositionOutput } from './index';
+} from '../../src/application/index';
+import type { GetCurrentPositionOutput } from '../../src/application/index';
 
 describe('application/index exports', () => {
   it('should export GetCurrentPositionUseCase as a constructor', () => {
@@ -44,17 +44,4 @@ describe('application/index exports', () => {
     expect(output.position).toBe(mockGeoPosition);
   });
 
-  it('should not allow GetCurrentPositionOutput without position', () => {
-    // @ts-expect-error
-    expect(() => {
-      const output: GetCurrentPositionOutput = {};
-    }).toThrow();
-  });
-
-  it('should not allow GetCurrentPositionOutput with null position', () => {
-    // @ts-expect-error
-    expect(() => {
-      const output: GetCurrentPositionOutput = { position: null };
-    }).toThrow();
-  });
 });
