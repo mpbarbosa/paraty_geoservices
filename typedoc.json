@@ -1,0 +1,16 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "entryPointStrategy": "resolve",
+  "out": "docs/api",
+  "tsconfig": "tsconfig.json",
+  "name": "paraty_geoservices",
+  "readme": "README.md",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "categorizeByGroup": true,
+  "groupOrder": ["Domain", "Application", "Infrastructure", "*"],
+  "sort": ["source-order"],
+  "plugin": [],
+  "cleanOutputDir": true
+}

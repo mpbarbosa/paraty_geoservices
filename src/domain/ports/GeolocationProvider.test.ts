@@ -1,10 +1,10 @@
 /**
- * Unit tests for GeolocationProvider abstract base class.
+ * Unit tests for GeolocationProvider abstract base class (domain port).
  *
  * Strategy: instantiate concrete test doubles that extend GeolocationProvider,
  * exercising every method and both the happy-path and error branches.
  *
- * @module GeolocationProvider.test
+ * @module domain/ports/GeolocationProvider.test
  */
 
 import GeolocationProvider, {
@@ -148,7 +148,7 @@ class ErrorProvider extends GeolocationProvider {
 // Tests
 // ---------------------------------------------------------------------------
 
-describe('GeolocationProvider (abstract base class)', () => {
+describe('GeolocationProvider (abstract base class / domain port)', () => {
 	describe('isSupported()', () => {
 		it('returns true when the provider reports support', () => {
 			const provider = new SupportedProvider();
