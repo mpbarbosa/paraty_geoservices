@@ -8,11 +8,16 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 ## Architecture
 
-- The codebase is organized into stable source layers:
+- The codebase is organized into three stable source layers:
   - `src/domain/`
   - `src/application/`
   - `src/infrastructure/`
 - Maintain strict separation between these layers. Place new modules in the appropriate subdirectory.
+
+## Design Principles
+
+- Follow dependency inversion: depend on abstractions, not concrete implementations.
+- Do not cross architecture boundaries in a way that violates the domain/application/infrastructure separation.
 
 ## Validation
 
