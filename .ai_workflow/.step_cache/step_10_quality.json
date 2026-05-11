@@ -10,6 +10,16 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-11T19:25:44.106Z"
+    },
+    "scripts/deploy.sh": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-11T23:48:57.732Z"
+    },
+    "scripts/run-docker-tests.sh": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-11T23:48:57.732Z"
     }
   }
 }

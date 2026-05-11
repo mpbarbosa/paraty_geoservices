@@ -2,7 +2,7 @@
   "version": 1,
   "entries": {
     "src/application/dtos/GetCurrentPositionOutput.ts": {
-      "mtimeMs": 1778527575455,
+      "mtimeMs": 1778543365146,
       "hasAsyncPatterns": false
     },
     "src/application/dtos/index.ts": {
@@ -14,11 +14,11 @@
       "hasAsyncPatterns": false
     },
     "src/application/use-cases/GetCurrentPositionUseCase.ts": {
-      "mtimeMs": 1778527575455,
+      "mtimeMs": 1778543365148,
       "hasAsyncPatterns": true
     },
     "src/application/use-cases/WatchPositionUseCase.ts": {
-      "mtimeMs": 1778527575455,
+      "mtimeMs": 1778543365150,
       "hasAsyncPatterns": false
     },
     "src/application/use-cases/index.ts": {
@@ -26,15 +26,15 @@
       "hasAsyncPatterns": false
     },
     "src/domain/entities/GeoPosition.ts": {
-      "mtimeMs": 1778527575455,
+      "mtimeMs": 1778543365151,
       "hasAsyncPatterns": false
     },
     "src/domain/entities/GeoPositionError.ts": {
-      "mtimeMs": 1778527575456,
+      "mtimeMs": 1778543365153,
       "hasAsyncPatterns": false
     },
     "src/domain/entities/GeoPositionOptions.ts": {
-      "mtimeMs": 1778527575456,
+      "mtimeMs": 1778543365154,
       "hasAsyncPatterns": false
     },
     "src/domain/entities/index.ts": {
@@ -46,7 +46,7 @@
       "hasAsyncPatterns": false
     },
     "src/domain/ports/GeolocationProvider.ts": {
-      "mtimeMs": 1778527575456,
+      "mtimeMs": 1778543365155,
       "hasAsyncPatterns": false
     },
     "src/domain/ports/index.ts": {
@@ -54,7 +54,7 @@
       "hasAsyncPatterns": false
     },
     "src/index.ts": {
-      "mtimeMs": 1778527575457,
+      "mtimeMs": 1778543365156,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/index.ts": {
@@ -62,7 +62,7 @@
       "hasAsyncPatterns": false
     },
     "src/infrastructure/providers/BrowserGeolocationProvider.ts": {
-      "mtimeMs": 1778527575457,
+      "mtimeMs": 1778543365157,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/providers/index.ts": {
