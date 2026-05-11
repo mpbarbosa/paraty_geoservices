@@ -1,0 +1,26 @@
+{
+  "name": "paraty_geoservices",
+  "version": "1.0.0",
+  "description": "A reverse geocoding service library developed in TypeScript and Node.js.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "geolocation",
+    "reverse-geocoding",
+    "typescript"
+  ],
+  "author": "Marcelo Pereira Barbosa",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.6.2",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.9",
+    "typescript": "^6.0.3"
+  }
+}
