@@ -78,7 +78,7 @@ run_step() {
   header "$name"
 
   if docker run --rm \
-      --mount "type=bind,source=${PROJECT_ROOT},target=${CONTAINER_APP},readonly" \
+      --mount "type=bind,source=${PROJECT_ROOT},target=${CONTAINER_APP}" \
       --mount "type=volume,source=${VOL_MODULES},target=${CONTAINER_APP}/node_modules" \
       --mount "type=volume,source=${VOL_DIST},target=${CONTAINER_APP}/dist" \
       -w "$CONTAINER_APP" \
