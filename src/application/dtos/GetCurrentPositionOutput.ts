@@ -5,7 +5,7 @@
  * what data crosses the boundary into callers.
  *
  * @module application/dtos/GetCurrentPositionOutput
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 

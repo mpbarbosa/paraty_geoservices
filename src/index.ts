@@ -5,7 +5,7 @@
  * from the Clean Architecture layers.
  *
  * @module index
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 

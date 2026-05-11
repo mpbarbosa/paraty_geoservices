@@ -2,7 +2,7 @@
  * Options that control how a geolocation provider acquires a position fix.
  *
  * @module domain/entities/GeoPositionOptions
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 export interface GeoPositionOptions {

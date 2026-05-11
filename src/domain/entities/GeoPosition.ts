@@ -2,7 +2,7 @@
  * Represents geographic coordinates and associated metadata returned by a provider.
  *
  * @module domain/entities/GeoPosition
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 export interface GeoPosition {

@@ -2,7 +2,7 @@
  * Represents an error returned by a geolocation provider.
  *
  * @module domain/entities/GeoPositionError
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 export interface GeoPositionError {

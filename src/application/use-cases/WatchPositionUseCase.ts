@@ -5,7 +5,7 @@
  * start a watch (receiving updates via callback) and stop it when no longer needed.
  *
  * @module application/use-cases/WatchPositionUseCase
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 

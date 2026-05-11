@@ -9,7 +9,7 @@
  * in domain or application code.
  *
  * @module infrastructure/providers/BrowserGeolocationProvider
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 

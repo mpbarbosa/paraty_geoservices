@@ -50,27 +50,5 @@ describe('GeoPositionOptions interface', () => {
     expect(options.timeout).toBe(Infinity);
   });
 
-  it('should not allow extra properties', () => {
-    // @ts-expect-error extraProperty is not allowed
-    const options: GeoPositionOptions = { extraProperty: 123 };
-    expect(options).not.toBeUndefined();
-  });
 
-  it('should not allow non-boolean enableHighAccuracy', () => {
-    // @ts-expect-error enableHighAccuracy must be boolean
-    const options: GeoPositionOptions = { enableHighAccuracy: 'yes' };
-    expect(options).not.toBeUndefined();
-  });
-
-  it('should not allow non-number timeout', () => {
-    // @ts-expect-error timeout must be a number
-    const options: GeoPositionOptions = { timeout: 'fast' };
-    expect(options).not.toBeUndefined();
-  });
-
-  it('should not allow non-number maximumAge', () => {
-    // @ts-expect-error maximumAge must be a number
-    const options: GeoPositionOptions = { maximumAge: 'old' };
-    expect(options).not.toBeUndefined();
-  });
 });

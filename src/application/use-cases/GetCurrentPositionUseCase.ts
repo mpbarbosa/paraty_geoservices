@@ -5,7 +5,7 @@
  * callers a clean async/await interface.
  *
  * @module application/use-cases/GetCurrentPositionUseCase
- * @since 1.0.1
+ * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
 
