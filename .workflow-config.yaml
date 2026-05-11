@@ -5,16 +5,15 @@ project:
   name: 'paraty_geoservices'
   type: 'typescript-library'
   description: 'A reverse geocoding service library developed in TypeScript and Node.js.'
-  kind: 'nodejs_api'
-  version: '1.0.1'
+  kind: 'location_based_service'
+  version: '1.0.1'  # keep in sync with package.json
 
 tech_stack:
   primary_language: 'typescript'
-  secondary_languages:
-    - 'javascript'
-  build_system: 'npm'
+  build_system: 'tsc'           # tsc compiles src/**/*.ts → dist/
   test_framework: 'jest'
-  test_runner: 'jest'
+  test_runner: 'ts-jest'        # TypeScript test runner
+  doc_tool: 'typedoc'           # TypeScript documentation generator
   test_command: 'npm test'
   build_command: 'npm run build'
 
@@ -22,7 +21,8 @@ structure:
   source_dirs:
     - src
   test_dirs:
-    - src
+    - src    # co-located unit tests (*.test.ts)
+    - test   # integration/structural tests mirroring src layout
   docs_dirs:
     - docs
   config_files:
@@ -30,6 +30,7 @@ structure:
     - jest.config.ts
     - tsconfig.json
     - tsconfig.test.json
+    - typedoc.json
     - package.json
   artifact_dir: '.ai_workflow'
   exclude_paths:
@@ -44,8 +45,37 @@ structure:
     - .ai_workflow/archive
     - .ai_workflow/archived_docs
 
+ai_personas:
+  enabled:
+    - typescript_reviewer      # Strict TypeScript across domain/application/infrastructure layers
+    - test_engineer            # Jest + ts-jest; co-located tests in src/ and structural tests in test/
+    - architecture_reviewer    # Clean Architecture: domain → application → infrastructure layer separation
+    - documentation_expert     # TypeDoc API docs (docs/api/); docs/ markdown coverage
+    - technical_writer         # docs/ files: architecture.md, getting-started.md, contributing.md
+    - git_specialist           # deploy.sh, semver tagging, npm publish
+    - devops_engineer          # tsc, tsconfig.json, tsconfig.test.json, typedoc.json, jest.config.ts
+    - dependency_analyst       # devDeps audit (jest, ts-jest, typescript, typedoc)
+  disabled:
+    - performance_engineer       # No computation-heavy hot paths
+    - async_performance_engineer # Simple browser Geolocation API wrapper; no complex async patterns
+    - security_expert            # Pure computation/wrapper library; no network calls, no auth
+    - prompt_engineer            # Not an AI project
+    - ux_analyst                 # No UI
+    - accessibility_expert       # No HTML or DOM output
+    - aws_serverless_engineer    # No AWS resources
+    - api_designer               # TypeScript library, not an HTTP API server
+    - code_quality_analyst       # No ESLint configured
+
+validation:
+  documentation:
+    required: true
+    min_coverage: 80   # 80% of public API surface must be documented
+  testing:
+    required: true
+    min_coverage: 80   # 80% line coverage threshold
+
 version:
-  config_files: []
+  source_of_truth: 'package.json'
   required_files:
     - CHANGELOG.md
 
@@ -54,19 +84,169 @@ workflow:
     auto_mode: false
     parallel_execution: true
     smart_execution: true
+    ai_cache_enabled: true
     ml_optimize: false
-    multi_stage: false
+    multi_stage_pipeline: true
     auto_commit: false
 
   stages:
     quick:
       enabled: true
+      steps:
+        - step_00  # pre-analysis / environment scan
+        - step_01  # documentation analysis
+        - step_02  # consistency analysis
     medium:
       enabled: true
+      steps:
+        - step_00  # pre-analysis / environment scan
+        - step_01  # documentation analysis
+        - step_02  # consistency analysis
+        - step_03  # script reference analysis
+        - step_04  # config validation
+        - step_05  # directory structure validation
     full:
       enabled: true
+      steps:
+        - step_00  # pre-analysis / environment scan
+        - step_01  # documentation analysis
+        - step_02  # consistency analysis
+        - step_03  # script reference analysis
+        - step_04  # config validation
+        - step_05  # directory structure validation
+        - step_06  # integration tests
+        - step_07  # coverage report generation
+        - step_08  # release readiness check
+        - step_0f  # artifact commit
+
+linting:
+  md_linter: null         # no markdown linter configured for this project
+  md_config: null
+  md_glob: '**/*.md'
+  md_excludes:
+    - '!node_modules/**'
+    - '!.ai_workflow/**'
+    - '!docs/api/**'
 
 deploy:
   enabled: true
   script: scripts/deploy.sh
   description: Build and publish paraty_geoservices to npm
+
+# Change Detection Patterns
+change_patterns:
+  code_files:
+    - 'src/**/*.ts'
+  test_files:
+    - 'src/**/*.test.ts'
+    - 'test/**/*.ts'
+  documentation_files:
+    - '**/*.md'
+    - 'docs/**/*'
+  config_files:
+    - 'package.json'
+    - 'tsconfig*.json'
+    - '.github/**/*.yml'
+    - '.workflow-config.yaml'
+
+# Change-Type Detection Configuration (Conventional Commits)
+change_detection:
+  enabled: true
+  convention: 'conventional_commits'
+
+  types:
+    feat:
+      description: 'New features'
+      impact: 'high'
+      test_strategy: 'all'
+      examples:
+        - 'feat: add ReverseGeocoding use case'
+        - 'feat(domain): new GeoPosition entity'
+
+    fix:
+      description: 'Bug fixes'
+      impact: 'medium'
+      test_strategy: 'related'
+      examples:
+        - 'fix: correct GeolocationProvider error handling'
+        - 'fix(infrastructure): improve BrowserGeolocationProvider fallback'
+
+    docs:
+      description: 'Documentation only'
+      impact: 'low'
+      test_strategy: 'none'
+      examples:
+        - 'docs: update README'
+        - 'docs(api): improve JSDoc comments'
+
+    refactor:
+      description: 'Code refactoring'
+      impact: 'medium'
+      test_strategy: 'comprehensive'
+      examples:
+        - 'refactor: simplify GetCurrentPositionUseCase'
+        - 'refactor(domain): consolidate GeoPosition constructors'
+
+    test:
+      description: 'Test changes only'
+      impact: 'low'
+      test_strategy: 'tests_only'
+      examples:
+        - 'test: add edge cases for WatchPositionUseCase'
+        - 'test(infrastructure): improve BrowserGeolocationProvider coverage'
+
+    style:
+      description: 'Code style/formatting'
+      impact: 'low'
+      test_strategy: 'syntax_only'
+      examples:
+        - 'style: format with prettier'
+
+    chore:
+      description: 'Maintenance tasks'
+      impact: 'low'
+      test_strategy: 'minimal'
+      examples:
+        - 'chore: update dependencies'
+        - 'chore(build): configure tsc output'
+
+    ci:
+      description: 'CI/CD changes'
+      impact: 'low'
+      test_strategy: 'minimal'
+      examples:
+        - 'ci: add GitHub Actions workflow'
+
+    build:
+      description: 'Build system changes'
+      impact: 'low'
+      test_strategy: 'minimal'
+      examples:
+        - 'build: update npm scripts'
+        - 'build: adjust tsc options'
+
+  fallback:
+    steps:
+      - syntax_validation
+      - test_execution
+      - coverage_report
+      - git_finalization
+    description: 'Default steps when type cannot be determined'
+
+  pattern_detection:
+    enabled: true
+    patterns:
+      - regex: '^(add|implement|create)\\s'
+        type: 'feat'
+      - regex: '^(fix|repair|correct|resolve)\\s'
+        type: 'fix'
+      - regex: '^(doc|document|readme)\\s'
+        type: 'docs'
+      - regex: '^(refactor|restructure|reorganize)\\s'
+        type: 'refactor'
+      - regex: '^(test|spec)\\s'
+        type: 'test'
+      - regex: '^(style|format|lint)\\s'
+        type: 'style'
+      - regex: '^(chore|update|bump)\\s'
+        type: 'chore'

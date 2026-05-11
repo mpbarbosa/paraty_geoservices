@@ -7,7 +7,7 @@ describe('BrowserGeolocationProvider', () => {
   beforeEach(() => {
     provider = new BrowserGeolocationProvider();
     originalNavigator = global.navigator;
-    // @ts-ignore
+    // @ts-expect-error replacing navigator for test isolation
     global.navigator = {
       geolocation: {
         getCurrentPosition: jest.fn(),
@@ -89,13 +89,13 @@ describe('BrowserGeolocationProvider', () => {
     });
 
     it('should return false if navigator is undefined', () => {
-      // @ts-ignore
+      // @ts-expect-error replacing navigator for test isolation
       global.navigator = undefined;
       expect(provider.isSupported()).toBe(false);
     });
 
     it('should return false if navigator.geolocation is missing', () => {
-      // @ts-ignore
+      // @ts-expect-error replacing navigator for test isolation
       global.navigator = {};
       expect(provider.isSupported()).toBe(false);
     });
