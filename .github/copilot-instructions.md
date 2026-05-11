@@ -1,54 +1,44 @@
-# paraty_geoservices — Project Guidelines
+# Copilot Guidance — paraty_geoservices
 
-## Project Overview
+This file provides durable, high-signal guidance for Copilot-assisted development in this repository. For implementation details and up-to-date reference, see the authoritative docs listed below.
 
-`paraty_geoservices` is a TypeScript library that provides a clean, framework-agnostic abstraction for geolocation services. It follows Clean Architecture principles with strict separation between domain, application, and infrastructure layers.
+## Project Purpose
+
+`paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.
 
 ## Architecture
 
-- **`src/`** holds all source and test files; `dist/` is the compiled output (never edit it).
-- **Domain layer** (`src/domain/`): Entities (`GeoPosition`, `GeoPositionError`, `GeoPositionOptions`) and the abstract port `GeolocationProvider`.
-- **Application layer** (`src/application/`): Use cases (`GetCurrentPositionUseCase`, `WatchPositionUseCase`) and DTOs.
-- **Infrastructure layer** (`src/infrastructure/`): Concrete adapters such as `BrowserGeolocationProvider`.
-- Consumers depend on abstractions, not concrete implementations (Dependency Inversion).
-- New geolocation primitives follow the same pattern: abstract base class in `src/`, exported via `index.ts`.
+- The codebase is organized into three stable source layers:
+  - `src/domain/`
+  - `src/application/`
+  - `src/infrastructure/`
+- Maintain strict separation between these layers. Place new modules in the appropriate subdirectory.
 
-## Tech Stack
+## Design Principles
 
-- **Language**: TypeScript (strict mode)
-- **Runtime**: Node.js >= 20
-- **Test framework**: Jest with `ts-jest`
-- **Build**: `tsc` (outputs to `dist/`)
-- **Docs**: TypeDoc
+- Follow dependency inversion: depend on abstractions, not concrete implementations.
+- Do not cross architecture boundaries in a way that violates the domain/application/infrastructure separation.
 
-## Code Style
+## Validation
 
-- `"strict": true` is enforced; avoid `any`, use proper narrowing.
-- Use `export type` for type-only exports to keep the compiled output lean.
-- Every exported symbol must have a JSDoc block comment: description, `@param`, `@returns`, and at least one `@example`.
-- Tabs for indentation (match the existing source files).
-- Prefix unused callback parameters with `_` (e.g. `_options`).
-- Dependency injection via `GeolocationProvider` — avoid hardcoding concrete providers.
+- Use `npm test` to run tests.
+- Use `npm run build` to build the project.
 
-## Build and Test
+## Reference Documentation
 
-```bash
-npm test               # run unit tests with Jest
-npm run test:coverage  # run tests with coverage report
-npm run build          # compile TypeScript → dist/
-```
+- See `README.md` for project overview and usage.
+- See `CHANGELOG.md` for notable changes.
 
-- Target: **ES2020**, module: **commonjs**.
-- Test files live alongside source files as `*.test.ts` and are excluded from the production build.
-- Tests use **Jest + ts-jest**. Use concrete test-double subclasses (not mocks) to exercise abstract classes.
+## Build Artifacts
 
-## Build & Publish
+- The published package entry points are:
+  - `main`: `dist/index.js`
+  - `types`: `dist/index.d.ts`
+- Do not edit files in `dist/`; it is generated output.
 
-1. `npm run build` compiles TypeScript to `dist/`.
-2. `dist/` is the published artifact (`main` + `types` in `package.json`).
+## Workflow Surfaces
 
-## Conventions
+- Project-local workflow configuration: `.workflow-config.yaml`
+- Runtime artifacts and cache: `.ai_workflow/`
 
-- Export both a `default` export and a named export for every class.
-- Use numeric error codes matching the browser Geolocation API: `1 = PERMISSION_DENIED`, `2 = POSITION_UNAVAILABLE`, `3 = TIMEOUT`.
-- Geographic coordinates use **decimal degrees**; distances and accuracy values use **metres**.
+Keep this file focused on durable Copilot guidance. For implementation specifics, always refer to the authoritative documentation.

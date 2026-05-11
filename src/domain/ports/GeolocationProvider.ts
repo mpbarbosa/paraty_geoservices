@@ -12,7 +12,7 @@
  * - Open/Closed: Open for extension (new providers), closed for modification
  *
  * @module domain/ports/GeolocationProvider
- * @since 1.0.0
+ * @since 1.0.1
  * @author Marcelo Pereira Barbosa
  */
 

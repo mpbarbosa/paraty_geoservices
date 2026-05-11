@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "partitionIndex": 0,
+  "totalPartitions": 1,
+  "filesHash": "3d5ae804",
+  "partitionLabels": [
+    "src/application, src/domain"
+  ],
+  "updatedAt": "2026-05-11T19:22:57.328Z"
+}

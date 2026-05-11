@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "fileScores": {
+    "jest.config.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-11T19:25:44.106Z"
+    },
+    "run-docker-tests.sh": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-11T19:25:44.106Z"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "entries": {
+    "src/application/dtos/GetCurrentPositionOutput.ts": {
+      "mtimeMs": 1778527575455,
+      "hasAsyncPatterns": false
+    },
+    "src/application/dtos/index.ts": {
+      "mtimeMs": 1778522588287,
+      "hasAsyncPatterns": false
+    },
+    "src/application/index.ts": {
+      "mtimeMs": 1778522588287,
+      "hasAsyncPatterns": false
+    },
+    "src/application/use-cases/GetCurrentPositionUseCase.ts": {
+      "mtimeMs": 1778527575455,
+      "hasAsyncPatterns": true
+    },
+    "src/application/use-cases/WatchPositionUseCase.ts": {
+      "mtimeMs": 1778527575455,
+      "hasAsyncPatterns": false
+    },
+    "src/application/use-cases/index.ts": {
+      "mtimeMs": 1778522588287,
+      "hasAsyncPatterns": false
+    },
+    "src/domain/entities/GeoPosition.ts": {
+      "mtimeMs": 1778527575455,
+      "hasAsyncPatterns": false
+    },
+    "src/domain/entities/GeoPositionError.ts": {
+      "mtimeMs": 1778527575456,
+      "hasAsyncPatterns": false
+    },
+    "src/domain/entities/GeoPositionOptions.ts": {
+      "mtimeMs": 1778527575456,
+      "hasAsyncPatterns": false
+    },
+    "src/domain/entities/index.ts": {
+      "mtimeMs": 1778522588288,
+      "hasAsyncPatterns": false
+    },
+    "src/domain/index.ts": {
+      "mtimeMs": 1778522588288,
+      "hasAsyncPatterns": false
+    },
+    "src/domain/ports/GeolocationProvider.ts": {
+      "mtimeMs": 1778527575456,
+      "hasAsyncPatterns": false
+    },
+    "src/domain/ports/index.ts": {
+      "mtimeMs": 1778522588288,
+      "hasAsyncPatterns": false
+    },
+    "src/index.ts": {
+      "mtimeMs": 1778527575457,
+      "hasAsyncPatterns": false
+    },
+    "src/infrastructure/index.ts": {
+      "mtimeMs": 1778522588288,
+      "hasAsyncPatterns": false
+    },
+    "src/infrastructure/providers/BrowserGeolocationProvider.ts": {
+      "mtimeMs": 1778527575457,
+      "hasAsyncPatterns": false
+    },
+    "src/infrastructure/providers/index.ts": {
+      "mtimeMs": 1778522588288,
+      "hasAsyncPatterns": false
+    }
+  }
+}
