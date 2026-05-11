@@ -17,6 +17,10 @@
   ],
   "author": "Marcelo Pereira Barbosa",
   "license": "MIT",
+  "overrides": {
+    "glob": "^13.0.6",
+    "test-exclude": "^8.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^25.6.2",
