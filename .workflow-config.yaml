@@ -1,0 +1,67 @@
+# AI Workflow Automation Configuration
+# Project: paraty_geoservices
+
+project:
+  name: 'paraty_geoservices'
+  type: 'typescript-library'
+  description: 'A reverse geocoding service library developed in TypeScript and Node.js.'
+  kind: 'nodejs_api'
+  version: '1.0.0'
+
+tech_stack:
+  primary_language: 'typescript'
+  secondary_languages:
+    - 'javascript'
+  build_system: 'npm'
+  test_framework: 'jest'
+  test_runner: 'jest'
+  test_command: 'npm test'
+  build_command: 'npm run build'
+
+structure:
+  source_dirs:
+    - src
+  test_dirs:
+    - src
+  docs_dirs:
+    - docs
+  config_files:
+    - .workflow-config.yaml
+    - jest.config.ts
+    - tsconfig.json
+    - tsconfig.test.json
+    - package.json
+  artifact_dir: '.ai_workflow'
+  exclude_paths:
+    - .ai_workflow/logs
+    - .ai_workflow/summaries
+    - .ai_workflow/backlog
+    - .ai_workflow/metrics
+    - .ai_workflow/checkpoints
+    - .ai_workflow/prompts
+    - .ai_workflow/ml_models
+    - .ai_workflow/cache
+    - .ai_workflow/archive
+    - .ai_workflow/archived_docs
+
+version:
+  config_files: []
+  required_files:
+    - CHANGELOG.md
+
+workflow:
+  settings:
+    auto_mode: false
+    parallel_execution: true
+    smart_execution: true
+    ml_optimize: false
+    multi_stage: false
+    auto_commit: false
+
+  stages:
+    quick:
+      enabled: true
+    medium:
+      enabled: true
+    full:
+      enabled: true
