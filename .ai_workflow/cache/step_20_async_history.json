@@ -54,19 +54,23 @@
       "hasAsyncPatterns": false
     },
     "src/index.ts": {
-      "mtimeMs": 1778543365156,
+      "mtimeMs": 1778610174135,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/index.ts": {
-      "mtimeMs": 1778522588288,
+      "mtimeMs": 1778610174135,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/providers/BrowserGeolocationProvider.ts": {
       "mtimeMs": 1778550647527,
       "hasAsyncPatterns": true
     },
+    "src/infrastructure/providers/MockGeolocationProvider.ts": {
+      "mtimeMs": 1778610702591,
+      "hasAsyncPatterns": true
+    },
     "src/infrastructure/providers/index.ts": {
-      "mtimeMs": 1778522588288,
+      "mtimeMs": 1778610174136,
       "hasAsyncPatterns": false
     }
   }
