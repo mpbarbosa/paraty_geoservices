@@ -24,6 +24,8 @@ readonly PROJECT_ROOT
 readonly CONTAINER_APP="/app"
 readonly VOL_MODULES="paraty_geoservices_node_modules"
 readonly VOL_DIST="paraty_geoservices_dist"
+readonly DOCKER_NPM_VERSION="${DOCKER_NPM_VERSION:-}"
+echo "Using npm version: ${DOCKER_NPM_VERSION:-(default in image)}"
 
 NO_CLEANUP=false
 if [[ "${1:-}" == "--no-cleanup" ]]; then
@@ -72,10 +74,17 @@ cleanup() {
 }
 
 # Run a single validation step inside Docker.
-# Shares source (read-only bind mount), node_modules and dist (named volumes).
+# Shares source, node_modules and dist across isolated containers.
 run_step() {
   local name="$1"
   local cmd="$2"
+  local boot_cmd="$cmd"
+
+  if [[ -n "$DOCKER_NPM_VERSION" ]]; then
+    boot_cmd="npm install --global npm@$DOCKER_NPM_VERSION >/dev/null && $cmd"
+    echo -e "${YELLOW}Using npm version ${DOCKER_NPM_VERSION} inside container${NC}"
+    echo -e "${YELLOW}Boot command: $boot_cmd${NC}"
+  fi
 
   header "$name"
 
@@ -84,8 +93,9 @@ run_step() {
       --mount "type=volume,source=${VOL_MODULES},target=${CONTAINER_APP}/node_modules" \
       --mount "type=volume,source=${VOL_DIST},target=${CONTAINER_APP}/dist" \
       -w "$CONTAINER_APP" \
+      --entrypoint /bin/sh \
       "$IMAGE" \
-      sh -c "$cmd"; then
+      -ec "$boot_cmd"; then
     mark_pass "$name"
   else
     mark_fail "$name"
