@@ -16,3 +16,4 @@ export { GetCurrentPositionUseCase } from './application/use-cases/GetCurrentPos
 export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCase';
 export type { GetCurrentPositionOutput } from './application/dtos/GetCurrentPositionOutput';
 export { BrowserGeolocationProvider } from './infrastructure/providers/BrowserGeolocationProvider';
+export { MockGeolocationProvider } from './infrastructure/providers/MockGeolocationProvider';

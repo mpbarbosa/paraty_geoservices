@@ -8,6 +8,7 @@
 ┌──────────────────────────────────────────────────┐
 │              Infrastructure                       │
 │  BrowserGeolocationProvider                       │
+│  MockGeolocationProvider                          │
 │                                                   │
 │   ┌──────────────────────────────────────────┐   │
 │   │           Application                    │   │
@@ -93,8 +94,11 @@ Concrete adapters that connect the domain ports to real external systems.
 | File | Class | Adapts |
 |---|---|---|
 | `providers/BrowserGeolocationProvider.ts` | `BrowserGeolocationProvider` | `navigator.geolocation` (Web Geolocation API), with optional navigator injection for tests and custom runtimes |
+| `providers/MockGeolocationProvider.ts` | `MockGeolocationProvider` | Deterministic in-memory positions/errors for tests and local development |
 
 `BrowserGeolocationProvider` is the browser-facing adapter. It can either use the ambient global `navigator` or accept an injected navigator in its constructor, and it exposes the concrete helper methods `isPermissionsAPISupported()` and `getNavigator()` for capability checks and advanced integration scenarios.
+
+`MockGeolocationProvider` is the deterministic testing adapter. It implements the same domain port without touching browser APIs, supports fixed positions or fixed errors, can simulate callback delays, and can manually fan out watch updates to active subscribers.
 
 ---
 

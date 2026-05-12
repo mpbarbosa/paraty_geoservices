@@ -22,3 +22,4 @@ export type { GetCurrentPositionOutput } from './application/dtos/GetCurrentPosi
 
 // Infrastructure — concrete adapters
 export { BrowserGeolocationProvider } from './infrastructure/providers/BrowserGeolocationProvider';
+export { MockGeolocationProvider } from './infrastructure/providers/MockGeolocationProvider';

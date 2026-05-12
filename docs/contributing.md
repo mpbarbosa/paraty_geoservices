@@ -32,8 +32,11 @@ src/
 │   ├── dtos/              Use-case output shapes
 │   └── use-cases/         GetCurrentPositionUseCase, WatchPositionUseCase
 ├── infrastructure/
-│   └── providers/         BrowserGeolocationProvider (browser adapter)
+│   └── providers/         BrowserGeolocationProvider, MockGeolocationProvider
 └── index.ts               Public barrel — re-exports everything
+test/
+└── infrastructure/
+    └── providers/         Integration tests for concrete providers
 docs/
 ├── api/                   Auto-generated TypeDoc HTML (do not edit manually)
 ├── architecture.md        Layer diagram and data-flow descriptions
@@ -51,7 +54,8 @@ See [`architecture.md`](./architecture.md) for a full explanation of each layer.
 2. Extend `GeolocationProvider` from `src/domain/ports/GeolocationProvider`.
 3. Implement `getCurrentPosition`, `watchPosition`, `clearWatch`, and `isSupported`.
 4. Re-export from `src/infrastructure/providers/index.ts` and `src/infrastructure/index.ts`.
-5. Add corresponding tests in `src/infrastructure/providers/<Name>Provider.test.ts`.
+5. Add corresponding tests in `test/infrastructure/providers/<Name>Provider.test.ts`.
+6. Prefer `MockGeolocationProvider` in higher-level tests when you need deterministic positions, delayed callbacks, or manual watch updates without a browser runtime.
 
 ---
 

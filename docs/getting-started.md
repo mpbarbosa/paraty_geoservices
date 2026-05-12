@@ -20,7 +20,7 @@ npm install paraty_geoservices
 
 ### 1. Pick (or create) a provider
 
-The library ships with a browser adapter. Import it directly:
+The library ships with both a browser adapter and a deterministic mock adapter. Import the one that matches your runtime:
 
 ```typescript
 import { BrowserGeolocationProvider } from 'paraty_geoservices';
@@ -50,6 +50,35 @@ const mockNavigator = {
 const provider = new BrowserGeolocationProvider(mockNavigator as Navigator);
 
 console.log(provider.getNavigator() === mockNavigator); // true
+```
+
+For tests, use the built-in mock provider instead of hand-rolling a fake:
+
+```typescript
+import {
+  MockGeolocationProvider,
+  GetCurrentPositionUseCase,
+} from 'paraty_geoservices';
+
+const provider = new MockGeolocationProvider({
+  defaultPosition: {
+    coords: {
+      latitude: -23.3045,
+      longitude: -44.7213,
+      accuracy: 5,
+      altitude: null,
+      altitudeAccuracy: null,
+      heading: null,
+      speed: null,
+    },
+    timestamp: Date.now(),
+  },
+  delay: 0,
+});
+
+const useCase = new GetCurrentPositionUseCase(provider);
+const output = await useCase.execute();
+console.log(output.position.coords.latitude);
 ```
 
 ### 2. Get the current position (once)
@@ -102,6 +131,55 @@ watcher.stop();
 
 ---
 
+## Using the built-in mock provider
+
+`MockGeolocationProvider` is useful when you need deterministic tests for success paths, error paths, delayed callbacks, and manual watch updates:
+
+```typescript
+import {
+  MockGeolocationProvider,
+  WatchPositionUseCase,
+} from 'paraty_geoservices';
+
+const provider = new MockGeolocationProvider({
+  defaultPosition: {
+    coords: {
+      latitude: -23.3045,
+      longitude: -44.7213,
+      accuracy: 5,
+      altitude: null,
+      altitudeAccuracy: null,
+      heading: null,
+      speed: null,
+    },
+    timestamp: Date.now(),
+  },
+});
+
+const watcher = new WatchPositionUseCase(provider);
+watcher.start(
+  (position) => console.log('Initial or updated mock position:', position.coords),
+  (error) => console.error('Mock watch error:', error.message),
+);
+
+provider.triggerWatchUpdate({
+  coords: {
+    latitude: -22.9068,
+    longitude: -43.1729,
+    accuracy: 5,
+    altitude: null,
+    altitudeAccuracy: null,
+    heading: null,
+    speed: null,
+  },
+  timestamp: Date.now(),
+});
+```
+
+`watchPosition()` schedules an immediate callback with the configured position or error, so zero-delay tests should still treat its callbacks as asynchronous.
+
+---
+
 ## Implementing a Custom Provider
 
 Extend `GeolocationProvider` to integrate any location source:
@@ -114,8 +192,8 @@ import {
   GeoPositionOptions,
 } from 'paraty_geoservices';
 
-class MockGeolocationProvider extends GeolocationProvider {
-  private mockPosition: GeoPosition = {
+class ExampleGeolocationProvider extends GeolocationProvider {
+  private readonly examplePosition: GeoPosition = {
     coords: {
       latitude: -23.3045,
       longitude: -44.7213,
@@ -133,7 +211,7 @@ class MockGeolocationProvider extends GeolocationProvider {
     _error: (err: GeoPositionError) => void,
     _options?: GeoPositionOptions,
   ): void {
-    success(this.mockPosition);
+    success(this.examplePosition);
   }
 
   watchPosition(
@@ -141,7 +219,7 @@ class MockGeolocationProvider extends GeolocationProvider {
     _error: (err: GeoPositionError) => void,
     _options?: GeoPositionOptions,
   ): number {
-    success(this.mockPosition);
+    success(this.examplePosition);
     return 1;
   }
 
@@ -156,8 +234,8 @@ class MockGeolocationProvider extends GeolocationProvider {
 Inject it into any use case — no code changes required anywhere else:
 
 ```typescript
-const mock    = new MockGeolocationProvider();
-const useCase = new GetCurrentPositionUseCase(mock);
+const provider = new ExampleGeolocationProvider();
+const useCase = new GetCurrentPositionUseCase(provider);
 const output  = await useCase.execute();
 ```
 

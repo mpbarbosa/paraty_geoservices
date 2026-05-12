@@ -14,3 +14,4 @@ export { GetCurrentPositionUseCase } from './application/use-cases/GetCurrentPos
 export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCase';
 // Infrastructure — concrete adapters
 export { BrowserGeolocationProvider } from './infrastructure/providers/BrowserGeolocationProvider';
+export { MockGeolocationProvider } from './infrastructure/providers/MockGeolocationProvider';

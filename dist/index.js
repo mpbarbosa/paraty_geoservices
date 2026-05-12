@@ -10,7 +10,7 @@
  * @author Marcelo Pereira Barbosa
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BrowserGeolocationProvider = exports.WatchPositionUseCase = exports.GetCurrentPositionUseCase = exports.GeolocationProvider = void 0;
+exports.MockGeolocationProvider = exports.BrowserGeolocationProvider = exports.WatchPositionUseCase = exports.GetCurrentPositionUseCase = exports.GeolocationProvider = void 0;
 var GeolocationProvider_1 = require("./domain/ports/GeolocationProvider");
 Object.defineProperty(exports, "GeolocationProvider", { enumerable: true, get: function () { return GeolocationProvider_1.GeolocationProvider; } });
 // Application — use cases & DTOs
@@ -21,4 +21,6 @@ Object.defineProperty(exports, "WatchPositionUseCase", { enumerable: true, get: 
 // Infrastructure — concrete adapters
 var BrowserGeolocationProvider_1 = require("./infrastructure/providers/BrowserGeolocationProvider");
 Object.defineProperty(exports, "BrowserGeolocationProvider", { enumerable: true, get: function () { return BrowserGeolocationProvider_1.BrowserGeolocationProvider; } });
+var MockGeolocationProvider_1 = require("./infrastructure/providers/MockGeolocationProvider");
+Object.defineProperty(exports, "MockGeolocationProvider", { enumerable: true, get: function () { return MockGeolocationProvider_1.MockGeolocationProvider; } });
 //# sourceMappingURL=index.js.map
