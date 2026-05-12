@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "partitionIndex": 1,
+  "partitionIndex": 2,
   "totalPartitions": 6,
   "filesHash": "802077f4",
   "partitionLabels": [
@@ -11,5 +11,5 @@
     "src/domain (2)",
     "src, src/infrastructure"
   ],
-  "updatedAt": "2026-05-11T23:48:57.733Z"
+  "updatedAt": "2026-05-12T02:36:16.368Z"
 }

@@ -2,11 +2,11 @@
   "version": 1,
   "partitionIndex": 1,
   "totalPartitions": 3,
-  "filesHash": "4b45f8b3",
+  "filesHash": "86312f3a",
   "partitionLabels": [
     "src/application, src/domain",
     "test/application",
-    "test/domain, test/infrastructure"
+    "test/domain, test/infrastructure, scripts"
   ],
-  "updatedAt": "2026-05-11T23:47:34.143Z"
+  "updatedAt": "2026-05-12T02:35:27.820Z"
 }

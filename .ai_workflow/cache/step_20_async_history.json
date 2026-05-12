@@ -62,8 +62,8 @@
       "hasAsyncPatterns": false
     },
     "src/infrastructure/providers/BrowserGeolocationProvider.ts": {
-      "mtimeMs": 1778543365157,
-      "hasAsyncPatterns": false
+      "mtimeMs": 1778550647527,
+      "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/index.ts": {
       "mtimeMs": 1778522588288,

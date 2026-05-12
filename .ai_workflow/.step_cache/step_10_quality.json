@@ -20,6 +20,31 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-11T23:48:57.732Z"
+    },
+    "src/application/dtos/GetCurrentPositionOutput.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-12T02:36:16.367Z"
+    },
+    "src/application/dtos/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-12T02:36:16.367Z"
+    },
+    "src/application/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-12T02:36:16.367Z"
+    },
+    "src/application/use-cases/GetCurrentPositionUseCase.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-12T02:36:16.367Z"
+    },
+    "src/application/use-cases/WatchPositionUseCase.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-12T02:36:16.367Z"
     }
   }
 }
