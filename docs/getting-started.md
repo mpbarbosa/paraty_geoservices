@@ -30,6 +30,26 @@ const provider = new BrowserGeolocationProvider();
 if (!provider.isSupported()) {
   throw new Error('Geolocation is not available in this environment.');
 }
+
+if (provider.isPermissionsAPISupported()) {
+  console.log('Permissions API is available.');
+}
+```
+
+You can also inject a navigator object explicitly when testing or integrating with a custom runtime:
+
+```typescript
+const mockNavigator = {
+  geolocation: {
+    getCurrentPosition: jest.fn(),
+    watchPosition: jest.fn(),
+    clearWatch: jest.fn(),
+  },
+};
+
+const provider = new BrowserGeolocationProvider(mockNavigator as Navigator);
+
+console.log(provider.getNavigator() === mockNavigator); // true
 ```
 
 ### 2. Get the current position (once)
@@ -52,6 +72,8 @@ try {
   console.error('Could not acquire position:', err);
 }
 ```
+
+If the provider is used in an environment without geolocation support, it rejects with a `GeoPositionError` carrying code `2` and the message `Geolocation is not supported`.
 
 ### 3. Watch for position changes
 

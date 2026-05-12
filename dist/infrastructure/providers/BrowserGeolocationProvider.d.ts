@@ -33,3 +33,4 @@ export declare class BrowserGeolocationProvider extends GeolocationProvider {
     isPermissionsAPISupported(): boolean;
     getNavigator(): Navigator | null;
 }
+//# sourceMappingURL=BrowserGeolocationProvider.d.ts.map

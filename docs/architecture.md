@@ -92,7 +92,9 @@ Concrete adapters that connect the domain ports to real external systems.
 
 | File | Class | Adapts |
 |---|---|---|
-| `providers/BrowserGeolocationProvider.ts` | `BrowserGeolocationProvider` | `navigator.geolocation` (Web Geolocation API) |
+| `providers/BrowserGeolocationProvider.ts` | `BrowserGeolocationProvider` | `navigator.geolocation` (Web Geolocation API), with optional navigator injection for tests and custom runtimes |
+
+`BrowserGeolocationProvider` is the browser-facing adapter. It can either use the ambient global `navigator` or accept an injected navigator in its constructor, and it exposes the concrete helper methods `isPermissionsAPISupported()` and `getNavigator()` for capability checks and advanced integration scenarios.
 
 ---
 

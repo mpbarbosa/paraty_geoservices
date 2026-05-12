@@ -1,0 +1,1 @@
+{"version":3,"file":"GeoPositionOptions.d.ts","sourceRoot":"","sources":["../../../src/domain/entities/GeoPositionOptions.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,MAAM,WAAW,kBAAkB;IAClC,yEAAyE;IACzE,kBAAkB,CAAC,EAAE,OAAO,CAAC;IAC7B,8EAA8E;IAC9E,OAAO,CAAC,EAAE,MAAM,CAAC;IACjB,iFAAiF;IACjF,UAAU,CAAC,EAAE,MAAM,CAAC;CACpB"}

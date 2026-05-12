@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Browser-based geolocation provider.
  *
@@ -13,8 +14,13 @@
  * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
-import GeolocationProvider from '../../domain/ports/GeolocationProvider';
-export class BrowserGeolocationProvider extends GeolocationProvider {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BrowserGeolocationProvider = void 0;
+const GeolocationProvider_1 = __importDefault(require("../../domain/ports/GeolocationProvider"));
+class BrowserGeolocationProvider extends GeolocationProvider_1.default {
     constructor(navigatorObj) {
         super();
         this.useGlobalNavigator = arguments.length === 0;
@@ -66,3 +72,5 @@ export class BrowserGeolocationProvider extends GeolocationProvider {
         return this.resolveNavigator();
     }
 }
+exports.BrowserGeolocationProvider = BrowserGeolocationProvider;
+//# sourceMappingURL=BrowserGeolocationProvider.js.map
