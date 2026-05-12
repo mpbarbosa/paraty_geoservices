@@ -1,0 +1,1771 @@
+{
+  "version": "1.0.0",
+  "workflowId": "workflow_1778553232350",
+  "workflowVersion": "2.0.0",
+  "timestamp": 1778553458796,
+  "state": {
+    "currentStep": null,
+    "completedSteps": [],
+    "failedSteps": [],
+    "skippedSteps": [],
+    "results": {
+      "step_00": {
+        "stepId": "step_00",
+        "stepName": "Pre-Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "analysis": {
+            "commitsAhead": 0,
+            "modifiedFiles": 12,
+            "modifiedFilesList": [
+              ".ai_workflow/metrics/current_run.json",
+              ".ai_workflow/preflight_baseline.json",
+              "dist/esm/infrastructure/providers/BrowserGeolocationProvider.js",
+              "dist/esm/types/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts.map",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.js",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.js.map",
+              "scripts/deploy.sh",
+              "scripts/run-docker-tests.sh",
+              ".github/HIGH_COHESION_GUIDE.md",
+              ".github/LOW_COUPLING_GUIDE.md"
+            ],
+            "changeScope": "full-stack",
+            "fileCounts": {
+              "documentation": 2,
+              "test": 1,
+              "source": 5,
+              "config": 2,
+              "workflow_artifact": 0
+            },
+            "categorizedFiles": {
+              "documentation": [
+                ".github/HIGH_COHESION_GUIDE.md",
+                ".github/LOW_COUPLING_GUIDE.md"
+              ],
+              "test": [
+                "scripts/run-docker-tests.sh"
+              ],
+              "source": [
+                "dist/esm/infrastructure/providers/BrowserGeolocationProvider.js",
+                "dist/esm/types/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+                "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+                "dist/infrastructure/providers/BrowserGeolocationProvider.js",
+                "scripts/deploy.sh"
+              ],
+              "config": [
+                "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts.map",
+                "dist/infrastructure/providers/BrowserGeolocationProvider.js.map"
+              ],
+              "workflow_artifact": []
+            },
+            "projectKind": {
+              "kind": "nodejs_api",
+              "confidence": 100,
+              "source": "config",
+              "description": "nodejs_api"
+            },
+            "techStack": {
+              "primary_language": "typescript",
+              "languages": [
+                "typescript",
+                "markdown",
+                "json",
+                "html",
+                "javascript",
+                "css",
+                "bash",
+                "yaml"
+              ],
+              "frameworks": [
+                {
+                  "name": "Jest",
+                  "type": "test-framework",
+                  "version": "^30.4.2",
+                  "package": "jest"
+                }
+              ],
+              "build_system": "npm",
+              "build_files": [
+                "package.json",
+                "package-lock.json"
+              ],
+              "test_framework": "jest",
+              "test_command": "npm test",
+              "linters": [
+                {
+                  "name": "shellcheck",
+                  "configFile": null
+                }
+              ],
+              "detected_at": "2026-05-12T02:33:52.401Z",
+              "primaryLanguage": "typescript",
+              "buildSystem": "npm",
+              "testFramework": "jest",
+              "testCommand": "npm test"
+            },
+            "smokeTest": null,
+            "timestamp": 1778553232402
+          },
+          "contextUpdate": {
+            "projectType": "nodejs_api",
+            "modifiedFiles": [
+              ".ai_workflow/metrics/current_run.json",
+              ".ai_workflow/preflight_baseline.json",
+              "dist/esm/infrastructure/providers/BrowserGeolocationProvider.js",
+              "dist/esm/types/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts.map",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.js",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.js.map",
+              "scripts/deploy.sh",
+              "scripts/run-docker-tests.sh",
+              ".github/HIGH_COHESION_GUIDE.md",
+              ".github/LOW_COUPLING_GUIDE.md"
+            ],
+            "categorizedFiles": {
+              "documentation": [
+                ".github/HIGH_COHESION_GUIDE.md",
+                ".github/LOW_COUPLING_GUIDE.md"
+              ],
+              "test": [
+                "scripts/run-docker-tests.sh"
+              ],
+              "source": [
+                "dist/esm/infrastructure/providers/BrowserGeolocationProvider.js",
+                "dist/esm/types/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+                "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+                "dist/infrastructure/providers/BrowserGeolocationProvider.js",
+                "scripts/deploy.sh"
+              ],
+              "config": [
+                "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts.map",
+                "dist/infrastructure/providers/BrowserGeolocationProvider.js.map"
+              ],
+              "workflow_artifact": []
+            },
+            "fileCounts": {
+              "documentation": 2,
+              "test": 1,
+              "source": 5,
+              "config": 2,
+              "workflow_artifact": 0
+            },
+            "changeScope": "full-stack",
+            "commitsAhead": 0
+          }
+        },
+        "duration": 54,
+        "degraded": false
+      },
+      "step_0b": {
+        "stepId": "step_0b",
+        "stepName": "Bootstrap Documentation",
+        "success": true,
+        "skipped": true,
+        "reason": "sufficient_docs",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "sufficient_docs"
+        },
+        "duration": 18,
+        "degraded": false
+      },
+      "step_01": {
+        "stepId": "step_01",
+        "stepName": "Documentation Updates",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "classification": {
+            "documentation": [
+              ".github/HIGH_COHESION_GUIDE.md",
+              ".github/LOW_COUPLING_GUIDE.md"
+            ],
+            "source": [
+              "dist/esm/infrastructure/providers/BrowserGeolocationProvider.js",
+              "dist/esm/types/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "dist/infrastructure/providers/BrowserGeolocationProvider.js"
+            ],
+            "tests": [],
+            "config": [],
+            "counts": {
+              "documentation": 2,
+              "source": 4,
+              "tests": 0,
+              "config": 0,
+              "total": 10
+            }
+          },
+          "validation": {
+            "fileCount": {
+              "success": false,
+              "issues": [
+                "No README file found in project root"
+              ],
+              "counts": {
+                "markdown": 2,
+                "readme": 0,
+                "docs": 0
+              }
+            },
+            "versionRefs": {
+              "success": true,
+              "issues": []
+            },
+            "sourceDoc": {
+              "success": true,
+              "issues": [],
+              "totalIssues": 0,
+              "fileResults": []
+            },
+            "totalIssues": 1,
+            "success": false
+          },
+          "analysis": {
+            "success": true,
+            "categories": {
+              "guide": {
+                "status": "completed",
+                "fileCount": 2,
+                "duration": 5,
+                "result": {
+                  "success": true,
+                  "response": {
+                    "success": true,
+                    "content": ".github/HIGH_COHESION_GUIDE.md  \nVerdict: No updates required  \nReason: The file is itself the changed file and the documentation target. Its content is a conceptual guide on high cohesion, with no API references, usage instructions, architecture descriptions, or version numbers that require updating based on the change. No inconsistencies or outdated references are present.\n\n.github/LOW_COUPLING_GUIDE.md  \nVerdict: No updates required  \nReason: The file is itself the changed file and the documentation target. Its content is a conceptual guide on low coupling, with no API references, usage instructions, architecture descriptions, or version numbers that require updating based on the change. No inconsistencies or outdated references are present.",
+                    "text": ".github/HIGH_COHESION_GUIDE.md  \nVerdict: No updates required  \nReason: The file is itself the changed file and the documentation target. Its content is a conceptual guide on high cohesion, with no API references, usage instructions, architecture descriptions, or version numbers that require updating based on the change. No inconsistencies or outdated references are present.\n\n.github/LOW_COUPLING_GUIDE.md  \nVerdict: No updates required  \nReason: The file is itself the changed file and the documentation target. Its content is a conceptual guide on low coupling, with no API references, usage instructions, architecture descriptions, or version numbers that require updating based on the change. No inconsistencies or outdated references are present."
+                  }
+                },
+                "error": null
+              }
+            },
+            "errors": [],
+            "totalFiles": 2,
+            "validatedFiles": 2,
+            "skippedFiles": 0,
+            "stats": {
+              "processed": 2,
+              "totalTime": 5,
+              "speedup": 1
+            }
+          },
+          "filesProcessed": 2
+        },
+        "duration": 7393,
+        "degraded": false
+      },
+      "step_01_5": {
+        "stepId": "step_01_5",
+        "stepName": "Copilot Instructions Validation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "updated": true,
+          "file": ".github/copilot-instructions.md",
+          "facts": {
+            "packageManifestPresent": true,
+            "packageName": "paraty_geoservices",
+            "packageVersion": "1.0.3",
+            "packageDescription": "A reverse geocoding service library developed in TypeScript and Node.js.",
+            "packageExports": [
+              "main -> dist/index.js",
+              "types -> dist/index.d.ts"
+            ],
+            "validationCommands": {
+              "Test": "npm test",
+              "Build": "npm run build"
+            },
+            "referenceDocSignals": [
+              "CHANGELOG.md: All notable changes to this project will be documented in this file.",
+              "README.md: A reverse geocoding service library developed in TypeScript and Node.js."
+            ],
+            "referenceDocs": [
+              "CHANGELOG.md",
+              "README.md"
+            ],
+            "sourceLayers": [
+              {
+                "path": "src/",
+                "purpose": "Primary source modules and public API"
+              },
+              {
+                "path": "src/application/",
+                "purpose": "Project source submodule"
+              },
+              {
+                "path": "src/domain/",
+                "purpose": "Project source submodule"
+              },
+              {
+                "path": "src/infrastructure/",
+                "purpose": "Project source submodule"
+              }
+            ],
+            "supportingSurfaces": [
+              {
+                "path": ".workflow-config.yaml",
+                "purpose": "Project-local workflow configuration"
+              },
+              {
+                "path": ".ai_workflow/",
+                "purpose": "Runtime artifacts, cache, and checkpoints"
+              }
+            ]
+          },
+          "findings": "Structured findings could not be trusted.\n\nValidation issues:\n- ### Finding 2 - Stable Source Layers and Architecture Boundaries uses unsupported action \"keep (condense for clarity)\".\n- ### Finding 2 - Stable Source Layers and Architecture Boundaries: Repo-fact evidence cites unsupported snippet \"Stable Source Layers ... `src/`, `src/application/`, `src/domain/`, `src/infrastructure/`\".\n- ### Finding 3 - Design Principles (Dependency Inversion, Layer Separation) uses unsupported action \"keep (as generic, durable guidance)\".\n- ### Finding 3 - Design Principles (Dependency Inversion, Layer Separation): `supported guidance` findings must cite explicit surfaced repo-fact support, not `not available`.\n- ### Finding 4 - Validation Commands: Repo-fact evidence cites unsupported snippet \"Validation Commands - Test: `npm test` - Build: `npm run build`\".\n- ### Finding 5 - Reference Documentation Pointers uses unsupported action \"keep (condense for clarity)\".\n- ### Finding 5 - Reference Documentation Pointers: Repo-fact evidence cites unsupported snippet \"Authoritative Reference Docs - `CHANGELOG.md` - `README.md`\".\n- ### Finding 6 - Build Artifacts and Entry Points uses unsupported action \"keep (condense for clarity)\".\n- ### Finding 6 - Build Artifacts and Entry Points: Repo-fact evidence cites unsupported snippet \"Public Package Entry Points - `main -> dist/index.js` - `types -> dist/index.d.ts`\".\n- ### Finding 7 - Workflow Surfaces uses unsupported action \"keep (condense for clarity)\".\n- ### Finding 7 - Workflow Surfaces: Repo-fact evidence cites unsupported snippet \"Supporting Workflow Surfaces - `.workflow-config.yaml` - `.ai_workflow/`\".\n- ### Finding 8 - Redundant or Duplicated Content uses unsupported action \"rewrite (condense, remove duplication)\".\n- ### Finding 8 - Redundant or Duplicated Content: Repo-fact evidence cites unsupported snippet \"Keep `.github/copilot-instructions.md` focused on durable, high-signal guidance for Copilot-assisted edits. Prefer links to authoritative docs over duplicated inventories, counts, status snapshots, or long command lists.\".\n\nSee the raw AI response below for the untrusted original output.\n",
+          "findingsValid": false,
+          "findingsValidationIssues": [
+            "### Finding 2 - Stable Source Layers and Architecture Boundaries uses unsupported action \"keep (condense for clarity)\".",
+            "### Finding 2 - Stable Source Layers and Architecture Boundaries: Repo-fact evidence cites unsupported snippet \"Stable Source Layers ... `src/`, `src/application/`, `src/domain/`, `src/infrastructure/`\".",
+            "### Finding 3 - Design Principles (Dependency Inversion, Layer Separation) uses unsupported action \"keep (as generic, durable guidance)\".",
+            "### Finding 3 - Design Principles (Dependency Inversion, Layer Separation): `supported guidance` findings must cite explicit surfaced repo-fact support, not `not available`.",
+            "### Finding 4 - Validation Commands: Repo-fact evidence cites unsupported snippet \"Validation Commands - Test: `npm test` - Build: `npm run build`\".",
+            "### Finding 5 - Reference Documentation Pointers uses unsupported action \"keep (condense for clarity)\".",
+            "### Finding 5 - Reference Documentation Pointers: Repo-fact evidence cites unsupported snippet \"Authoritative Reference Docs - `CHANGELOG.md` - `README.md`\".",
+            "### Finding 6 - Build Artifacts and Entry Points uses unsupported action \"keep (condense for clarity)\".",
+            "### Finding 6 - Build Artifacts and Entry Points: Repo-fact evidence cites unsupported snippet \"Public Package Entry Points - `main -> dist/index.js` - `types -> dist/index.d.ts`\".",
+            "### Finding 7 - Workflow Surfaces uses unsupported action \"keep (condense for clarity)\".",
+            "### Finding 7 - Workflow Surfaces: Repo-fact evidence cites unsupported snippet \"Supporting Workflow Surfaces - `.workflow-config.yaml` - `.ai_workflow/`\".",
+            "### Finding 8 - Redundant or Duplicated Content uses unsupported action \"rewrite (condense, remove duplication)\".",
+            "### Finding 8 - Redundant or Duplicated Content: Repo-fact evidence cites unsupported snippet \"Keep `.github/copilot-instructions.md` focused on durable, high-signal guidance for Copilot-assisted edits. Prefer links to authoritative docs over duplicated inventories, counts, status snapshots, or long command lists.\"."
+          ]
+        },
+        "duration": 14907,
+        "degraded": false
+      },
+      "step_02": {
+        "stepId": "step_02",
+        "stepName": "Consistency Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "filesChecked": 9,
+          "totalIssues": 1,
+          "brokenLinks": [],
+          "brokenLinkCandidates": 0,
+          "confirmedBrokenLinks": 0,
+          "falsePositiveBrokenLinks": 0,
+          "unverifiedBrokenLinks": 0,
+          "versionIssues": [
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/CHANGELOG.md",
+              "found": "1.0.2",
+              "expected": "1.0.3",
+              "type": "invalid_version"
+            }
+          ],
+          "degradedAiPartitions": 0,
+          "warnings": []
+        },
+        "duration": 19862,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_04": {
+        "stepId": "step_04",
+        "stepName": "Configuration Validation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "filesChecked": 5,
+          "syntaxErrors": [],
+          "securityFindings": [],
+          "bestPracticeIssues": [],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 32192,
+        "degraded": false
+      },
+      "step_05": {
+        "stepId": "step_05",
+        "stepName": "Directory Structure",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "totalDirs": 20,
+          "misplacedDocs": 0,
+          "organizedDocs": 0,
+          "issues": [
+            {
+              "type": "undocumented",
+              "directory": ".github",
+              "message": "Undocumented directory: .github"
+            },
+            {
+              "type": "undocumented",
+              "directory": "scripts",
+              "message": "Undocumented directory: scripts"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/application/dtos",
+              "message": "Undocumented directory: src/application/dtos"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/application/use-cases",
+              "message": "Undocumented directory: src/application/use-cases"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/domain/entities",
+              "message": "Undocumented directory: src/domain/entities"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/domain/ports",
+              "message": "Undocumented directory: src/domain/ports"
+            },
+            {
+              "type": "undocumented",
+              "directory": "test/application/dtos",
+              "message": "Undocumented directory: test/application/dtos"
+            },
+            {
+              "type": "undocumented",
+              "directory": "test/application/use-cases",
+              "message": "Undocumented directory: test/application/use-cases"
+            },
+            {
+              "type": "undocumented",
+              "directory": "test/domain/entities",
+              "message": "Undocumented directory: test/domain/entities"
+            }
+          ],
+          "missingCritical": 0,
+          "undocumented": 9,
+          "docMismatch": 0,
+          "existingDirs": [
+            ".github",
+            "docs",
+            "scripts",
+            "src",
+            "src/application",
+            "src/application/dtos",
+            "src/application/use-cases",
+            "src/domain",
+            "src/domain/entities",
+            "src/domain/ports",
+            "src/infrastructure",
+            "src/infrastructure/providers",
+            "test",
+            "test/application",
+            "test/application/dtos",
+            "test/application/use-cases",
+            "test/domain",
+            "test/domain/entities",
+            "test/infrastructure",
+            "test/infrastructure/providers"
+          ],
+          "documentationFiles": [
+            {
+              "path": "README.md",
+              "content": "# paraty_geoservices\n\nA reverse geocoding service library developed in TypeScript and Node.js.\n\n## Installation\n\n```bash\nnpm install paraty_geoservices\n```\n\n## Usage\n\n```typescript\nimport { reverseGeocode } from 'paraty_geoservices';\n\nconst result = await reverseGeocode({ latitude: 40.7128, longitude: -74.0060 });\nconsole.log(result);\n```\n\n---\n\n## GeolocationProvider\n\n`GeolocationProvider` is an **abstract base class** that defines the contract all geolocation providers must implement. It enables dependency injection and decouples consumers from concrete location sources (browser Geolocation API, GPS hardware, mocks, etc.).\n\n### Exported symbols\n\n| Symbol | Kind | Description |\n|---|---|---|\n| `GeolocationProvider` | `abstract class` | Base class every provider must extend |\n| `GeoPosition` | `interface` | Shape of an acquired position object |\n| `GeoPositionError` | `interface` | Shape of a geolocation error |\n| `GeoPositionOptions` | `interface` | Options for position acquisition |\n\n### Creating a custom provider\n\nExtend `GeolocationProvider` and implement all four abstract methods:\n\n```typescript\nimport GeolocationProvider, {\n  GeoPosition,\n  GeoPositionError,\n  GeoPositionOptions,\n} from 'paraty_geoservices/GeolocationProvider';\n\nclass BrowserGeolocationProvider extends GeolocationProvider {\n  isSupported(): boolean {\n    return typeof navigator !== 'undefined' && 'geolocation' in navigator;\n  }\n\n  getCurrentPosition(\n    successCallback: (pos: GeoPosition) => void,\n    errorCallback: (err: GeoPositionError) => void,\n    options?: GeoPositionOptions,\n  ): void {\n    navigator.geolocation.getCurrentPosition(\n      successCallback as PositionCallback,\n      errorCallback as PositionErrorCallback,\n      options,\n    );\n  }\n\n  watchPosition(\n    successCallback: (pos: GeoPosition) => void,\n    errorCallback: (err: GeoPositionError) => void,\n    options?: GeoPositionOptions,\n  ): number | null {\n    if (!this.isSupported()) return null;\n    return navigator.geolocation.watchPosition(\n      successCallback as PositionCallback,\n      errorCallback as PositionErrorCallback,\n      options,\n    );\n  }\n\n  clearWatch(watchId: number): void {\n    navigator.geolocation.clearWatch(watchId);\n  }\n}\n```\n\n### API reference\n\n#### `getCurrentPosition(successCallback, errorCallback, options?)`\n\nRequests the device position once.\n\n| Parameter | Type | Description |\n|---|---|---|\n| `successCallback` | `(pos: GeoPosition) => void` | Called with the acquired position |\n| `errorCallback` | `(err: GeoPositionError) => void` | Called when acquisition fails |\n| `options` | `GeoPositionOptions` *(optional)* | Accuracy, timeout, and caching hints |\n\n#### `watchPosition(successCallback, errorCallback, options?)`\n\nSubscribes to continuous position updates. Returns a watch ID (or `null` if unsupported).\n\n#### `clearWatch(watchId)`\n\nCancels a subscription started by `watchPosition`.\n\n#### `isSupported()`\n\nReturns `true` if the provider can supply geolocation data in the current environment.\n\n---\n\n## Development\n\n```bash\nnpm test              # run unit tests\nnpm run test:coverage # run tests with coverage report\nnpm run build         # compile TypeScript to dist/\n"
+            },
+            {
+              "path": ".github/copilot-instructions.md",
+              "content": "# Copilot Guidance — paraty_geoservices\n\nThis file provides durable, high-signal guidance for Copilot-assisted development in this repository. For implementation details and up-to-date reference, see the authoritative docs listed below.\n\n## Project Purpose\n\n`paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.\n\n## Architecture and Source Layout\n\n- The codebase is organized into stable source layers:\n  - `src/domain/`\n  - `src/application/`\n  - `src/infrastructure/`\n- Maintain strict separation between these layers. Place new modules in the appropriate subdirectory.\n\n## Design Principles\n\n- Prefer dependency inversion: depend on abstractions, not concrete implementations.\n- Do not cross architecture boundaries in a way that violates the domain/application/infrastructure separation.\n\n## Validation\n\n- Run tests with: `npm test`\n- Build the project with: `npm run build`\n\n## Reference Documentation\n\n- For project overview and usage, see `README.md`.\n- For notable changes, see `CHANGELOG.md`.\n\n## Build Artifacts\n\n- Package entry points:\n  - Main: `dist/index.js`\n  - Types: `dist/index.d.ts`\n- Do not edit files in `dist/`; it is generated output.\n\n## Workflow Surfaces\n\n- Workflow configuration: `.workflow-config.yaml`\n- Runtime artifacts and cache: `.ai_workflow/`\n"
+            },
+            {
+              "path": "docs/README.md",
+              "content": "# Documentation\n\nThis folder contains all project documentation.\n\n| File / Folder | Description |\n|---|---|\n| [`architecture.md`](./architecture.md) | Clean Architecture overview and layer responsibilities |\n| [`getting-started.md`](./getting-started.md) | Installation, quick-start guide, and common patterns |\n| [`contributing.md`](./contributing.md) | Development setup, coding standards, and PR workflow |\n| [`api/`](./api/index.html) | Auto-generated TypeDoc API reference — open `api/index.html` in a browser |\n\n## Regenerating the API reference\n\n```bash\nnpm run docs\n```\n\nThe HTML output is written to `docs/api/`.\n"
+            }
+          ],
+          "warnings": []
+        },
+        "duration": 18489,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_06": {
+        "stepId": "step_06",
+        "stepName": "Test Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "testFiles": [
+            "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+            "src/application/use-cases/WatchPositionUseCase.test.ts",
+            "src/domain/ports/GeolocationProvider.test.ts",
+            "test/application/dtos/GetCurrentPositionOutput.test.ts",
+            "test/application/dtos/index.test.ts",
+            "test/application/index.test.ts",
+            "test/application/use-cases/index.test.ts",
+            "test/domain/entities/GeoPosition.test.ts",
+            "test/domain/entities/GeoPositionError.test.ts",
+            "test/domain/entities/GeoPositionOptions.test.ts",
+            "test/infrastructure/providers/BrowserGeolocationProvider.test.ts",
+            "scripts/run-docker-tests.sh"
+          ],
+          "categories": {
+            "unit": [],
+            "integration": [],
+            "e2e": [],
+            "other": [
+              "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+              "src/application/use-cases/WatchPositionUseCase.test.ts",
+              "src/domain/ports/GeolocationProvider.test.ts",
+              "test/application/dtos/GetCurrentPositionOutput.test.ts",
+              "test/application/dtos/index.test.ts",
+              "test/application/index.test.ts",
+              "test/application/use-cases/index.test.ts",
+              "test/domain/entities/GeoPosition.test.ts",
+              "test/domain/entities/GeoPositionError.test.ts",
+              "test/domain/entities/GeoPositionOptions.test.ts",
+              "test/infrastructure/providers/BrowserGeolocationProvider.test.ts",
+              "scripts/run-docker-tests.sh"
+            ]
+          },
+          "statistics": {
+            "totalTests": 12,
+            "unitTests": 0,
+            "integrationTests": 0,
+            "e2eTests": 0,
+            "otherTests": 12,
+            "totalLines": 1257,
+            "averageLinesPerTest": 105
+          },
+          "coverage": {
+            "found": false,
+            "path": null,
+            "percentage": null
+          },
+          "issues": [
+            {
+              "type": "no_coverage_report",
+              "message": "No coverage reports found - consider generating coverage data"
+            },
+            {
+              "type": "missing_tests",
+              "message": "No unit tests found - consider adding unit tests"
+            }
+          ],
+          "reviewCoverage": "AI review covered partition 1/3 (3 files)"
+        },
+        "duration": 2551,
+        "degraded": false
+      },
+      "step_07": {
+        "stepId": "step_07",
+        "stepName": "Test Generation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "totalSourceFiles": 20,
+          "totalTestFiles": 11,
+          "rawUntestedFiles": [],
+          "untestedFiles": [],
+          "excludedUntestedFiles": [],
+          "coveragePercentage": 100,
+          "categories": {},
+          "generatedFiles": []
+        },
+        "duration": 645,
+        "degraded": false
+      },
+      "step_08": {
+        "stepId": "step_08",
+        "stepName": "Test Execution",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "noTestsFound": false,
+          "language": "typescript",
+          "testResults": {
+            "total": 73,
+            "passed": 73,
+            "failed": 0,
+            "skipped": 0,
+            "suitesFailed": 0,
+            "suitesTotal": 11
+          },
+          "coverage": {},
+          "duration": 1396,
+          "exitCode": 0
+        },
+        "duration": 15192,
+        "degraded": false
+      },
+      "step_09": {
+        "stepId": "step_09",
+        "stepName": "Dependency Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "hasSecurityIssues": false,
+          "language": "typescript",
+          "dependencyCounts": {
+            "total": 6,
+            "production": 0,
+            "development": 6,
+            "peer": 0,
+            "dependencies": {},
+            "devDependencies": {
+              "@types/jest": "^30.0.0",
+              "@types/node": "^25.6.2",
+              "jest": "^30.4.2",
+              "ts-jest": "^29.4.9",
+              "typedoc": "^0.28.19",
+              "typescript": "^6.0.3"
+            }
+          },
+          "vulnerabilities": {
+            "summary": {
+              "total": 0,
+              "critical": 0,
+              "high": 0,
+              "moderate": 0,
+              "low": 0,
+              "info": 0
+            },
+            "packages": []
+          },
+          "outdatedPackages": [],
+          "lockfileIssues": [],
+          "dryRunIssues": [],
+          "skipped": false
+        },
+        "duration": 1207,
+        "degraded": false
+      },
+      "step_03": {
+        "stepId": "step_03",
+        "stepName": "Script References",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "scriptsFound": 2,
+          "referencesChecked": 0,
+          "totalIssues": 2,
+          "missingReferences": [],
+          "nonExecutable": [],
+          "undocumented": [
+            "scripts/deploy.sh",
+            "scripts/run-docker-tests.sh"
+          ],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 3533,
+        "degraded": false
+      },
+      "step_10": {
+        "stepId": "step_10",
+        "stepName": "Code Quality",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "hasLintErrors": false,
+          "perLanguageResults": [
+            {
+              "language": "typescript",
+              "sourceFileCount": 18,
+              "linterCommand": "npm run lint",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "files": 0,
+                "fileIssues": {}
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            },
+            {
+              "language": "bash",
+              "sourceFileCount": 2,
+              "linterCommand": "find . -name \"*.sh\" -not -path \"*/node_modules/*\" -not -path \"*/.git/*\" | xargs shellcheck",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "infos": 0,
+                "files": 0
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            }
+          ],
+          "aggregateTotals": {
+            "totalIssues": 0,
+            "errors": 0,
+            "warnings": 0,
+            "infos": 0,
+            "fileCount": 20
+          },
+          "language": "typescript",
+          "sourceFileCount": 20,
+          "alternatives": [],
+          "recommendedAlternative": null,
+          "erFindings": "**Findings**\n\n_No error resilience issues detected in the reviewed files. All async and callback-based flows are surfaced to the caller, with no silent swallowing, missing awaits, or resource leaks visible. No error masking or unhandled rejections present._\n\n**Summary:**  \nTotal findings: 0 (Critical: 0, High: 0, Medium: 0)",
+          "reviewCoverage": "AI review covered partition 2/6 (5 files)"
+        },
+        "duration": 27967,
+        "degraded": false
+      },
+      "step_13": {
+        "stepId": "step_13",
+        "stepName": "Markdown Linting",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "status": "fail",
+          "stats": {
+            "totalIssues": 47,
+            "filesWithIssues": 8,
+            "filesChecked": 9,
+            "cleanFiles": 1,
+            "uniqueRules": 4,
+            "issuesPerFile": 5.222222222222222
+          },
+          "issues": [
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 29,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 30,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 31,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 39,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 40,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 42,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 43,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 45,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 41,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 42,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 44,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 46,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 48,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 50,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 12,
+              "rule": "MD007",
+              "message": "Unordered list indentation",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 35,
+              "rule": "MD007",
+              "message": "Unordered list indentation",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 3,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 7,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 15,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 20,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/CHANGELOG.md",
+              "line": 24,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 7,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 8,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 9,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 10,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 61,
+              "rule": "MD001",
+              "message": "Header levels should only increment by one level at a time",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 39,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 41,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 73,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 79,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 80,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 82,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 94,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 96,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 148,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 149,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 150,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 151,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 61,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 50,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 51,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 52,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 53,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 38,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 75,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 172,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 179,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            }
+          ],
+          "antiPatterns": [
+            {
+              "line": 64,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            },
+            {
+              "line": 65,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            },
+            {
+              "line": 89,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            },
+            {
+              "line": 90,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            }
+          ],
+          "report": "### Markdown Linting Report\n\n**Linter:** markdownlint (mdl) v0.13.0\n**Files Checked:** 9\n**Clean Files:** 1\n**Files with Issues:** 8\n**Total Issues:** 47\n\n### Issues by Rule\n\n- **MD013**: 25 occurrence(s)\n- **MD029**: 19 occurrence(s)\n- **MD007**: 2 occurrence(s)\n- **MD001**: 1 occurrence(s)\n\n### Issues by File\n\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md: 13 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md: 8 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md: 6 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md: 6 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md: 5 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md: 4 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md: 4 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/CHANGELOG.md: 1 issue(s)\n\n### Anti-Pattern Detection\n\n- trailing-whitespace: 4 occurrence(s)\n\n**Overall Quality:** ❌ Poor"
+        },
+        "duration": 18028,
+        "degraded": false
+      },
+      "step_02_5": {
+        "stepId": "step_02_5",
+        "stepName": "Documentation Optimization",
+        "success": true,
+        "skipped": true,
+        "reason": "Documentation base too small (4 files, minimum 5)",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "Documentation base too small (4 files, minimum 5)"
+        },
+        "duration": 17,
+        "degraded": false
+      },
+      "step_16": {
+        "stepId": "step_16",
+        "stepName": "Version Update",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "oldVersion": "1.0.3",
+          "newVersion": "1.1.0",
+          "bumpType": "minor",
+          "stats": {
+            "updated": 3,
+            "skipped": 16,
+            "failed": 0
+          },
+          "updates": [
+            {
+              "file": "package.json",
+              "success": true
+            },
+            {
+              "file": "pyproject.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "setup.py",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "Cargo.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": ".workflow-config.yaml",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/metrics/current_run.json",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/preflight_baseline.json",
+              "skipped": true
+            },
+            {
+              "file": "dist/esm/infrastructure/providers/BrowserGeolocationProvider.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/esm/types/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "skipped": true
+            },
+            {
+              "file": "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+              "skipped": true
+            },
+            {
+              "file": "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts.map",
+              "skipped": true
+            },
+            {
+              "file": "dist/infrastructure/providers/BrowserGeolocationProvider.js",
+              "skipped": true
+            },
+            {
+              "file": "dist/infrastructure/providers/BrowserGeolocationProvider.js.map",
+              "skipped": true
+            },
+            {
+              "file": "scripts/deploy.sh",
+              "skipped": true
+            },
+            {
+              "file": "scripts/run-docker-tests.sh",
+              "skipped": true
+            },
+            {
+              "file": ".github/HIGH_COHESION_GUIDE.md",
+              "skipped": true
+            },
+            {
+              "file": ".github/LOW_COUPLING_GUIDE.md",
+              "skipped": true
+            },
+            {
+              "file": "CHANGELOG.md",
+              "success": true
+            },
+            {
+              "file": "package-lock.json",
+              "success": true
+            }
+          ],
+          "consistencyCheck": {
+            "ran": false
+          },
+          "duration": 7098
+        },
+        "duration": 7112,
+        "degraded": false
+      },
+      "step_21": {
+        "stepId": "step_21",
+        "stepName": "Doc Consolidation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "clustersFound": 0,
+          "totalDocs": 9
+        },
+        "duration": 93,
+        "degraded": false
+      },
+      "step_11": {
+        "stepId": "step_11",
+        "stepName": "Context Management",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "completionRate": 88,
+          "completionStatus": "good",
+          "completedSteps": 15,
+          "totalSteps": 17,
+          "gitStatus": {
+            "isGitRepo": true,
+            "branch": "unknown",
+            "modifiedFiles": 0,
+            "untrackedFiles": 0,
+            "stagedFiles": 0,
+            "commitsAhead": 0
+          },
+          "changeImpact": "low",
+          "impactScore": 0,
+          "issues": {
+            "total": 0,
+            "critical": 0,
+            "warnings": 0,
+            "passed": 17
+          },
+          "duration": 169
+        },
+        "duration": 95,
+        "degraded": false
+      },
+      "step_18": {
+        "stepId": "step_18",
+        "stepName": "Debugging Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "personaKey": "async_flow_debugger_prompt",
+          "filesAnalyzed": [
+            "src/application/dtos/index.ts",
+            "src/application/index.ts",
+            "src/application/use-cases/index.ts",
+            "src/domain/entities/index.ts",
+            "src/domain/index.ts",
+            "src/domain/ports/index.ts",
+            "src/index.ts",
+            "src/infrastructure/index.ts",
+            "src/infrastructure/providers/index.ts",
+            "src/application/dtos/GetCurrentPositionOutput.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.ts",
+            "src/application/use-cases/WatchPositionUseCase.test.ts",
+            "src/application/use-cases/WatchPositionUseCase.ts",
+            "src/domain/entities/GeoPosition.ts",
+            "src/domain/entities/GeoPositionError.ts",
+            "src/domain/entities/GeoPositionOptions.ts",
+            "src/domain/ports/GeolocationProvider.test.ts",
+            "src/domain/ports/GeolocationProvider.ts",
+            "src/infrastructure/providers/BrowserGeolocationProvider.ts"
+          ],
+          "totalSourceFiles": 21,
+          "aiContent": "#### Partition 1 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls present.\n- No try/catch or error boundary logic visible.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no error handling or async error propagation found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request.\n\n#### Partition 2 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in any of the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls present.\n- No try/catch or error boundary logic visible.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no error handling or async error propagation found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 3 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: async/await, promise chains\n\n- `Promise` usage: `new Promise((resolve, reject) => ...)` in `GetCurrentPositionUseCase.ts`\n- `async` test functions and `await` in `GetCurrentPositionUseCase.test.ts`\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope)\n\n---\n\n**Execution Chain:**\n1. [Start] `GetCurrentPositionUseCase.execute()` returns a Promise\n2. Provider's `getCurrentPosition` is called with success and error callbacks\n3. On success: `resolve({ position: pos })` - SUCCESS\n4. On error: `reject(error)` - FAILED (error propagates to caller/test)\n\n---\n\n**Error Path Diagram:**\n```\n[Provider.getCurrentPosition]\n    ↓\n[Success?]\n    ↓\n┌───┴───┐\n↓       ↓\n[Yes]   [No]\n↓       ↓\n[resolve]  [reject] → [Promise rejection]\n```\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. All async flows are properly wrapped, errors propagate via Promise rejection, and tests cover both success and failure.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. Async behavior is covered by unit tests using `async/await` and Promise rejection assertions. No race conditions or missing awaits detected in these excerpts.\n\n#### Partition 4 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope).\n- All async-like flows are callback-based (e.g., `watchPosition`, `clearWatch`), but not wrapped in Promises or using async/await.\n\n---\n\n**Execution Chain:**  \nNot applicable — no async/await or promise chains found.\n\n---\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or promise-based error propagation found.\n\n---\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n---\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts. No parallel async operations or race conditions are present in the visible code.\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. Callback flows are direct and synchronously invoked in tests.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All flows are callback-based and covered by synchronous test assertions. No async/await or promise-based issues detected in these excerpts.\n\n#### Partition 5 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope).\n- All async-like flows are callback-based (e.g., `getCurrentPosition`, `watchPosition`), but not wrapped in Promises or using async/await.\n\n---\n\n**Execution Chain:**  \nNot applicable — no async/await or promise chains found.\n\n---\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or promise-based error propagation found.\n\n---\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n---\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts. No parallel async operations or race conditions are present in the visible code.\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. Callback flows are direct and synchronously invoked in tests.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All flows are callback-based and covered by synchronous test assertions. No async/await or promise-based issues detected in these excerpts.\n\n#### Partition 6 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope).\n- All async-like flows are callback-based (e.g., `getCurrentPosition`, `watchPosition`), but not wrapped in Promises or using async/await.\n\n---\n\n**Execution Chain:**  \nNot applicable — no async/await or promise chains found.\n\n---\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or promise-based error propagation found.\n\n---\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n---\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts. No parallel async operations or race conditions are present in the visible code.\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. Callback flows are direct and synchronously invoked in tests.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All flows are callback-based and covered by synchronous test assertions. No async/await or promise-based issues detected in these excerpts.\n\n#### Partition 7 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls present.\n- All geolocation API usage is callback-based (not promise-based).\n- No explicit try/catch or error propagation logic using async/await or promise chains.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch or promise-based error handling found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided code.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All async flows in this excerpt are callback-based and synchronous in structure.",
+          "report": "# Step 18: Debugging Analysis — Async Flow Debugger\n\n## Files Analyzed\n- src/application/dtos/index.ts\n- src/application/index.ts\n- src/application/use-cases/index.ts\n- src/domain/entities/index.ts\n- src/domain/index.ts\n- src/domain/ports/index.ts\n- src/index.ts\n- src/infrastructure/index.ts\n- src/infrastructure/providers/index.ts\n- src/application/dtos/GetCurrentPositionOutput.ts\n- src/application/use-cases/GetCurrentPositionUseCase.test.ts\n- src/application/use-cases/GetCurrentPositionUseCase.ts\n- src/application/use-cases/WatchPositionUseCase.test.ts\n- src/application/use-cases/WatchPositionUseCase.ts\n- src/domain/entities/GeoPosition.ts\n- src/domain/entities/GeoPositionError.ts\n- src/domain/entities/GeoPositionOptions.ts\n- src/domain/ports/GeolocationProvider.test.ts\n- src/domain/ports/GeolocationProvider.ts\n- src/infrastructure/providers/BrowserGeolocationProvider.ts\n\n## AI Analysis\n\n#### Partition 1 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls present.\n- No try/catch or error boundary logic visible.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no error handling or async error propagation found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request.\n\n#### Partition 2 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in any of the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls present.\n- No try/catch or error boundary logic visible.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no error handling or async error propagation found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 3 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: async/await, promise chains\n\n- `Promise` usage: `new Promise((resolve, reject) => ...)` in `GetCurrentPositionUseCase.ts`\n- `async` test functions and `await` in `GetCurrentPositionUseCase.test.ts`\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope)\n\n---\n\n**Execution Chain:**\n1. [Start] `GetCurrentPositionUseCase.execute()` returns a Promise\n2. Provider's `getCurrentPosition` is called with success and error callbacks\n3. On success: `resolve({ position: pos })` - SUCCESS\n4. On error: `reject(error)` - FAILED (error propagates to caller/test)\n\n---\n\n**Error Path Diagram:**\n```\n[Provider.getCurrentPosition]\n    ↓\n[Success?]\n    ↓\n┌───┴───┐\n↓       ↓\n[Yes]   [No]\n↓       ↓\n[resolve]  [reject] → [Promise rejection]\n```\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. All async flows are properly wrapped, errors propagate via Promise rejection, and tests cover both success and failure.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. Async behavior is covered by unit tests using `async/await` and Promise rejection assertions. No race conditions or missing awaits detected in these excerpts.\n\n#### Partition 4 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope).\n- All async-like flows are callback-based (e.g., `watchPosition`, `clearWatch`), but not wrapped in Promises or using async/await.\n\n---\n\n**Execution Chain:**  \nNot applicable — no async/await or promise chains found.\n\n---\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or promise-based error propagation found.\n\n---\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n---\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts. No parallel async operations or race conditions are present in the visible code.\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. Callback flows are direct and synchronously invoked in tests.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All flows are callback-based and covered by synchronous test assertions. No async/await or promise-based issues detected in these excerpts.\n\n#### Partition 5 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope).\n- All async-like flows are callback-based (e.g., `getCurrentPosition`, `watchPosition`), but not wrapped in Promises or using async/await.\n\n---\n\n**Execution Chain:**  \nNot applicable — no async/await or promise chains found.\n\n---\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or promise-based error propagation found.\n\n---\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n---\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts. No parallel async operations or race conditions are present in the visible code.\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. Callback flows are direct and synchronously invoked in tests.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All flows are callback-based and covered by synchronous test assertions. No async/await or promise-based issues detected in these excerpts.\n\n#### Partition 6 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls (no CORS/network scope).\n- All async-like flows are callback-based (e.g., `getCurrentPosition`, `watchPosition`), but not wrapped in Promises or using async/await.\n\n---\n\n**Execution Chain:**  \nNot applicable — no async/await or promise chains found.\n\n---\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or promise-based error propagation found.\n\n---\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n---\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts. No parallel async operations or race conditions are present in the visible code.\n\n---\n\n**Issue Identified:**  \nNone found in the provided code. Callback flows are direct and synchronously invoked in tests.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All flows are callback-based and covered by synchronous test assertions. No async/await or promise-based issues detected in these excerpts.\n\n#### Partition 7 of 7\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found.\n- No `fetch`, `XMLHttpRequest`, or HTTP client calls present.\n- All geolocation API usage is callback-based (not promise-based).\n- No explicit try/catch or error propagation logic using async/await or promise chains.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch or promise-based error handling found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided code.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. All async flows in this excerpt are callback-based and synchronous in structure.\n"
+        },
+        "duration": 7451,
+        "degraded": false
+      },
+      "step_11_5": {
+        "stepId": "step_11_5",
+        "stepName": "AWS LBS Validation",
+        "success": true,
+        "skipped": true,
+        "reason": "Step 11.5 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "Step 11.5 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup"
+        },
+        "duration": 15,
+        "degraded": false
+      },
+      "step_19": {
+        "stepId": "step_19",
+        "stepName": "TypeScript Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "filesAnalyzed": [
+            "jest.config.ts",
+            "src/application/dtos/GetCurrentPositionOutput.ts",
+            "src/application/dtos/index.ts",
+            "src/application/index.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.ts",
+            "src/application/use-cases/WatchPositionUseCase.test.ts",
+            "src/application/use-cases/WatchPositionUseCase.ts",
+            "src/application/use-cases/index.ts",
+            "src/domain/entities/GeoPosition.ts",
+            "src/domain/entities/GeoPositionError.ts",
+            "src/domain/entities/GeoPositionOptions.ts",
+            "src/domain/entities/index.ts",
+            "src/domain/index.ts",
+            "src/domain/ports/GeolocationProvider.test.ts",
+            "src/domain/ports/GeolocationProvider.ts",
+            "src/domain/ports/index.ts",
+            "src/index.ts",
+            "src/infrastructure/index.ts",
+            "src/infrastructure/providers/BrowserGeolocationProvider.ts"
+          ],
+          "totalTsFiles": 21,
+          "issueScore": {
+            "anyCount": 0,
+            "tsIgnoreCount": 0,
+            "missingReturnTypeCount": 0,
+            "totalIssues": 0
+          },
+          "aiContent": "No critical or warning-level type safety issues found. The codebase is highly type-safe, idiomatic, and aligns with strict TypeScript best practices. Below are minor best-practice notes and one small improvement:\n\n---\n\n📄 src/infrastructure/providers/BrowserGeolocationProvider.ts:54 [🟢 Info]\n- Before:\n  ```typescript\n  if (this.useGlobalNavigator) {\n      return typeof navigator !== 'undefined' ? navigator : null;\n  }\n  ```\n- After:\n  ```typescript\n  if (this.useGlobalNavigator) {\n      return typeof globalThis.navigator !== 'undefined' ? globalThis.navigator : null;\n  }\n  ```\n- Reason: Using `globalThis.navigator` is more robust in modern TypeScript/JS environments, especially for SSR or non-browser contexts.\n\n---\n\n**Other notes:**\n- No `any` usage found; all external boundaries are strictly typed.\n- All error callbacks use domain error types.\n- Utility types and generics are used appropriately.\n- `tsconfig.json` and `tsconfig.esm.json` both enable `\"strict\": true` and related flags.\n- No unchecked assertions or unsafe casts.\n- No duplicated type structures; all types are imported from shared modules.\n- No missing return types or implicit `any` in the reviewed files.\n- Linting/tooling conclusions are inconclusive (no ESLint config shown), but code style is consistent and idiomatic.\n\n**Conclusion:**  \nNo updates needed – documentation and code are current and type-safe. Only the optional `globalThis.navigator` improvement is suggested for future-proofing.",
+          "report": "# Step 19: TypeScript Review — Strider\n\n## Files Analyzed\n- jest.config.ts\n- src/application/dtos/GetCurrentPositionOutput.ts\n- src/application/dtos/index.ts\n- src/application/index.ts\n- src/application/use-cases/GetCurrentPositionUseCase.test.ts\n- src/application/use-cases/GetCurrentPositionUseCase.ts\n- src/application/use-cases/WatchPositionUseCase.test.ts\n- src/application/use-cases/WatchPositionUseCase.ts\n- src/application/use-cases/index.ts\n- src/domain/entities/GeoPosition.ts\n- src/domain/entities/GeoPositionError.ts\n- src/domain/entities/GeoPositionOptions.ts\n- src/domain/entities/index.ts\n- src/domain/index.ts\n- src/domain/ports/GeolocationProvider.test.ts\n- src/domain/ports/GeolocationProvider.ts\n- src/domain/ports/index.ts\n- src/index.ts\n- src/infrastructure/index.ts\n- src/infrastructure/providers/BrowserGeolocationProvider.ts\n\n## Issue Score (Heuristic)\n\n| Metric | Count |\n|--------|-------|\n| Explicit `any` / `as any` | 0 |\n| `@ts-ignore` / `@ts-nocheck` | 0 |\n| Functions missing return type | 0 |\n| **Total** | **0** |\n\n## AI Analysis\n\nNo critical or warning-level type safety issues found. The codebase is highly type-safe, idiomatic, and aligns with strict TypeScript best practices. Below are minor best-practice notes and one small improvement:\n\n---\n\n📄 src/infrastructure/providers/BrowserGeolocationProvider.ts:54 [🟢 Info]\n- Before:\n  ```typescript\n  if (this.useGlobalNavigator) {\n      return typeof navigator !== 'undefined' ? navigator : null;\n  }\n  ```\n- After:\n  ```typescript\n  if (this.useGlobalNavigator) {\n      return typeof globalThis.navigator !== 'undefined' ? globalThis.navigator : null;\n  }\n  ```\n- Reason: Using `globalThis.navigator` is more robust in modern TypeScript/JS environments, especially for SSR or non-browser contexts.\n\n---\n\n**Other notes:**\n- No `any` usage found; all external boundaries are strictly typed.\n- All error callbacks use domain error types.\n- Utility types and generics are used appropriately.\n- `tsconfig.json` and `tsconfig.esm.json` both enable `\"strict\": true` and related flags.\n- No unchecked assertions or unsafe casts.\n- No duplicated type structures; all types are imported from shared modules.\n- No missing return types or implicit `any` in the reviewed files.\n- Linting/tooling conclusions are inconclusive (no ESLint config shown), but code style is consistent and idiomatic.\n\n**Conclusion:**  \nNo updates needed – documentation and code are current and type-safe. Only the optional `globalThis.navigator` improvement is suggested for future-proofing.\n"
+        },
+        "duration": 10299,
+        "degraded": false
+      },
+      "step_22": {
+        "stepId": "step_22",
+        "stepName": "Accessibility Review",
+        "success": true,
+        "skipped": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "message": "No HTML/UI files changed since last successful run"
+        },
+        "duration": 30,
+        "degraded": false
+      },
+      "step_11_6": {
+        "stepId": "step_11_6",
+        "stepName": "AWS Serverless AI Review",
+        "success": true,
+        "skipped": true,
+        "reason": "Step 11.6 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "Step 11.6 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup"
+        },
+        "duration": 9,
+        "degraded": false
+      },
+      "step_20": {
+        "stepId": "step_20",
+        "stepName": "Async Performance Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "skipped": false,
+          "fileCount": 2,
+          "skippedCount": 15,
+          "scores": {
+            "promiseConstructorCount": 1,
+            "unhandledRejectionCount": 0,
+            "missingCleanupCount": 0,
+            "totalIssues": 1
+          },
+          "report": "## Async Performance Review\n\n### Heuristic Pre-scan\n| Indicator | Count |\n| --- | --- |\n| Explicit Promise constructors | 1 |\n| Potential unhandled rejections (.then without .catch) | 0 |\n| Missing event listener cleanup | 0 |\n| **Total heuristic signals** | **1** |\n\n### AI Analysis\n\n**Async Performance Review — paraty_geoservices (2 runtime files analyzed)**\n\n---\n\n### 1. Overfetching\n✅ No issues found.  \nNo network/data fetches or over-broad queries are present in the provided code.\n\n---\n\n### 2. Promise Overhead\n- **File**: src/application/use-cases/GetCurrentPositionUseCase.ts  \n  **Severity**: LOW  \n  **Dimension**: Promise Anti-Patterns / Overhead  \n  **Issue**: Explicit `new Promise` wrapping a callback API (lines 30–38).  \n  **Fix**:  \n  _Before:_\n  ```ts\n  execute(options?: GeoPositionOptions): Promise<GetCurrentPositionOutput> {\n    return new Promise((resolve, reject) => {\n      this.provider.getCurrentPosition(\n        (pos) => resolve({ position: pos }),\n        reject,\n        options,\n      );\n    });\n  }\n  ```\n  _After (if provider supports Promises natively):_\n  ```ts\n  // If provider is updated to return a Promise, this can be:\n  async execute(options?: GeoPositionOptions): Promise<GetCurrentPositionOutput> {\n    const pos = await this.provider.getCurrentPosition(options);\n    return { position: pos };\n  }\n  ```\n  **Impact**: Minor. The explicit Promise constructor is necessary here due to the callback-based API, but if the provider is ever modernized, this pattern should be refactored to avoid unnecessary Promise wrapping.\n\n---\n\n### 3. Event Loop Congestion\n✅ No issues found.  \nNo CPU-heavy synchronous work detected in async paths.\n\n---\n\n### 4. Memory Leaks\n✅ No issues found.  \nNo unclosed streams, lingering event listeners, or timers in the provided code.\n\n---\n\n### 5. API Call Batching\n✅ No issues found.  \nNo N+1 fetches or batchable API calls present.\n\n---\n\n### 6. Debouncing & Throttling\n✅ No issues found.  \nNo event handlers or polling loops requiring debouncing/throttling.\n\n---\n\n### 7. Error Handling\n- **File**: src/application/use-cases/GetCurrentPositionUseCase.ts  \n  **Severity**: MEDIUM  \n  **Dimension**: Error Handling  \n  **Issue**: Errors from the provider are passed to `reject`, but there is no structured error normalization or logging.  \n  **Fix**:  \n  _Before:_\n  ```ts\n  this.provider.getCurrentPosition(\n    (pos) => resolve({ position: pos }),\n    reject,\n    options,\n  );\n  ```\n  _After:_\n  ```ts\n  this.provider.getCurrentPosition(\n    (pos) => resolve({ position: pos }),\n    (err) => {\n      // Optionally log or wrap error\n      reject(new Error(`Geolocation failed: ${err.message || err}`));\n    },\n    options,\n  );\n  ```\n  **Impact**: Improves error traceability and ensures consistent error types for consumers.\n\n---\n\n### 8. Promise Anti-Patterns\n- **File**: src/application/use-cases/GetCurrentPositionUseCase.ts  \n  **Severity**: LOW  \n  **Dimension**: Promise Anti-Patterns  \n  **Issue**: Use of `new Promise` to wrap a callback API is a necessary pattern here, but should be refactored if/when the provider supports Promises.  \n  **Fix**: See Promise Overhead above.  \n  **Impact**: Reduces boilerplate and potential for subtle bugs if refactored in the future.\n\n---\n\n### 9. Resource Cleanup\n✅ No issues found.  \nNo streams, event listeners, or abortable fetches requiring explicit cleanup in the provided code.\n\n---\n\n## Prioritized Recommendations\n\n1. **Error Handling**:  \n   - Normalize and log errors in the `execute` method to improve traceability and consumer experience.\n\n2. **Promise Refactoring (Future)**:  \n   - If/when the provider supports Promises, refactor to remove explicit `new Promise` wrapping.\n\n3. **General**:  \n   - No memory leaks, event loop congestion, or resource cleanup issues detected in the analyzed files.\n\n---\n\n## Summary Table\n\n| Dimension             | Issues Found? | Severity | File(s)                                      |\n|-----------------------|--------------|----------|----------------------------------------------|\n| Overfetching          | No           | –        | –                                            |\n| Promise Overhead      | Yes          | LOW      | src/application/use-cases/GetCurrentPositionUseCase.ts |\n| Event Loop Congestion | No           | –        | –                                            |\n| Memory Leaks          | No           | –        | –                                            |\n| API Call Batching     | No           | –        | –                                            |\n| Debounce/Throttle     | No           | –        | –                                            |\n| Error Handling        | Yes          | MEDIUM   | src/application/use-cases/GetCurrentPositionUseCase.ts |\n| Promise Anti-Patterns | Yes          | LOW      | src/application/use-cases/GetCurrentPositionUseCase.ts |\n| Resource Cleanup      | No           | –        | –                                            |\n\n---\n\n**Note:**  \n- The explicit Promise constructor in `GetCurrentPositionUseCase` is justified by the callback-based provider, but should be refactored if the provider is modernized.\n- No critical or high-severity memory/resource issues found in the provided code.  \n- No evidence of overfetching, batching, or event loop congestion in the analyzed files.",
+          "warnings": []
+        },
+        "duration": 15150,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_23": {
+        "stepId": "step_23",
+        "stepName": "Performance Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "skipped": false,
+          "fileCount": 2,
+          "scores": {
+            "nestedLoopCount": 0,
+            "syncIoCount": 0,
+            "jsonParseCount": 0,
+            "objectInLoopCount": 0,
+            "totalIssues": 0
+          },
+          "report": "## Performance Review\n\n### Heuristic Pre-scan\n| Indicator | Count |\n| --- | --- |\n| Nested loops (O(n²) risk) | 0 |\n| Synchronous I/O operations | 0 |\n| JSON.parse/stringify calls | 0 |\n| Object instantiation inside loops | 0 |\n| **Total heuristic signals** | **0** |\n\n### AI Analysis\n\n**Performance Engineering Review: paraty_geoservices (BrowserGeolocationProvider)**\n\n### Summary Table\n\n| File                                                        | Issue Type                | Severity | Impact |\n|-------------------------------------------------------------|---------------------------|----------|--------|\n| _No concrete issues found in the provided excerpts_          |                           |          |        |\n\n---\n\n### Detailed Review\n\n#### 1. Algorithmic Complexity Issues\n- **Finding:** No O(n²) or worse loops, nested iterations, or algorithmic hot paths are present in the visible code. All methods are simple property checks, method calls, or direct delegation to browser APIs.\n- **Severity:** N/A\n\n#### 2. Synchronous Blocking Operations in Hot Paths\n- **Finding:** No synchronous file I/O, JSON.parse, or blocking regex operations are present in the provided code. All I/O is delegated to the browser’s asynchronous geolocation API.\n- **Severity:** N/A\n\n#### 3. Memory Allocation Hotspots\n- **Finding:** No evidence of objects created inside tight loops, closure leaks, or missing object pooling. All allocations are limited to single object creation per method call (e.g., error object in getCurrentPosition).\n- **Severity:** N/A\n\n#### 4. Data Structure Choices\n- **Finding:** No use of large collections, membership tests, or numeric arrays. Data structure choices are not relevant in the visible code.\n- **Severity:** N/A\n\n#### 5. Missing Memoization\n- **Finding:** No repeated expensive computations or cacheable results in the visible code.\n- **Severity:** N/A\n\n#### 6. Bundle/Build Impact\n- **Finding:** No large or unnecessary imports, no top-level awaits, and no evidence of startup-critical or optional heavyweight dependencies. The only import is a domain port interface, which is expected and lightweight.\n- **Severity:** N/A\n\n#### 7. Benchmarking Coverage\n- **Finding:** No computational hot paths are present, so benchmarking is not required for the visible code.\n- **Severity:** N/A\n\n#### 8. Regex Performance Risks\n- **Finding:** No regex usage in the provided code.\n- **Severity:** N/A\n\n---\n\n### Conclusion\n\n**No actionable performance issues are present in the provided BrowserGeolocationProvider excerpts.**  \nAll operations are lightweight, delegate to browser APIs, and do not introduce algorithmic, memory, I/O, or bundle-size risks. No further optimisation is warranted for this code as shown. If you have other modules or hot paths to review, please provide their code excerpts."
+        },
+        "duration": 13114,
+        "degraded": false
+      },
+      "step_17": {
+        "stepId": "step_17",
+        "stepName": "Workflow Summary",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "summary": {
+            "metrics": {
+              "totalSteps": 0,
+              "successfulSteps": 0,
+              "failedSteps": 0,
+              "skippedSteps": 0,
+              "totalDuration": 0,
+              "avgDuration": 0,
+              "successRate": 0,
+              "startTime": "2026-05-11T23:37:39.738Z",
+              "endTime": "2026-05-12T02:37:27.796Z",
+              "workflowRunId": "workflow_20260511_233349",
+              "version": "1.0.0",
+              "mode": "interactive"
+            },
+            "timeline": {
+              "steps": [],
+              "phases": {
+                "initialization": [],
+                "documentation": [],
+                "validation": [],
+                "testing": [],
+                "quality": [],
+                "finalization": []
+              }
+            },
+            "cacheEfficiency": {
+              "cacheHits": 0,
+              "cacheMisses": 0,
+              "totalRequests": 0,
+              "hitRate": 0,
+              "quality": "unknown"
+            },
+            "recommendations": [],
+            "report": "# Workflow Summary Report\n\n**Workflow Run ID:** workflow_20260511_233349\n**Version:** 1.0.0\n**Mode:** interactive\n**Start Time:** 2026-05-11T23:37:39.738Z\n**End Time:** 2026-05-12T02:37:27.796Z\n**Total Duration:** 0s\n\n---\n\n## Executive Summary\n\n**Overall Status:** ⚠️ Completed\n**Success Rate:** 0.0%\n**Total Steps:** 0\n**Successful:** 0 ✅\n**Average Step Duration:** 0s\n\n---\n\n## Execution Timeline\n\n\n\n---\n\n## Phase Breakdown\n\n\n\n---\n\n## Performance Metrics\n\n| Metric | Value |\n|--------|-------|\n| Total Duration | 0s |\n| Average Step Duration | 0s |\n| Total Steps | 0 |\n| Success Rate | 0.0% |\n\n---\n\n*Generated by AI Workflow Automation v1.0.0*\n\n*Report generated at: 2026-05-12T02:37:27.797Z*\n"
+          },
+          "message": "Workflow summary generated successfully"
+        },
+        "duration": 10,
+        "degraded": false
+      },
+      "step_14": {
+        "stepId": "step_14",
+        "stepName": "Prompt Engineering",
+        "success": true,
+        "skipped": true,
+        "reason": "project type not eligible",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "project type not eligible"
+        },
+        "duration": 10,
+        "degraded": false
+      },
+      "step_0f": {
+        "stepId": "step_0f",
+        "stepName": "Commit Artifacts",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "committed": true,
+          "files": [
+            ".ai_workflow/.step_cache/step_06_partition.json",
+            ".ai_workflow/.step_cache/step_10_partition.json",
+            ".ai_workflow/.step_cache/step_10_quality.json",
+            ".ai_workflow/cache/step_20_async_history.json",
+            ".ai_workflow/cache/step_21_doc_consolidation.json",
+            ".ai_workflow/metrics/current_run.json",
+            ".ai_workflow/preflight_baseline.json"
+          ],
+          "summary": "Committed 7 artifact file(s)"
+        },
+        "duration": 45,
+        "degraded": false
+      },
+      "step_15": {
+        "stepId": "step_15",
+        "stepName": "UX Analysis",
+        "success": true,
+        "skipped": true,
+        "reason": "non-web project kind: nodejs_api",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "non-web project kind: nodejs_api"
+        },
+        "duration": 17,
+        "degraded": false
+      },
+      "step_12": {
+        "stepId": "step_12",
+        "stepName": "Git Finalization",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "branch": "main",
+          "commitMessage": "feat(implementation): enhance geolocation provider docs, scripts, and config\n\n- Add detailed JSDoc and usage examples to BrowserGeolocationProvider\n- Update ESM and CJS type definitions and build outputs\n- Revise deployment and test scripts for improved automation\n- Update package.json and lockfile for new version and dependencies\n- Add and update architectural documentation guides\n- Bump version to 1.1.0 in changelog and package metadata\n\nNo breaking changes detected.\n[workflow-automation v1.1.0]\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+          "pushed": true,
+          "report": "### Git Finalization Summary\n\n**Branch:** main\n**Commits Ahead:** 2\n**Commits Behind:** 0\n**Commit Type:** feat(implementation)\n**Modified Files:** 12\n**Total Changes:** 15\n\n### Change Breakdown\n\n- Documentation: 4 files\n- Tests: 0 files\n- Scripts: 2 files\n- Code: 4 files\n- Config: 2 files\n\n### Commit Message\n\n```\nfeat(implementation): enhance geolocation provider docs, scripts, and config\n\n- Add detailed JSDoc and usage examples to BrowserGeolocationProvider\n- Update ESM and CJS type definitions and build outputs\n- Revise deployment and test scripts for improved automation\n- Update package.json and lockfile for new version and dependencies\n- Add and update architectural documentation guides\n- Bump version to 1.1.0 in changelog and package metadata\n\nNo breaking changes detected.\n[workflow-automation v1.1.0]\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>\n```\n\n**Push Status:** ✅ Pushed successfully"
+        },
+        "duration": 10925,
+        "degraded": false
+      }
+    },
+    "context": {
+      "workflowDir": "/home/mpb/Documents/GitHub/paraty_geoservices/.ai_workflow",
+      "projectRoot": "/home/mpb/Documents/GitHub/paraty_geoservices",
+      "auto": false,
+      "workflowRunId": "workflow_20260511_233349",
+      "modifiedFiles": [
+        ".github/copilot-instructions.md",
+        ".gitignore",
+        ".workflow-config.yaml",
+        "CHANGELOG.md",
+        "dist/application/dtos/GetCurrentPositionOutput.d.ts",
+        "dist/application/dtos/GetCurrentPositionOutput.d.ts.map",
+        "dist/application/dtos/GetCurrentPositionOutput.js",
+        "dist/application/dtos/GetCurrentPositionOutput.js.map",
+        "dist/application/dtos/index.d.ts",
+        "dist/application/dtos/index.d.ts.map",
+        "dist/application/dtos/index.js",
+        "dist/application/dtos/index.js.map",
+        "dist/application/index.d.ts",
+        "dist/application/index.d.ts.map",
+        "dist/application/index.js",
+        "dist/application/index.js.map",
+        "dist/application/use-cases/GetCurrentPositionUseCase.d.ts",
+        "dist/application/use-cases/GetCurrentPositionUseCase.d.ts.map",
+        "dist/application/use-cases/GetCurrentPositionUseCase.js",
+        "dist/application/use-cases/GetCurrentPositionUseCase.js.map",
+        "dist/application/use-cases/WatchPositionUseCase.d.ts",
+        "dist/application/use-cases/WatchPositionUseCase.d.ts.map",
+        "dist/application/use-cases/WatchPositionUseCase.js",
+        "dist/application/use-cases/WatchPositionUseCase.js.map",
+        "dist/application/use-cases/index.d.ts",
+        "dist/application/use-cases/index.d.ts.map",
+        "dist/application/use-cases/index.js",
+        "dist/application/use-cases/index.js.map",
+        "dist/domain/entities/GeoPosition.d.ts",
+        "dist/domain/entities/GeoPosition.d.ts.map",
+        "dist/domain/entities/GeoPosition.js",
+        "dist/domain/entities/GeoPosition.js.map",
+        "dist/domain/entities/GeoPositionError.d.ts",
+        "dist/domain/entities/GeoPositionError.d.ts.map",
+        "dist/domain/entities/GeoPositionError.js",
+        "dist/domain/entities/GeoPositionError.js.map",
+        "dist/domain/entities/GeoPositionOptions.d.ts",
+        "dist/domain/entities/GeoPositionOptions.d.ts.map",
+        "dist/domain/entities/GeoPositionOptions.js",
+        "dist/domain/entities/GeoPositionOptions.js.map",
+        "dist/domain/entities/index.d.ts",
+        "dist/domain/entities/index.d.ts.map",
+        "dist/domain/entities/index.js",
+        "dist/domain/entities/index.js.map",
+        "dist/domain/index.d.ts",
+        "dist/domain/index.d.ts.map",
+        "dist/domain/index.js",
+        "dist/domain/index.js.map",
+        "dist/domain/ports/GeolocationProvider.d.ts",
+        "dist/domain/ports/GeolocationProvider.d.ts.map",
+        "dist/domain/ports/GeolocationProvider.js",
+        "dist/domain/ports/GeolocationProvider.js.map",
+        "dist/domain/ports/index.d.ts",
+        "dist/domain/ports/index.d.ts.map",
+        "dist/domain/ports/index.js",
+        "dist/domain/ports/index.js.map",
+        "dist/esm/application/dtos/GetCurrentPositionOutput.js",
+        "dist/esm/application/dtos/index.js",
+        "dist/esm/application/index.js",
+        "dist/esm/application/use-cases/GetCurrentPositionUseCase.js",
+        "dist/esm/application/use-cases/WatchPositionUseCase.js",
+        "dist/esm/application/use-cases/index.js",
+        "dist/esm/domain/entities/GeoPosition.js",
+        "dist/esm/domain/entities/GeoPositionError.js",
+        "dist/esm/domain/entities/GeoPositionOptions.js",
+        "dist/esm/domain/entities/index.js",
+        "dist/esm/domain/index.js",
+        "dist/esm/domain/ports/GeolocationProvider.js",
+        "dist/esm/domain/ports/index.js",
+        "dist/esm/index.js",
+        "dist/esm/infrastructure/index.js",
+        "dist/esm/infrastructure/providers/BrowserGeolocationProvider.js",
+        "dist/esm/infrastructure/providers/index.js",
+        "dist/esm/types/application/dtos/GetCurrentPositionOutput.d.ts",
+        "dist/esm/types/application/dtos/index.d.ts",
+        "dist/esm/types/application/index.d.ts",
+        "dist/esm/types/application/use-cases/GetCurrentPositionUseCase.d.ts",
+        "dist/esm/types/application/use-cases/WatchPositionUseCase.d.ts",
+        "dist/esm/types/application/use-cases/index.d.ts",
+        "dist/esm/types/domain/entities/GeoPosition.d.ts",
+        "dist/esm/types/domain/entities/GeoPositionError.d.ts",
+        "dist/esm/types/domain/entities/GeoPositionOptions.d.ts",
+        "dist/esm/types/domain/entities/index.d.ts",
+        "dist/esm/types/domain/index.d.ts",
+        "dist/esm/types/domain/ports/GeolocationProvider.d.ts",
+        "dist/esm/types/domain/ports/index.d.ts",
+        "dist/esm/types/index.d.ts",
+        "dist/esm/types/infrastructure/index.d.ts",
+        "dist/esm/types/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+        "dist/esm/types/infrastructure/providers/index.d.ts",
+        "dist/index.d.ts",
+        "dist/index.d.ts.map",
+        "dist/index.js",
+        "dist/index.js.map",
+        "dist/infrastructure/index.d.ts",
+        "dist/infrastructure/index.d.ts.map",
+        "dist/infrastructure/index.js",
+        "dist/infrastructure/index.js.map",
+        "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts",
+        "dist/infrastructure/providers/BrowserGeolocationProvider.d.ts.map",
+        "dist/infrastructure/providers/BrowserGeolocationProvider.js",
+        "dist/infrastructure/providers/BrowserGeolocationProvider.js.map",
+        "dist/infrastructure/providers/index.d.ts",
+        "dist/infrastructure/providers/index.d.ts.map",
+        "dist/infrastructure/providers/index.js",
+        "dist/infrastructure/providers/index.js.map",
+        "docs/architecture.md",
+        "docs/getting-started.md",
+        "package-lock.json",
+        "package.json",
+        "src/application/dtos/GetCurrentPositionOutput.ts",
+        "src/application/use-cases/GetCurrentPositionUseCase.ts",
+        "src/application/use-cases/WatchPositionUseCase.ts",
+        "src/domain/entities/GeoPosition.ts",
+        "src/domain/entities/GeoPositionError.ts",
+        "src/domain/entities/GeoPositionOptions.ts",
+        "src/domain/ports/GeolocationProvider.ts",
+        "src/index.ts",
+        "src/infrastructure/providers/BrowserGeolocationProvider.ts",
+        "test/domain/entities/GeoPositionError.test.ts",
+        "test/domain/entities/GeoPositionOptions.test.ts",
+        "test/infrastructure/providers/BrowserGeolocationProvider.test.ts",
+        "tsconfig.esm.json",
+        ".ai_workflow/metrics/current_run.json",
+        ".ai_workflow/preflight_baseline.json",
+        "scripts/deploy.sh",
+        "scripts/run-docker-tests.sh",
+        ".github/HIGH_COHESION_GUIDE.md",
+        ".github/LOW_COUPLING_GUIDE.md"
+      ],
+      "projectType": "typescript-library",
+      "scope": "full_validation",
+      "projectDescription": "A reverse geocoding service library developed in TypeScript and Node.js.",
+      "alternatives": false,
+      "preflightCheck": {
+        "passed": true,
+        "advisory": false,
+        "hasForceExitWarning": false,
+        "skipped": false,
+        "packageManager": "npm",
+        "commands": [
+          {
+            "name": "git-stash",
+            "command": "git stash list",
+            "passed": true,
+            "stashCount": 0
+          },
+          {
+            "name": "test",
+            "command": "npm test",
+            "passed": true
+          },
+          {
+            "name": "build",
+            "command": "npm run build",
+            "passed": true
+          }
+        ],
+        "message": "Ran 3 pre-flight quality suite(s)"
+      },
+      "resumeCommandHint": "ai-workflow resume --latest",
+      "changeStats": {
+        "changed": 129,
+        "added": 0,
+        "modified": 129,
+        "deleted": 0,
+        "codeFiles": 126,
+        "docsFiles": 3,
+        "testFiles": 3,
+        "changePercentage": 100
+      },
+      "criticalStepIds": [
+        "step_00",
+        "step_0b",
+        "step_01",
+        "step_01_5",
+        "step_02",
+        "step_02_5",
+        "step_21",
+        "step_03",
+        "step_04",
+        "step_05",
+        "step_06",
+        "step_07",
+        "step_08",
+        "step_09",
+        "step_10",
+        "step_13",
+        "step_11",
+        "step_11_5",
+        "step_11_6",
+        "step_14",
+        "step_15",
+        "step_16",
+        "step_18",
+        "step_19",
+        "step_20",
+        "step_22",
+        "step_23",
+        "step_17",
+        "step_0f"
+      ],
+      "allowFinalizeOnFailure": false,
+      "configFiles": [
+        ".workflow-config.yaml",
+        "jest.config.ts",
+        "tsconfig.json",
+        "tsconfig.test.json",
+        "package.json"
+      ]
+    }
+  },
+  "metadata": {
+    "totalSteps": 30,
+    "progress": 0
+  }
+}
