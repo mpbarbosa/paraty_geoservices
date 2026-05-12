@@ -31,9 +31,8 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 ## Build Artifacts
 
-- Package entry points:
-  - Main: `dist/index.js`
-  - Types: `dist/index.d.ts`
+- Main entry point: `dist/index.js`
+- Type definitions: `dist/index.d.ts`
 - Do not edit files in `dist/`; it is generated output.
 
 ## Workflow Surfaces
