@@ -6,7 +6,7 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 `paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.
 
-## Architecture
+## Architecture and Source Layout
 
 - The codebase is organized into stable source layers:
   - `src/domain/`

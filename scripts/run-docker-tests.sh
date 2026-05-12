@@ -19,7 +19,8 @@ set -uo pipefail
 # ---------------------------------------------------------------------------
 
 readonly IMAGE="node:22-alpine"
-readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+readonly PROJECT_ROOT
 readonly CONTAINER_APP="/app"
 readonly VOL_MODULES="paraty_geoservices_node_modules"
 readonly VOL_DIST="paraty_geoservices_dist"
@@ -60,6 +61,7 @@ header() {
 mark_pass() { echo -e "${GREEN}✔ PASS: $1${NC}"; PASSED+=("$1"); }
 mark_fail() { echo -e "${RED}✘ FAIL: $1${NC}"; FAILED+=("$1"); }
 
+# shellcheck disable=SC2317  # called via trap
 cleanup() {
   if [[ "$NO_CLEANUP" == true ]]; then
     echo -e "\n${YELLOW}--no-cleanup: Docker volumes preserved (${VOL_MODULES}, ${VOL_DIST})${NC}"
