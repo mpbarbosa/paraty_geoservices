@@ -75,6 +75,21 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-12T18:31:03.355Z"
+    },
+    "src/domain/ports/GeolocationProvider.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-13T02:04:35.660Z"
+    },
+    "src/domain/ports/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-13T02:04:35.660Z"
+    },
+    "src/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-13T02:04:35.660Z"
     }
   }
 }

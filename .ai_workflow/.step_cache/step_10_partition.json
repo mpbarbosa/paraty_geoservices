@@ -1,12 +1,11 @@
 {
   "version": 1,
   "partitionIndex": 1,
-  "totalPartitions": 3,
-  "filesHash": "cc80db02",
+  "totalPartitions": 2,
+  "filesHash": "9fc68a13",
   "partitionLabels": [
-    "src/domain",
-    "src/domain (2)",
-    "src, src/infrastructure"
+    "src/domain, src",
+    "src/infrastructure"
   ],
-  "updatedAt": "2026-05-12T18:31:03.356Z"
+  "updatedAt": "2026-05-13T02:04:35.661Z"
 }
