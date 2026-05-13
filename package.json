@@ -1,6 +1,6 @@
 {
   "name": "paraty_geoservices",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A reverse geocoding service library developed in TypeScript and Node.js.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -12,12 +12,12 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
   - `src/domain/`
   - `src/application/`
   - `src/infrastructure/`
-- Maintain strict separation between these layers. Place new modules in the appropriate subdirectory.
+- Maintain clear separation between these layers. Place new modules in the appropriate subdirectory.
 
-## Design Principles
+## Design Guidance
 
-- Prefer dependency inversion: depend on abstractions, not concrete implementations.
-- Do not cross architecture boundaries in a way that violates the domain/application/infrastructure separation.
+- Follow standard software engineering best practices for modularity and separation of concerns.
+- When in doubt about architecture or dependencies, consult the authoritative documentation.
 
 ## Validation
 
@@ -33,7 +33,7 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 - Main entry point: `dist/index.js`
 - Type definitions: `dist/index.d.ts`
-- Do not edit files in `dist/`; it is generated output.
+- Do not edit files in `dist/`; they are generated output.
 
 ## Workflow Surfaces
 

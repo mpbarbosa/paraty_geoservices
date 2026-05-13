@@ -11,7 +11,7 @@
  * need an initial emission without a real device.
  *
  * @module infrastructure/providers/MockGeolocationProvider
- * @since 1.2.0
+ * @since 1.2.1
  * @author Marcelo Pereira Barbosa
  */
 
@@ -37,7 +37,7 @@ interface WatchEntry {
  *
  * @class MockGeolocationProvider
  * @extends GeolocationProvider
- * @since 1.2.0
+ * @since 1.2.1
  */
 export class MockGeolocationProvider extends GeolocationProvider {
 	private config: Required<MockGeolocationProviderConfig>;
