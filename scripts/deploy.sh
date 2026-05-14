@@ -158,16 +158,6 @@ echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/src/index.js"
 echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/esm/index.js"
 echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/types/src/index.d.ts"
 echo ""
-if [[ "${SKIP_NPM_PUBLISH}" != "true" ]]; then
-  echo "    https://cdn.jsdelivr.net/npm/${PACKAGE_NAME}@${NPM_TAG}/dist/src/index.js"
-  echo "    https://cdn.jsdelivr.net/npm/${PACKAGE_NAME}@${NPM_TAG}/dist/esm/index.js"
-  echo ""
-  echo -e "  ${GREEN}npm (pinned to ${VERSION})${NC}"
-  echo "    https://cdn.jsdelivr.net/npm/${PACKAGE_NAME}@${VERSION}/dist/src/index.js"
-  echo "    https://cdn.jsdelivr.net/npm/${PACKAGE_NAME}@${VERSION}/dist/esm/index.js"
-  echo "    https://cdn.jsdelivr.net/npm/${PACKAGE_NAME}@${VERSION}/dist/types/src/index.d.ts"
-  echo ""
-fi
 
 ok "Deployment of ${TAG} complete! 🚀"
 echo ""
