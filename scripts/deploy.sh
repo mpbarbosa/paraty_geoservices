@@ -149,47 +149,6 @@ git push origin "${CURRENT_BRANCH}" --tags
 ok "Pushed to origin/${CURRENT_BRANCH} with tag ${TAG}"
 echo ""
 
-# ── Step 5/6 — Publish to npm ────────────────────────────────────────────────
-if [[ "${SKIP_NPM_PUBLISH}" == "true" ]]; then
-  info "Step 5/6 — npm publish skipped (NPM_TOKEN not set)"
-  warn "To publish to npm, set NPM_TOKEN and re-run:"
-  warn "  export NPM_TOKEN=npm_... && bash scripts/deploy.sh"
-else
-  info "Step 5/6 — Publishing to npm …"
-  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > "$PROJECT_ROOT/.npmrc"
-
-  set +e
-  PUBLISH_OUTPUT="$(npm publish --access public --tag "$NPM_TAG" 2>&1)"
-  PUBLISH_EXIT=$?
-  set -e
-  echo "$PUBLISH_OUTPUT"
-
-  if [[ $PUBLISH_EXIT -ne 0 ]]; then
-    if echo "$PUBLISH_OUTPUT" | grep -q "Two-factor authentication\|bypass 2fa"; then
-      echo -e "${RED}[deploy] ✗${NC} npm publish failed: 2FA bypass required." >&2
-      echo -e "${BLUE}[deploy]${NC} Your token doesn't have 2FA bypass enabled." >&2
-      echo -e "${BLUE}[deploy]${NC} Fix: create an Automation token at https://www.npmjs.com/settings/~/tokens" >&2
-      echo -e "${BLUE}[deploy]${NC}   → Granular Access Token → enable 'Bypass 2FA' → Read and write" >&2
-    elif echo "$PUBLISH_OUTPUT" | grep -q "403\|Forbidden\|credentials"; then
-      echo -e "${RED}[deploy] ✗${NC} npm publish failed: invalid or expired token." >&2
-      echo -e "${BLUE}[deploy]${NC} Verify NPM_TOKEN is a valid Automation token with publish rights." >&2
-      echo -e "${BLUE}[deploy]${NC}   https://www.npmjs.com/settings/~/tokens" >&2
-    elif echo "$PUBLISH_OUTPUT" | grep -q "cannot publish over\|already exists\|E409"; then
-      echo -e "${RED}[deploy] ✗${NC} npm publish failed: version ${VERSION} is already published." >&2
-      echo -e "${BLUE}[deploy]${NC} Bump the version in package.json before deploying." >&2
-      exit 3
-    elif echo "$PUBLISH_OUTPUT" | grep -q "404\|not found"; then
-      echo -e "${RED}[deploy] ✗${NC} npm publish failed: registry or package not found." >&2
-      echo -e "${BLUE}[deploy]${NC} Check the package name in package.json and the registry URL." >&2
-    else
-      echo -e "${RED}[deploy] ✗${NC} npm publish failed (exit $PUBLISH_EXIT)." >&2
-    fi
-    exit 1
-  fi
-
-  ok "Published ${PACKAGE_NAME}@${VERSION} to npm (tag: ${NPM_TAG})"
-  echo ""
-fi
 
 # ── jsDelivr CDN URLs ─────────────────────────────────────────────────────────
 info "jsDelivr CDN URLs for ${PACKAGE_NAME}@${VERSION}:"
