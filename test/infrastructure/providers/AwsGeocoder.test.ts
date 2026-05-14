@@ -97,24 +97,23 @@ describe('AwsGeocoder', () => {
       );
     });
 
-    it('should return rawData and enderecoPadronizado', async () => {
+    it('should return a GeoAddress', async () => {
       mockFetch(sampleAwsResponse);
       const geocoder = new AwsGeocoder(baseUrl);
 
       const result = await geocoder.reverseGeocode(-23.55052, -46.633309);
 
-      expect(result.rawData).toEqual(sampleAwsResponse);
-      expect(result.enderecoPadronizado).toEqual({
-        logradouro: 'Movelstore',
-        numero: null,
-        complemento: null,
-        bairro: 'Sé',
-        municipio: 'São Paulo',
-        regiaoMetropolitana: null,
-        uf: 'São Paulo',
-        siglaUF: 'SP',
-        cep: '01016-000',
-        pais: 'Brasil',
+      expect(result).toEqual({
+        street: 'Movelstore',
+        streetNumber: null,
+        complement: null,
+        neighborhood: 'Sé',
+        city: 'São Paulo',
+        metropolitanRegion: null,
+        state: 'São Paulo',
+        stateCode: 'SP',
+        postalCode: '01016-000',
+        country: 'Brasil',
       });
     });
 
@@ -132,12 +131,30 @@ describe('AwsGeocoder', () => {
 
       await expect(geocoder.reverseGeocode(0, 0)).resolves.toEqual(
         expect.objectContaining({
-          enderecoPadronizado: expect.objectContaining({
-            municipio: 'Recife',
-            siglaUF: 'PE',
-          }),
+          city: 'Recife',
+          stateCode: 'PE',
         }),
       );
+    });
+
+    it('should handle a missing address object', async () => {
+      mockFetch({ provider: 'aws-location-service' });
+      const geocoder = new AwsGeocoder(baseUrl);
+
+      const result = await geocoder.reverseGeocode(-23.55052, -46.633309);
+
+      expect(result).toEqual({
+        street: null,
+        streetNumber: null,
+        complement: null,
+        neighborhood: null,
+        city: null,
+        metropolitanRegion: null,
+        state: null,
+        stateCode: null,
+        postalCode: null,
+        country: 'Brasil',
+      });
     });
 
     it('should throw on a non-OK HTTP response', async () => {

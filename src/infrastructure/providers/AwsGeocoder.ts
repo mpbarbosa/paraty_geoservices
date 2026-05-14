@@ -2,46 +2,28 @@
  * AWS reverse geocoding provider.
  *
  * Concrete infrastructure adapter that calls an AWS Location Service-compatible
- * reverse-geocoding endpoint and returns both the raw response and a
- * standardized Brazilian address shape.
+ * reverse-geocoding endpoint and returns a provider-agnostic {@link GeoAddress}.
+ *
+ * Address-mapping logic is delegated to {@link AwsAddressMapper}, keeping this
+ * class focused on HTTP orchestration only.
  *
  * @module infrastructure/providers/AwsGeocoder
  * @since 1.2.2
  * @author Marcelo Pereira Barbosa
  */
 
-const BRAZIL_CODES = new Set(['BRA', 'BR', 'Brasil', 'Brazil']);
+import type { GeoAddress } from '../../domain/entities/GeoAddress';
+import type { ReverseGeocoder } from '../../domain/ports/ReverseGeocoder';
+import { toGeoAddress } from './AwsAddressMapper';
 
-const BRAZIL_STATE_SIGLAS = new Map([
-  ['Acre', 'AC'],
-  ['Alagoas', 'AL'],
-  ['Amapá', 'AP'],
-  ['Amazonas', 'AM'],
-  ['Bahia', 'BA'],
-  ['Ceará', 'CE'],
-  ['Distrito Federal', 'DF'],
-  ['Espírito Santo', 'ES'],
-  ['Goiás', 'GO'],
-  ['Maranhão', 'MA'],
-  ['Mato Grosso', 'MT'],
-  ['Mato Grosso do Sul', 'MS'],
-  ['Minas Gerais', 'MG'],
-  ['Pará', 'PA'],
-  ['Paraíba', 'PB'],
-  ['Paraná', 'PR'],
-  ['Pernambuco', 'PE'],
-  ['Piauí', 'PI'],
-  ['Rio de Janeiro', 'RJ'],
-  ['Rio Grande do Norte', 'RN'],
-  ['Rio Grande do Sul', 'RS'],
-  ['Rondônia', 'RO'],
-  ['Roraima', 'RR'],
-  ['Santa Catarina', 'SC'],
-  ['São Paulo', 'SP'],
-  ['Sergipe', 'SE'],
-  ['Tocantins', 'TO'],
-]);
-
+/**
+ * Shape of a single address entry returned by the AWS Location Service API.
+ *
+ * This is the raw provider shape. Application code should use {@link GeoAddress}
+ * instead of consuming this type directly.
+ *
+ * @since 1.2.2
+ */
 export interface AwsAddress {
   label?: string;
   addressNumber?: string;
@@ -55,6 +37,15 @@ export interface AwsAddress {
   [key: string]: unknown;
 }
 
+/**
+ * Top-level response envelope returned by the AWS Location Service
+ * reverse-geocoding endpoint.
+ *
+ * This is the raw provider shape. Application code should use {@link GeoAddress}
+ * instead of consuming this type directly.
+ *
+ * @since 1.2.2
+ */
 export interface AwsReverseGeocodeResponse {
   provider?: string;
   coordinates?: {
@@ -69,26 +60,11 @@ export interface AwsReverseGeocodeResponse {
   [key: string]: unknown;
 }
 
-export interface BrazilianStandardAddress {
-  logradouro: string | null;
-  numero: string | null;
-  complemento: string | null;
-  bairro: string | null;
-  municipio: string | null;
-  regiaoMetropolitana: string | null;
-  uf: string | null;
-  siglaUF: string | null;
-  cep: string | null;
-  pais: string;
-}
-
-export interface AwsReverseGeocodeResult {
-  rawData: AwsReverseGeocodeResponse;
-  enderecoPadronizado: BrazilianStandardAddress;
-}
-
 /**
  * Reverse geocoder that calls an AWS Location Service-compatible API.
+ *
+ * Implements the {@link ReverseGeocoder} port, making it injectable wherever
+ * that interface is required.
  *
  * When no `baseUrl` is provided, the constructor falls back to the
  * `AWS_LBS_BASE_URL` environment variable.
@@ -96,7 +72,7 @@ export interface AwsReverseGeocodeResult {
  * @class AwsGeocoder
  * @since 1.2.2
  */
-export class AwsGeocoder {
+export class AwsGeocoder implements ReverseGeocoder {
   readonly baseUrl: string;
   readonly endpoint: string;
 
@@ -117,15 +93,15 @@ export class AwsGeocoder {
   /**
    * Performs reverse geocoding via the AWS Location Based Service.
    *
-   * @param latitude - Coordinate latitude.
+   * @param latitude  - Coordinate latitude.
    * @param longitude - Coordinate longitude.
-   * @returns Raw AWS response plus a standardized Brazilian address.
+   * @returns A provider-agnostic {@link GeoAddress} for the given coordinates.
    * @throws On invalid coordinates, network failure, or non-OK HTTP status.
    */
   async reverseGeocode(
     latitude: number,
     longitude: number,
-  ): Promise<AwsReverseGeocodeResult> {
+  ): Promise<GeoAddress> {
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
       throw new Error('(AwsGeocoder) Invalid coordinates');
     }
@@ -144,10 +120,7 @@ export class AwsGeocoder {
 
     const rawData = (await response.json()) as AwsReverseGeocodeResponse;
 
-    return {
-      rawData,
-      enderecoPadronizado: AwsGeocoder.toBrazilianStandardAddress(rawData),
-    };
+    return toGeoAddress(rawData);
   }
 
   private static resolveBaseUrlFromEnvironment(): string | undefined {
@@ -158,89 +131,5 @@ export class AwsGeocoder {
     };
 
     return processLike.process?.env?.AWS_LBS_BASE_URL;
-  }
-
-  private static toBrazilianStandardAddress(
-    rawData: AwsReverseGeocodeResponse,
-  ): BrazilianStandardAddress {
-    const address = rawData.address ?? {};
-    const { logradouro, bairro: labelBairro } = AwsGeocoder.parseLabel(
-      address.label,
-      address.addressNumber,
-      address.municipality,
-    );
-
-    return {
-      logradouro,
-      numero: address.addressNumber ?? null,
-      complemento: null,
-      bairro:
-        typeof address.neighborhood === 'string'
-          ? address.neighborhood
-          : labelBairro,
-      municipio:
-        typeof address.municipality === 'string'
-          ? address.municipality
-          : null,
-      regiaoMetropolitana: null,
-      uf: typeof address.region === 'string' ? address.region : null,
-      siglaUF: AwsGeocoder.resolveStateSigla(address.region),
-      cep:
-        typeof address.postalCode === 'string' ? address.postalCode : null,
-      pais: AwsGeocoder.normalizeCountry(address.country),
-    };
-  }
-
-  private static parseLabel(
-    label: unknown,
-    addressNumber: unknown,
-    municipality: unknown,
-  ): {
-    logradouro: string | null;
-    bairro: string | null;
-  } {
-    if (typeof label !== 'string' || label.length === 0) {
-      return { logradouro: null, bairro: null };
-    }
-
-    const parts = label.split(', ');
-    let logradouro: string | null = parts[0] ?? null;
-
-    if (logradouro && typeof addressNumber === 'string' && addressNumber) {
-      const suffix = ` ${addressNumber}`;
-      if (logradouro.endsWith(suffix)) {
-        logradouro = logradouro.slice(0, -suffix.length).trim() || null;
-      }
-    }
-
-    let bairro: string | null = null;
-    if (parts.length >= 2) {
-      const candidate = parts[1];
-      const isPostalCode = /^\d{5}-?\d{3}$/.test(candidate);
-      const isMunicipality =
-        typeof municipality === 'string' && candidate === municipality;
-
-      if (!isPostalCode && !isMunicipality) {
-        bairro = candidate;
-      }
-    }
-
-    return { logradouro, bairro };
-  }
-
-  private static resolveStateSigla(region: unknown): string | null {
-    if (typeof region !== 'string' || region.length === 0) {
-      return null;
-    }
-
-    return BRAZIL_STATE_SIGLAS.get(region) ?? null;
-  }
-
-  private static normalizeCountry(country: unknown): string {
-    if (typeof country !== 'string' || country.length === 0) {
-      return 'Brasil';
-    }
-
-    return BRAZIL_CODES.has(country) ? 'Brasil' : country;
   }
 }

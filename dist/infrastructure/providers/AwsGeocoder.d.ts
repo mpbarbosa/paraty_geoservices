@@ -2,12 +2,24 @@
  * AWS reverse geocoding provider.
  *
  * Concrete infrastructure adapter that calls an AWS Location Service-compatible
- * reverse-geocoding endpoint and returns both the raw response and a
- * standardized Brazilian address shape.
+ * reverse-geocoding endpoint and returns a provider-agnostic {@link GeoAddress}.
+ *
+ * Address-mapping logic is delegated to {@link AwsAddressMapper}, keeping this
+ * class focused on HTTP orchestration only.
  *
  * @module infrastructure/providers/AwsGeocoder
  * @since 1.2.2
  * @author Marcelo Pereira Barbosa
+ */
+import type { GeoAddress } from '../../domain/entities/GeoAddress';
+import type { ReverseGeocoder } from '../../domain/ports/ReverseGeocoder';
+/**
+ * Shape of a single address entry returned by the AWS Location Service API.
+ *
+ * This is the raw provider shape. Application code should use {@link GeoAddress}
+ * instead of consuming this type directly.
+ *
+ * @since 1.2.2
  */
 export interface AwsAddress {
     label?: string;
@@ -21,6 +33,15 @@ export interface AwsAddress {
     interpolated?: boolean;
     [key: string]: unknown;
 }
+/**
+ * Top-level response envelope returned by the AWS Location Service
+ * reverse-geocoding endpoint.
+ *
+ * This is the raw provider shape. Application code should use {@link GeoAddress}
+ * instead of consuming this type directly.
+ *
+ * @since 1.2.2
+ */
 export interface AwsReverseGeocodeResponse {
     provider?: string;
     coordinates?: {
@@ -34,24 +55,11 @@ export interface AwsReverseGeocodeResponse {
     };
     [key: string]: unknown;
 }
-export interface BrazilianStandardAddress {
-    logradouro: string | null;
-    numero: string | null;
-    complemento: string | null;
-    bairro: string | null;
-    municipio: string | null;
-    regiaoMetropolitana: string | null;
-    uf: string | null;
-    siglaUF: string | null;
-    cep: string | null;
-    pais: string;
-}
-export interface AwsReverseGeocodeResult {
-    rawData: AwsReverseGeocodeResponse;
-    enderecoPadronizado: BrazilianStandardAddress;
-}
 /**
  * Reverse geocoder that calls an AWS Location Service-compatible API.
+ *
+ * Implements the {@link ReverseGeocoder} port, making it injectable wherever
+ * that interface is required.
  *
  * When no `baseUrl` is provided, the constructor falls back to the
  * `AWS_LBS_BASE_URL` environment variable.
@@ -59,23 +67,19 @@ export interface AwsReverseGeocodeResult {
  * @class AwsGeocoder
  * @since 1.2.2
  */
-export declare class AwsGeocoder {
+export declare class AwsGeocoder implements ReverseGeocoder {
     readonly baseUrl: string;
     readonly endpoint: string;
     constructor(baseUrl?: string);
     /**
      * Performs reverse geocoding via the AWS Location Based Service.
      *
-     * @param latitude - Coordinate latitude.
+     * @param latitude  - Coordinate latitude.
      * @param longitude - Coordinate longitude.
-     * @returns Raw AWS response plus a standardized Brazilian address.
+     * @returns A provider-agnostic {@link GeoAddress} for the given coordinates.
      * @throws On invalid coordinates, network failure, or non-OK HTTP status.
      */
-    reverseGeocode(latitude: number, longitude: number): Promise<AwsReverseGeocodeResult>;
+    reverseGeocode(latitude: number, longitude: number): Promise<GeoAddress>;
     private static resolveBaseUrlFromEnvironment;
-    private static toBrazilianStandardAddress;
-    private static parseLabel;
-    private static resolveStateSigla;
-    private static normalizeCountry;
 }
 //# sourceMappingURL=AwsGeocoder.d.ts.map
