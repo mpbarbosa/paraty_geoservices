@@ -12,7 +12,7 @@
  * need an initial emission without a real device.
  *
  * @module infrastructure/providers/MockGeolocationProvider
- * @since 1.2.1
+ * @since 1.2.3
  * @author Marcelo Pereira Barbosa
  */
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -26,7 +26,7 @@ const GeolocationProvider_1 = __importDefault(require("../../domain/ports/Geoloc
  *
  * @class MockGeolocationProvider
  * @extends GeolocationProvider
- * @since 1.2.1
+ * @since 1.2.3
  */
 class MockGeolocationProvider extends GeolocationProvider_1.default {
     constructor(config = {}) {

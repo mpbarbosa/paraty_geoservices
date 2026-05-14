@@ -33,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `docs/contributing.md` to document the built-in mock provider and its role
   in the infrastructure layer.
 
-## [1.2.2] - 2026-05-11
+## [1.2.3] - 2026-05-11
 
 ### Changed
 
