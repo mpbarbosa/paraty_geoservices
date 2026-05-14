@@ -159,7 +159,6 @@ echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/esm/index.js"
 echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/types/src/index.d.ts"
 echo ""
 if [[ "${SKIP_NPM_PUBLISH}" != "true" ]]; then
-  echo -e "  ${GREEN}npm (dist-tag: ${NPM_TAG})${NC}"
   echo "    https://cdn.jsdelivr.net/npm/${PACKAGE_NAME}@${NPM_TAG}/dist/src/index.js"
   echo "    https://cdn.jsdelivr.net/npm/${PACKAGE_NAME}@${NPM_TAG}/dist/esm/index.js"
   echo ""
