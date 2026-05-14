@@ -103,6 +103,19 @@ if [[ "${TAG_EXISTS_LOCALLY}" == "false" ]]; then
   ok "Tests passed"
   echo ""
 
+  # ── Step 3/6 — Build (CJS + ESM) ───────────────────────────────────────────
+  info "Step 3/6 — Building CJS and ESM bundles …"
+  npm run build     || fail "CJS build failed. Aborting deploy."
+  npm run build:esm || fail "ESM build failed. Aborting deploy."
+  ok "Build complete (dist/ · dist/esm/)"
+  echo ""
+else
+  info "Step 1/6 — Skipped (tag already built locally)"
+  info "Step 2/6 — Skipped (tag already built locally)"
+  info "Step 3/6 — Skipped (tag already built locally)"
+  echo ""
+fi
+
 echo ""
 echo -e "${CYAN}${BOLD}▶ Building project...${NC}"
 npm run build
