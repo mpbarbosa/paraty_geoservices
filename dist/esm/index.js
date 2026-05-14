@@ -13,5 +13,6 @@ export { GeolocationProvider } from './domain/ports/GeolocationProvider';
 export { GetCurrentPositionUseCase } from './application/use-cases/GetCurrentPositionUseCase';
 export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCase';
 // Infrastructure — concrete adapters
+export { AwsGeocoder } from './infrastructure/providers/AwsGeocoder';
 export { BrowserGeolocationProvider } from './infrastructure/providers/BrowserGeolocationProvider';
 export { MockGeolocationProvider } from './infrastructure/providers/MockGeolocationProvider';

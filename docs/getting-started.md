@@ -81,6 +81,22 @@ const output = await useCase.execute();
 console.log(output.position.coords.latitude);
 ```
 
+If you need reverse geocoding against an AWS Location Service-compatible
+endpoint, the library also ships with an HTTP adapter:
+
+```typescript
+import { AwsGeocoder } from 'paraty_geoservices';
+
+const geocoder = new AwsGeocoder(process.env.AWS_LBS_BASE_URL);
+const result = await geocoder.reverseGeocode(-23.55052, -46.633309);
+
+console.log(result.enderecoPadronizado.cep);
+```
+
+`AwsGeocoder` sends a `POST` request to
+`<baseUrl>/api/geocode/reverse`. You can either pass the base URL explicitly or
+set the `AWS_LBS_BASE_URL` environment variable.
+
 ### 2. Get the current position (once)
 
 ```typescript

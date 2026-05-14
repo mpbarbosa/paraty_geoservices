@@ -21,5 +21,12 @@ export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCa
 export type { GetCurrentPositionOutput } from './application/dtos/GetCurrentPositionOutput';
 
 // Infrastructure — concrete adapters
+export { AwsGeocoder } from './infrastructure/providers/AwsGeocoder';
+export type {
+  AwsAddress,
+  AwsReverseGeocodeResponse,
+  AwsReverseGeocodeResult,
+  BrazilianStandardAddress,
+} from './infrastructure/providers/AwsGeocoder';
 export { BrowserGeolocationProvider } from './infrastructure/providers/BrowserGeolocationProvider';
 export { MockGeolocationProvider } from './infrastructure/providers/MockGeolocationProvider';

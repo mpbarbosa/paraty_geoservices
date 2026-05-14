@@ -11,11 +11,46 @@ npm install paraty_geoservices
 ## Usage
 
 ```typescript
-import { reverseGeocode } from 'paraty_geoservices';
+import { AwsGeocoder } from 'paraty_geoservices';
 
-const result = await reverseGeocode({ latitude: 40.7128, longitude: -74.0060 });
+const geocoder = new AwsGeocoder('https://your-service.example.com');
+const result = await geocoder.reverseGeocode(-23.55052, -46.633309);
+
 console.log(result);
 ```
+
+---
+
+## AwsGeocoder
+
+`AwsGeocoder` is an infrastructure adapter for AWS Location Service-compatible
+reverse geocoding endpoints. It sends a `POST` request to
+`<baseUrl>/api/geocode/reverse` and returns both the raw payload and a
+standardized Brazilian address object.
+
+### Exported symbols
+
+| Symbol | Kind | Description |
+|---|---|---|
+| `AwsGeocoder` | `class` | Reverse-geocodes coordinates through an AWS-compatible endpoint |
+| `AwsAddress` | `interface` | Raw AWS address object shape |
+| `AwsReverseGeocodeResponse` | `interface` | Raw reverse-geocoding response shape |
+| `BrazilianStandardAddress` | `interface` | Normalized Brazilian address returned by `reverseGeocode()` |
+| `AwsReverseGeocodeResult` | `interface` | Result wrapper containing `rawData` and `enderecoPadronizado` |
+
+### Example
+
+```typescript
+import { AwsGeocoder } from 'paraty_geoservices';
+
+const geocoder = new AwsGeocoder(process.env.AWS_LBS_BASE_URL);
+const result = await geocoder.reverseGeocode(-23.55052, -46.633309);
+
+console.log(result.enderecoPadronizado.municipio); // São Paulo
+```
+
+If you omit the constructor argument, `AwsGeocoder` reads the base URL from the
+`AWS_LBS_BASE_URL` environment variable.
 
 ---
 

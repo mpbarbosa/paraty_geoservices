@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `AwsGeocoder` in `src/infrastructure/providers/AwsGeocoder.ts` for AWS
+  Location Service-compatible reverse geocoding with standardized Brazilian
+  address output.
+- `test/infrastructure/providers/AwsGeocoder.test.ts` covering constructor
+  configuration, HTTP requests, normalized address output, error paths, zero
+  coordinates, and the package root re-export.
+- Public re-exports for `AwsGeocoder` and its result types from the
+  infrastructure barrels and the package root.
 - `MockGeolocationProvider` in `src/infrastructure/providers/MockGeolocationProvider.ts`
   for deterministic tests and local development.
 - `test/infrastructure/providers/MockGeolocationProvider.test.ts` covering
@@ -19,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `README.md`, `docs/architecture.md`, `docs/getting-started.md`, and
+  `docs/contributing.md` to document the AWS reverse-geocoding adapter.
 - `docs/architecture.md`, `docs/getting-started.md`, and
   `docs/contributing.md` to document the built-in mock provider and its role
   in the infrastructure layer.

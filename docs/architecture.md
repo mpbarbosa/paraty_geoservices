@@ -7,6 +7,7 @@
 ```
 ┌──────────────────────────────────────────────────┐
 │              Infrastructure                       │
+│  AwsGeocoder                                      │
 │  BrowserGeolocationProvider                       │
 │  MockGeolocationProvider                          │
 │                                                   │
@@ -93,8 +94,14 @@ Concrete adapters that connect the domain ports to real external systems.
 
 | File | Class | Adapts |
 |---|---|---|
+| `providers/AwsGeocoder.ts` | `AwsGeocoder` | AWS Location Service-compatible reverse-geocoding HTTP endpoint, returning raw payloads plus standardized Brazilian addresses |
 | `providers/BrowserGeolocationProvider.ts` | `BrowserGeolocationProvider` | `navigator.geolocation` (Web Geolocation API), with optional navigator injection for tests and custom runtimes |
 | `providers/MockGeolocationProvider.ts` | `MockGeolocationProvider` | Deterministic in-memory positions/errors for tests and local development |
+
+`AwsGeocoder` is the HTTP-facing reverse-geocoding adapter. It calls an
+AWS-compatible `/api/geocode/reverse` endpoint, accepts an explicit base URL or
+falls back to `AWS_LBS_BASE_URL`, and normalizes the returned address into a
+Brazilian-friendly structure for downstream consumers.
 
 `BrowserGeolocationProvider` is the browser-facing adapter. It can either use the ambient global `navigator` or accept an injected navigator in its constructor, and it exposes the concrete helper methods `isPermissionsAPISupported()` and `getNavigator()` for capability checks and advanced integration scenarios.
 

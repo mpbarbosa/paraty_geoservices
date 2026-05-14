@@ -15,5 +15,7 @@ export { GeolocationProvider } from './domain/ports/GeolocationProvider';
 export { GetCurrentPositionUseCase } from './application/use-cases/GetCurrentPositionUseCase';
 export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCase';
 export type { GetCurrentPositionOutput } from './application/dtos/GetCurrentPositionOutput';
+export { AwsGeocoder } from './infrastructure/providers/AwsGeocoder';
+export type { AwsAddress, AwsReverseGeocodeResponse, AwsReverseGeocodeResult, BrazilianStandardAddress, } from './infrastructure/providers/AwsGeocoder';
 export { BrowserGeolocationProvider } from './infrastructure/providers/BrowserGeolocationProvider';
 export { MockGeolocationProvider } from './infrastructure/providers/MockGeolocationProvider';

@@ -32,7 +32,7 @@ src/
 │   ├── dtos/              Use-case output shapes
 │   └── use-cases/         GetCurrentPositionUseCase, WatchPositionUseCase
 ├── infrastructure/
-│   └── providers/         BrowserGeolocationProvider, MockGeolocationProvider
+│   └── providers/         AwsGeocoder, BrowserGeolocationProvider, MockGeolocationProvider
 └── index.ts               Public barrel — re-exports everything
 test/
 └── infrastructure/
@@ -56,6 +56,7 @@ See [`architecture.md`](./architecture.md) for a full explanation of each layer.
 4. Re-export from `src/infrastructure/providers/index.ts` and `src/infrastructure/index.ts`.
 5. Add corresponding tests in `test/infrastructure/providers/<Name>Provider.test.ts`.
 6. Prefer `MockGeolocationProvider` in higher-level tests when you need deterministic positions, delayed callbacks, or manual watch updates without a browser runtime.
+7. For HTTP-backed adapters such as `AwsGeocoder`, keep network concerns in the infrastructure layer and document any required environment variables or constructor configuration in `README.md` and `docs/getting-started.md`.
 
 ---
 
