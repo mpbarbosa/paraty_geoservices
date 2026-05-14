@@ -55,17 +55,6 @@ GH_REPO="mpbarbosa/paraty_geoservices"
 REPO_URL="$(git remote get-url origin)"
 REPO="$(echo "$REPO_URL" | sed -E 's|.*github\.com[:/]([^/]+/[^/]+?)(\.git)?$|\1|')"
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-STASHED=false
-
-cleanup() {
-  local exit_code=$?
-  trap - EXIT
-  git checkout "$CURRENT_BRANCH" 2>/dev/null || true
-  git branch -D "release/${TAG}" 2>/dev/null || true
-  [[ "$STASHED" == true ]] && { git stash pop 2>/dev/null || true; }
-  exit $exit_code
-}
-trap cleanup EXIT
 
 echo ""
 echo -e "${BLUE}╔══════════════════════════════════════════╗${NC}"
