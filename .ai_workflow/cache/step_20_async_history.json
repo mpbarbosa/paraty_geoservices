@@ -25,6 +25,10 @@
       "mtimeMs": 1778522588287,
       "hasAsyncPatterns": false
     },
+    "src/domain/entities/GeoAddress.ts": {
+      "mtimeMs": 1778793236591,
+      "hasAsyncPatterns": false
+    },
     "src/domain/entities/GeoPosition.ts": {
       "mtimeMs": 1778543365151,
       "hasAsyncPatterns": false
@@ -38,39 +42,51 @@
       "hasAsyncPatterns": false
     },
     "src/domain/entities/index.ts": {
-      "mtimeMs": 1778522588288,
+      "mtimeMs": 1778793236591,
       "hasAsyncPatterns": false
     },
     "src/domain/index.ts": {
-      "mtimeMs": 1778522588288,
+      "mtimeMs": 1778793236591,
       "hasAsyncPatterns": false
     },
     "src/domain/ports/GeolocationProvider.ts": {
       "mtimeMs": 1778543365155,
       "hasAsyncPatterns": false
     },
+    "src/domain/ports/ReverseGeocoder.ts": {
+      "mtimeMs": 1778793236591,
+      "hasAsyncPatterns": true
+    },
     "src/domain/ports/index.ts": {
-      "mtimeMs": 1778522588288,
+      "mtimeMs": 1778793236591,
       "hasAsyncPatterns": false
     },
     "src/index.ts": {
-      "mtimeMs": 1778610174135,
+      "mtimeMs": 1778793236591,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/index.ts": {
-      "mtimeMs": 1778610174135,
+      "mtimeMs": 1778793236591,
       "hasAsyncPatterns": false
+    },
+    "src/infrastructure/providers/AwsAddressMapper.ts": {
+      "mtimeMs": 1778793236592,
+      "hasAsyncPatterns": false
+    },
+    "src/infrastructure/providers/AwsGeocoder.ts": {
+      "mtimeMs": 1778793236592,
+      "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/BrowserGeolocationProvider.ts": {
       "mtimeMs": 1778550647527,
       "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/MockGeolocationProvider.ts": {
-      "mtimeMs": 1778637886793,
+      "mtimeMs": 1778794422646,
       "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/index.ts": {
-      "mtimeMs": 1778610174136,
+      "mtimeMs": 1778793236592,
       "hasAsyncPatterns": false
     }
   }

@@ -90,6 +90,16 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-13T02:04:35.660Z"
+    },
+    "src/domain/entities/GeoAddress.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-14T21:33:24.605Z"
+    },
+    "src/domain/ports/ReverseGeocoder.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-14T21:33:24.605Z"
     }
   }
 }
