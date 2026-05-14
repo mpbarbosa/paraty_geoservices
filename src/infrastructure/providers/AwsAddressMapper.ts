@@ -5,7 +5,7 @@
  * them independently testable and reusable without instantiating AwsGeocoder.
  *
  * @module infrastructure/providers/AwsAddressMapper
- * @since 1.2.3
+ * @since 1.2.4
  * @author Marcelo Pereira Barbosa
  */
 
