@@ -8,7 +8,7 @@
  * class focused on HTTP orchestration only.
  *
  * @module infrastructure/providers/AwsGeocoder
- * @since 1.2.2
+ * @since 1.2.3
  * @author Marcelo Pereira Barbosa
  */
 import type { GeoAddress } from '../../domain/entities/GeoAddress';
@@ -19,7 +19,7 @@ import type { ReverseGeocoder } from '../../domain/ports/ReverseGeocoder';
  * This is the raw provider shape. Application code should use {@link GeoAddress}
  * instead of consuming this type directly.
  *
- * @since 1.2.2
+ * @since 1.2.3
  */
 export interface AwsAddress {
     label?: string;
@@ -40,7 +40,7 @@ export interface AwsAddress {
  * This is the raw provider shape. Application code should use {@link GeoAddress}
  * instead of consuming this type directly.
  *
- * @since 1.2.2
+ * @since 1.2.3
  */
 export interface AwsReverseGeocodeResponse {
     provider?: string;
@@ -65,7 +65,7 @@ export interface AwsReverseGeocodeResponse {
  * `AWS_LBS_BASE_URL` environment variable.
  *
  * @class AwsGeocoder
- * @since 1.2.2
+ * @since 1.2.3
  */
 export declare class AwsGeocoder implements ReverseGeocoder {
     readonly baseUrl: string;
