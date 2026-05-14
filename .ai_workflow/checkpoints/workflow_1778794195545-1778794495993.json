@@ -1,0 +1,3414 @@
+{
+  "version": "1.0.0",
+  "workflowId": "workflow_1778794195545",
+  "workflowVersion": "2.0.0",
+  "timestamp": 1778794495993,
+  "state": {
+    "currentStep": null,
+    "completedSteps": [],
+    "failedSteps": [],
+    "skippedSteps": [],
+    "results": {
+      "step_00": {
+        "stepId": "step_00",
+        "stepName": "Pre-Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "analysis": {
+            "commitsAhead": 0,
+            "modifiedFiles": 2,
+            "modifiedFilesList": [
+              ".ai_workflow/metrics/current_run.json",
+              ".ai_workflow/preflight_baseline.json"
+            ],
+            "changeScope": "mixed-changes",
+            "fileCounts": {
+              "documentation": 0,
+              "test": 0,
+              "source": 0,
+              "config": 0,
+              "workflow_artifact": 0
+            },
+            "categorizedFiles": {
+              "documentation": [],
+              "test": [],
+              "source": [],
+              "config": [],
+              "workflow_artifact": []
+            },
+            "projectKind": {
+              "kind": "nodejs_api",
+              "confidence": 100,
+              "source": "config",
+              "description": "nodejs_api"
+            },
+            "techStack": {
+              "primary_language": "typescript",
+              "languages": [
+                "typescript",
+                "markdown",
+                "json",
+                "html",
+                "javascript",
+                "css",
+                "bash",
+                "yaml"
+              ],
+              "frameworks": [
+                {
+                  "name": "Jest",
+                  "type": "test-framework",
+                  "version": "^30.4.2",
+                  "package": "jest"
+                }
+              ],
+              "build_system": "npm",
+              "build_files": [
+                "package.json",
+                "package-lock.json"
+              ],
+              "test_framework": "jest",
+              "test_command": "npm test",
+              "linters": [
+                {
+                  "name": "shellcheck",
+                  "configFile": null
+                }
+              ],
+              "detected_at": "2026-05-14T21:29:55.615Z",
+              "primaryLanguage": "typescript",
+              "buildSystem": "npm",
+              "testFramework": "jest",
+              "testCommand": "npm test"
+            },
+            "smokeTest": null,
+            "timestamp": 1778794195617
+          },
+          "contextUpdate": {
+            "projectType": "nodejs_api",
+            "modifiedFiles": [
+              ".ai_workflow/metrics/current_run.json",
+              ".ai_workflow/preflight_baseline.json"
+            ],
+            "categorizedFiles": {
+              "documentation": [],
+              "test": [],
+              "source": [],
+              "config": [],
+              "workflow_artifact": []
+            },
+            "fileCounts": {
+              "documentation": 0,
+              "test": 0,
+              "source": 0,
+              "config": 0,
+              "workflow_artifact": 0
+            },
+            "changeScope": "mixed-changes",
+            "commitsAhead": 0
+          }
+        },
+        "duration": 75,
+        "degraded": false
+      },
+      "step_0b": {
+        "stepId": "step_0b",
+        "stepName": "Bootstrap Documentation",
+        "success": true,
+        "skipped": true,
+        "reason": "sufficient_docs",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "sufficient_docs"
+        },
+        "duration": 17,
+        "degraded": false
+      },
+      "step_01": {
+        "stepId": "step_01",
+        "stepName": "Documentation Updates",
+        "success": true,
+        "skipped": true,
+        "reason": "not_needed",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "not_needed",
+          "classification": {
+            "documentation": [],
+            "source": [],
+            "tests": [],
+            "config": [],
+            "counts": {
+              "documentation": 0,
+              "source": 0,
+              "tests": 0,
+              "config": 0,
+              "total": 0
+            }
+          }
+        },
+        "duration": 9,
+        "degraded": false
+      },
+      "step_01_5": {
+        "stepId": "step_01_5",
+        "stepName": "Copilot Instructions Validation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "updated": true,
+          "file": ".github/copilot-instructions.md",
+          "facts": {
+            "packageManifestPresent": true,
+            "packageName": "paraty_geoservices",
+            "packageVersion": "1.2.1",
+            "packageDescription": "A reverse geocoding service library developed in TypeScript and Node.js.",
+            "packageExports": [
+              "main -> dist/index.js",
+              "types -> dist/index.d.ts"
+            ],
+            "validationCommands": {
+              "Test": "npm test",
+              "Build": "npm run build"
+            },
+            "referenceDocSignals": [
+              "CHANGELOG.md: All notable changes to this project will be documented in this file.",
+              "README.md: A reverse geocoding service library developed in TypeScript and Node.js."
+            ],
+            "referenceDocs": [
+              "CHANGELOG.md",
+              "README.md"
+            ],
+            "sourceLayers": [
+              {
+                "path": "src/",
+                "purpose": "Primary source modules and public API"
+              },
+              {
+                "path": "src/application/",
+                "purpose": "Project source submodule"
+              },
+              {
+                "path": "src/domain/",
+                "purpose": "Project source submodule"
+              },
+              {
+                "path": "src/infrastructure/",
+                "purpose": "Project source submodule"
+              }
+            ],
+            "supportingSurfaces": [
+              {
+                "path": ".workflow-config.yaml",
+                "purpose": "Project-local workflow configuration"
+              },
+              {
+                "path": ".ai_workflow/",
+                "purpose": "Runtime artifacts, cache, and checkpoints"
+              }
+            ]
+          },
+          "findings": "Structured findings could not be trusted.\n\nValidation issues:\n- ### Finding 2 - Architecture and Source Layout uses unsupported action \"keep (condense for clarity)\".\n- ### Finding 3 - Design Guidance (Best Practices) uses unsupported action \"keep (as generic, non-project-specific advice)\".\n- ### Finding 6 - Build Artifacts Section uses unsupported classification \"supported guidance (with minor rewrite)\".\n- ### Finding 6 - Build Artifacts Section uses unsupported action \"rewrite (condense, clarify)\".\n- ### Finding 8 - Redundant or Duplicated Content uses unsupported action \"no action needed\".\n\nSee the raw AI response below for the untrusted original output.\n",
+          "findingsValid": false,
+          "findingsValidationIssues": [
+            "### Finding 2 - Architecture and Source Layout uses unsupported action \"keep (condense for clarity)\".",
+            "### Finding 3 - Design Guidance (Best Practices) uses unsupported action \"keep (as generic, non-project-specific advice)\".",
+            "### Finding 6 - Build Artifacts Section uses unsupported classification \"supported guidance (with minor rewrite)\".",
+            "### Finding 6 - Build Artifacts Section uses unsupported action \"rewrite (condense, clarify)\".",
+            "### Finding 8 - Redundant or Duplicated Content uses unsupported action \"no action needed\"."
+          ]
+        },
+        "duration": 16616,
+        "degraded": false
+      },
+      "step_02": {
+        "stepId": "step_02",
+        "stepName": "Consistency Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "filesChecked": 19,
+          "totalIssues": 7,
+          "brokenLinks": [],
+          "brokenLinkCandidates": 0,
+          "confirmedBrokenLinks": 0,
+          "falsePositiveBrokenLinks": 0,
+          "unverifiedBrokenLinks": 0,
+          "versionIssues": [
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/CHANGELOG.md",
+              "found": "1.0.2",
+              "expected": "1.2.1",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "found": "v1.0.0",
+              "expected": "1.2.1",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "found": "1.0.0",
+              "expected": "1.2.1",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "found": "1.0.0",
+              "expected": "1.2.1",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "found": "1.0.0",
+              "expected": "1.2.1",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "found": "1.0.0",
+              "expected": "1.2.1",
+              "type": "invalid_version"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "found": "1.0.0",
+              "expected": "1.2.1",
+              "type": "invalid_version"
+            }
+          ],
+          "degradedAiPartitions": 0,
+          "warnings": []
+        },
+        "duration": 35473,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_04": {
+        "stepId": "step_04",
+        "stepName": "Configuration Validation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "filesChecked": 5,
+          "syntaxErrors": [],
+          "securityFindings": [],
+          "bestPracticeIssues": [],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 25786,
+        "degraded": false
+      },
+      "step_05": {
+        "stepId": "step_05",
+        "stepName": "Directory Structure",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "totalDirs": 22,
+          "misplacedDocs": 0,
+          "organizedDocs": 0,
+          "issues": [
+            {
+              "type": "undocumented",
+              "directory": ".github",
+              "message": "Undocumented directory: .github"
+            },
+            {
+              "type": "undocumented",
+              "directory": ".github/skills",
+              "message": "Undocumented directory: .github/skills"
+            },
+            {
+              "type": "undocumented",
+              "directory": ".github/skills/next-roadmap-step",
+              "message": "Undocumented directory: .github/skills/next-roadmap-step"
+            },
+            {
+              "type": "undocumented",
+              "directory": "scripts",
+              "message": "Undocumented directory: scripts"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/application/dtos",
+              "message": "Undocumented directory: src/application/dtos"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/application/use-cases",
+              "message": "Undocumented directory: src/application/use-cases"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/domain/entities",
+              "message": "Undocumented directory: src/domain/entities"
+            },
+            {
+              "type": "undocumented",
+              "directory": "src/domain/ports",
+              "message": "Undocumented directory: src/domain/ports"
+            },
+            {
+              "type": "undocumented",
+              "directory": "test/application/dtos",
+              "message": "Undocumented directory: test/application/dtos"
+            },
+            {
+              "type": "undocumented",
+              "directory": "test/application/use-cases",
+              "message": "Undocumented directory: test/application/use-cases"
+            },
+            {
+              "type": "undocumented",
+              "directory": "test/domain/entities",
+              "message": "Undocumented directory: test/domain/entities"
+            }
+          ],
+          "missingCritical": 0,
+          "undocumented": 11,
+          "docMismatch": 0,
+          "existingDirs": [
+            ".github",
+            ".github/skills",
+            ".github/skills/next-roadmap-step",
+            "docs",
+            "scripts",
+            "src",
+            "src/application",
+            "src/application/dtos",
+            "src/application/use-cases",
+            "src/domain",
+            "src/domain/entities",
+            "src/domain/ports",
+            "src/infrastructure",
+            "src/infrastructure/providers",
+            "test",
+            "test/application",
+            "test/application/dtos",
+            "test/application/use-cases",
+            "test/domain",
+            "test/domain/entities",
+            "test/infrastructure",
+            "test/infrastructure/providers"
+          ],
+          "documentationFiles": [
+            {
+              "path": "README.md",
+              "content": "# paraty_geoservices\n\nA reverse geocoding service library developed in TypeScript and Node.js.\n\n## Installation\n\n```bash\nnpm install paraty_geoservices\n```\n\n## Usage\n\n```typescript\nimport { AwsGeocoder } from 'paraty_geoservices';\n\nconst geocoder = new AwsGeocoder('https://your-service.example.com');\nconst result = await geocoder.reverseGeocode(-23.55052, -46.633309);\n\nconsole.log(result);\n```\n\n---\n\n## AwsGeocoder\n\n`AwsGeocoder` is an infrastructure adapter for AWS Location Service-compatible\nreverse geocoding endpoints. It sends a `POST` request to\n`<baseUrl>/api/geocode/reverse` and returns both the raw payload and a\nstandardized Brazilian address object.\n\n### Exported symbols\n\n| Symbol | Kind | Description |\n|---|---|---|\n| `AwsGeocoder` | `class` | Reverse-geocodes coordinates through an AWS-compatible endpoint |\n| `AwsAddress` | `interface` | Raw AWS address object shape |\n| `AwsReverseGeocodeResponse` | `interface` | Raw reverse-geocoding response shape |\n| `BrazilianStandardAddress` | `interface` | Normalized Brazilian address returned by `reverseGeocode()` |\n| `AwsReverseGeocodeResult` | `interface` | Result wrapper containing `rawData` and `enderecoPadronizado` |\n\n### Example\n\n```typescript\nimport { AwsGeocoder } from 'paraty_geoservices';\n\nconst geocoder = new AwsGeocoder(process.env.AWS_LBS_BASE_URL);\nconst result = await geocoder.reverseGeocode(-23.55052, -46.633309);\n\nconsole.log(result.enderecoPadronizado.municipio); // São Paulo\n```\n\nIf you omit the constructor argument, `AwsGeocoder` reads the base URL from the\n`AWS_LBS_BASE_URL` environment variable.\n\n---\n\n## GeolocationProvider\n\n`GeolocationProvider` is an **abstract base class** that defines the contract all geolocation providers must implement. It enables dependency injection and decouples consumers from concrete location sources (browser Geolocation API, GPS hardware, mocks, etc.).\n\n### Exported symbols\n\n| Symbol | Kind | Description |\n|---|---|---|\n| `GeolocationProvider` | `abstract class` | Base class every provider must extend |\n| `GeoPosition` | `interface` | Shape of an acquired position object |\n| `GeoPositionError` | `interface` | Shape of a geolocation error |\n| `GeoPositionOptions` | `interface` | Options for position acquisition |\n\n### Creating a custom provider\n\nExtend `GeolocationProvider` and implement all four abstract methods:\n\n```typescript\nimport GeolocationProvider, {\n  GeoPosition,\n  GeoPositionError,\n  GeoPositionOptions,\n} from 'paraty_geoservices/GeolocationProvider';\n\nclass BrowserGeolocationProvider extends GeolocationProvider {\n  isSupported(): boolean {\n    return typeof navigator !== 'undefined' && 'geolocation' in navigator;\n  }\n\n  getCurrentPosition(\n    successCallback: (pos: GeoPosition) => void,\n    errorCallback: (err: GeoPositionError) => void,\n    options?: GeoPositionOptions,\n  ): void {\n    navigator.geolocation.getCurrentPosition(\n      successCallback as PositionCallback,\n      errorCallback as PositionErrorCallback,\n      options,\n    );\n  }\n\n  watchPosition(\n    successCallback: (pos: GeoPosition) => void,\n    errorCallback: (err: GeoPositionError) => void,\n    options?: GeoPositionOptions,\n  ): number | null {\n    if (!this.isSupported()) return null;\n    return navigator.geolocation.watchPosition(\n      successCallback as PositionCallback,\n      errorCallback as PositionErrorCallback,\n      options,\n    );\n  }\n\n  clearWatch(watchId: number): void {\n    navigator.geolocation.clearWatch(watchId);\n  }\n}\n```\n\n### API reference\n\n#### `getCurrentPosition(successCallback, errorCallback, options?)`\n\nRequests the device position once.\n\n| Parameter | Type | Description |\n|---|---|---|\n| `successCallback` | `(pos: GeoPosition) => void` | Called with the acquired position |\n| `errorCallback` | `(err: GeoPositionError) => void` | Called when acquisition fails |\n| `options` | `GeoPositionOptions` *(optional)* | Accuracy, timeout, and caching hints |\n\n#### `watchPosition(successCallback, errorCallback, options?)`\n\nSubscribes to continuous position updates. Returns a watch ID (or `null` if unsupported).\n\n#### `clearWatch(watchId)`\n\nCancels a subscription started by `watchPosition`.\n\n#### `isSupported()`\n\nReturns `true` if the provider can supply geolocation data in the current environment.\n\n---\n\n## Development\n\n```bash\nnpm test              # run unit tests\nnpm run test:coverage # run tests with coverage report\nnpm run build         # compile TypeScript to dist/\n"
+            },
+            {
+              "path": ".github/copilot-instructions.md",
+              "content": "# Copilot Guidance — paraty_geoservices\n\nThis file provides durable, high-signal guidance for Copilot-assisted development in this repository. For implementation details and up-to-date reference, see the authoritative docs listed below.\n\n## Project Purpose\n\n`paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.\n\n## Architecture and Source Layout\n\n- The codebase is organized into stable source layers:\n  - `src/` (primary source modules and public API)\n  - `src/application/`\n  - `src/domain/`\n  - `src/infrastructure/`\n- Maintain clear separation between these layers. Place new modules in the appropriate subdirectory.\n\n## Design Guidance\n\n- Follow standard software engineering best practices for modularity and separation of concerns.\n- When in doubt about architecture or dependencies, consult the authoritative documentation.\n\n## Validation\n\n- Run tests with: `npm test`\n- Build the project with: `npm run build`\n\n## Reference Documentation\n\n- For project overview and usage, see `README.md`.\n- For notable changes, see `CHANGELOG.md`.\n\n## Build Artifacts\n\n- Main entry point: `dist/index.js`\n- Type definitions: `dist/index.d.ts`\n- Do not edit files in `dist/`; they are generated output.\n\n## Workflow Surfaces\n\n- Workflow configuration: `.workflow-config.yaml`\n- Runtime artifacts and cache: `.ai_workflow/`\n"
+            },
+            {
+              "path": "docs/README.md",
+              "content": "# Documentation\n\nThis folder contains all project documentation.\n\n| File / Folder | Description |\n|---|---|\n| [`architecture.md`](./architecture.md) | Clean Architecture overview and layer responsibilities |\n| [`getting-started.md`](./getting-started.md) | Installation, quick-start guide, and common patterns |\n| [`contributing.md`](./contributing.md) | Development setup, coding standards, and PR workflow |\n| [`HIGH_COHESION_GUIDE.md`](./HIGH_COHESION_GUIDE.md) | Design rules for keeping modules focused and single-purpose |\n| [`LOW_COUPLING_GUIDE.md`](./LOW_COUPLING_GUIDE.md) | Design rules for keeping dependencies explicit and narrow |\n| [`REFERENTIAL_TRANSPARENCY.md`](./REFERENTIAL_TRANSPARENCY.md) | Design rules for deterministic, side-effect-free logic |\n| [`api/`](./api/index.html) | Auto-generated TypeDoc API reference — open `api/index.html` in a browser |\n\n## Regenerating the API reference\n\n```bash\nnpm run docs\n```\n\nThe HTML output is written to `docs/api/`.\n"
+            }
+          ],
+          "warnings": []
+        },
+        "duration": 14557,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_06": {
+        "stepId": "step_06",
+        "stepName": "Test Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "testFiles": [
+            "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+            "src/application/use-cases/WatchPositionUseCase.test.ts",
+            "src/domain/ports/GeolocationProvider.test.ts",
+            "test/application/dtos/GetCurrentPositionOutput.test.ts",
+            "test/application/dtos/index.test.ts",
+            "test/application/index.test.ts",
+            "test/application/use-cases/index.test.ts",
+            "test/domain/entities/GeoPosition.test.ts",
+            "test/domain/entities/GeoPositionError.test.ts",
+            "test/domain/entities/GeoPositionOptions.test.ts",
+            "test/infrastructure/providers/AwsAddressMapper.test.ts",
+            "test/infrastructure/providers/AwsGeocoder.test.ts",
+            "test/infrastructure/providers/BrowserGeolocationProvider.test.ts",
+            "test/infrastructure/providers/MockGeolocationProvider.test.ts"
+          ],
+          "categories": {
+            "unit": [],
+            "integration": [],
+            "e2e": [],
+            "other": [
+              "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+              "src/application/use-cases/WatchPositionUseCase.test.ts",
+              "src/domain/ports/GeolocationProvider.test.ts",
+              "test/application/dtos/GetCurrentPositionOutput.test.ts",
+              "test/application/dtos/index.test.ts",
+              "test/application/index.test.ts",
+              "test/application/use-cases/index.test.ts",
+              "test/domain/entities/GeoPosition.test.ts",
+              "test/domain/entities/GeoPositionError.test.ts",
+              "test/domain/entities/GeoPositionOptions.test.ts",
+              "test/infrastructure/providers/AwsAddressMapper.test.ts",
+              "test/infrastructure/providers/AwsGeocoder.test.ts",
+              "test/infrastructure/providers/BrowserGeolocationProvider.test.ts",
+              "test/infrastructure/providers/MockGeolocationProvider.test.ts"
+            ]
+          },
+          "statistics": {
+            "totalTests": 14,
+            "unitTests": 0,
+            "integrationTests": 0,
+            "e2eTests": 0,
+            "otherTests": 14,
+            "totalLines": 1752,
+            "averageLinesPerTest": 125
+          },
+          "coverage": {
+            "found": false,
+            "path": null,
+            "percentage": null
+          },
+          "issues": [
+            {
+              "type": "no_coverage_report",
+              "message": "No coverage reports found - consider generating coverage data"
+            },
+            {
+              "type": "missing_tests",
+              "message": "No unit tests found - consider adding unit tests"
+            }
+          ],
+          "reviewCoverage": "AI review covered partition 1/4 (3 files)"
+        },
+        "duration": 23041,
+        "degraded": false
+      },
+      "step_07": {
+        "stepId": "step_07",
+        "stepName": "Test Generation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "totalSourceFiles": 25,
+          "totalTestFiles": 14,
+          "rawUntestedFiles": [
+            "src/domain/entities/GeoAddress.ts",
+            "src/domain/ports/ReverseGeocoder.ts"
+          ],
+          "untestedFiles": [
+            "src/domain/entities/GeoAddress.ts",
+            "src/domain/ports/ReverseGeocoder.ts"
+          ],
+          "excludedUntestedFiles": [],
+          "coveragePercentage": 92,
+          "categories": {
+            "src": [
+              "src/domain/entities/GeoAddress.ts",
+              "src/domain/ports/ReverseGeocoder.ts"
+            ]
+          },
+          "generatedFiles": []
+        },
+        "duration": 42841,
+        "degraded": false
+      },
+      "step_08": {
+        "stepId": "step_08",
+        "stepName": "Test Execution",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "noTestsFound": false,
+          "language": "typescript",
+          "testResults": {
+            "total": 120,
+            "passed": 120,
+            "failed": 0,
+            "skipped": 0,
+            "suitesFailed": 0,
+            "suitesTotal": 14
+          },
+          "coverage": {},
+          "duration": 1415,
+          "exitCode": 0
+        },
+        "duration": 17871,
+        "degraded": false
+      },
+      "step_09": {
+        "stepId": "step_09",
+        "stepName": "Dependency Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "hasSecurityIssues": false,
+          "language": "typescript",
+          "dependencyCounts": {
+            "total": 6,
+            "production": 0,
+            "development": 6,
+            "peer": 0,
+            "dependencies": {},
+            "devDependencies": {
+              "@types/jest": "^30.0.0",
+              "@types/node": "^25.6.2",
+              "jest": "^30.4.2",
+              "ts-jest": "^29.4.9",
+              "typedoc": "^0.28.19",
+              "typescript": "^6.0.3"
+            }
+          },
+          "vulnerabilities": {
+            "summary": {
+              "total": 0,
+              "critical": 0,
+              "high": 0,
+              "moderate": 0,
+              "low": 0,
+              "info": 0
+            },
+            "packages": []
+          },
+          "outdatedPackages": [],
+          "lockfileIssues": [],
+          "dryRunIssues": [],
+          "skipped": false
+        },
+        "duration": 1432,
+        "degraded": false
+      },
+      "step_03": {
+        "stepId": "step_03",
+        "stepName": "Script References",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "scriptsFound": 2,
+          "referencesChecked": 0,
+          "totalIssues": 2,
+          "missingReferences": [],
+          "nonExecutable": [],
+          "undocumented": [
+            "scripts/deploy.sh",
+            "scripts/run-docker-tests.sh"
+          ],
+          "alternatives": [],
+          "recommendedAlternative": null
+        },
+        "duration": 13850,
+        "degraded": false
+      },
+      "step_10": {
+        "stepId": "step_10",
+        "stepName": "Code Quality",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "hasLintErrors": false,
+          "perLanguageResults": [
+            {
+              "language": "typescript",
+              "sourceFileCount": 23,
+              "linterCommand": "npm run lint",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "files": 0,
+                "fileIssues": {}
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            },
+            {
+              "language": "bash",
+              "sourceFileCount": 2,
+              "linterCommand": "find . -name \"*.sh\" -not -path \"*/node_modules/*\" -not -path \"*/.git/*\" | xargs shellcheck",
+              "linterResults": {
+                "totalIssues": 0,
+                "errors": 0,
+                "warnings": 0,
+                "infos": 0,
+                "files": 0
+              },
+              "issueRate": 0,
+              "qualityRating": "excellent",
+              "skipped": false
+            }
+          ],
+          "aggregateTotals": {
+            "totalIssues": 0,
+            "errors": 0,
+            "warnings": 0,
+            "infos": 0,
+            "fileCount": 25
+          },
+          "language": "typescript",
+          "sourceFileCount": 25,
+          "alternatives": [],
+          "recommendedAlternative": null,
+          "erFindings": "No error resilience issues found in the reviewed files.\n\n- Both files define TypeScript interfaces only, with no executable logic, async calls, error handling, or resource management.\n- No `async` functions, `try/catch`, or control flow present.\n- No opportunity for unhandled rejections, silent failures, missing awaits, error masking, or resource leaks.\n\n**Summary:** 0 findings (Critical: 0, High: 0, Medium: 0).",
+          "reviewCoverage": "AI review covered partition 1/3 (2 files)"
+        },
+        "duration": 17485,
+        "degraded": false
+      },
+      "step_13": {
+        "stepId": "step_13",
+        "stepName": "Markdown Linting",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "status": "fail",
+          "stats": {
+            "totalIssues": 297,
+            "filesWithIssues": 19,
+            "filesChecked": 19,
+            "cleanFiles": 0,
+            "uniqueRules": 9,
+            "issuesPerFile": 15.631578947368421
+          },
+          "issues": [
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 19,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 21,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 23,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 26,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 28,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 17,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 20,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 22,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 24,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/HIGH_COHESION_GUIDE.md",
+              "line": 25,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 18,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 20,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 22,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 24,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/LOW_COUPLING_GUIDE.md",
+              "line": 26,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/REFERENTIAL_TRANSPARENCY.md",
+              "line": 19,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/REFERENTIAL_TRANSPARENCY.md",
+              "line": 22,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/REFERENTIAL_TRANSPARENCY.md",
+              "line": 25,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/REFERENTIAL_TRANSPARENCY.md",
+              "line": 27,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/REFERENTIAL_TRANSPARENCY.md",
+              "line": 29,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 12,
+              "rule": "MD007",
+              "message": "Unordered list indentation",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 3,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 7,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 16,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/copilot-instructions.md",
+              "line": 20,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md",
+              "line": 34,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md",
+              "line": 110,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md",
+              "line": 56,
+              "rule": "MD032",
+              "message": "Lists should be surrounded by blank lines",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md",
+              "line": 76,
+              "rule": "MD036",
+              "message": "Emphasis used instead of a header",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md",
+              "line": 84,
+              "rule": "MD036",
+              "message": "Emphasis used instead of a header",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md",
+              "line": 90,
+              "rule": "MD036",
+              "message": "Emphasis used instead of a header",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md",
+              "line": 95,
+              "rule": "MD036",
+              "message": "Emphasis used instead of a header",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/CHANGELOG.md",
+              "line": 52,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/CHANGELOG.md",
+              "line": 38,
+              "rule": "MD024",
+              "message": "Multiple headers with the same content",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/CHANGELOG.md",
+              "line": 47,
+              "rule": "MD024",
+              "message": "Multiple headers with the same content",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/README.md",
+              "line": 58,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/README.md",
+              "line": 64,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/README.md",
+              "line": 124,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/README.md",
+              "line": 125,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/README.md",
+              "line": 126,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 119,
+              "rule": "MD012",
+              "message": "Multiple consecutive blank lines",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 28,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 30,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 38,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 39,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 40,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 48,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 49,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 50,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 58,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 68,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 69,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 71,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 73,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 81,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 83,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 110,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 111,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 112,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 113,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 114,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 115,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 116,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 117,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 111,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 112,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 113,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 114,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 115,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 116,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 117,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 92,
+              "rule": "MD032",
+              "message": "Lists should be surrounded by blank lines",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 56,
+              "rule": "MD036",
+              "message": "Emphasis used instead of a header",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md",
+              "line": 89,
+              "rule": "MD036",
+              "message": "Emphasis used instead of a header",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 12,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 32,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 45,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 116,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 119,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 135,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 136,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 137,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 138,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 139,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 227,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 229,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 230,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 231,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 42,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 43,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 44,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 45,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 99,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 101,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 103,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 105,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 107,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 108,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 110,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 148,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 149,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 151,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 152,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 157,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 158,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 159,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 161,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 166,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 167,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 168,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 176,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 177,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 179,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 180,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 181,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 215,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 216,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 218,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md",
+              "line": 219,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 119,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 120,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 121,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 122,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 128,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 129,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 130,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 131,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 26,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 27,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 28,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 29,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md",
+              "line": 115,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 112,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 113,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 114,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 115,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 39,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 40,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 41,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 42,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 75,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 76,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 78,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 80,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 82,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 84,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 85,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 127,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 128,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 129,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 130,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 136,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 137,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 139,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 140,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 146,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 147,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 149,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 157,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 158,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 159,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 160,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 161,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 190,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 191,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 192,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md",
+              "line": 193,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 123,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 124,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 125,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 126,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 128,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 37,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 38,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 39,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 40,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 89,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 90,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 92,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 94,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 96,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 98,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 138,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 139,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 141,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 142,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 148,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 149,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 151,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 152,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 158,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 159,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 161,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 170,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 171,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 173,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 175,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 177,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 208,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 210,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 211,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md",
+              "line": 213,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 7,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 8,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 9,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 10,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 11,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 12,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/README.md",
+              "line": 13,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 124,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 125,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 126,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 127,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 128,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 129,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 130,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 45,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 46,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 47,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 48,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 85,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 87,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 89,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 91,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 93,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 94,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 96,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 141,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 143,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 144,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 149,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 150,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 151,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 152,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 158,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 159,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 161,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 170,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 171,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 172,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 173,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 174,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 217,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 218,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 219,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 220,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md",
+              "line": 221,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 63,
+              "rule": "MD001",
+              "message": "Header levels should only increment by one level at a time",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 39,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 41,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 75,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 81,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 82,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 84,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 96,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 97,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 98,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 105,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 107,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 159,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 160,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 161,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md",
+              "line": 162,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 17,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 69,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 79,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 100,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 116,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 135,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 192,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 200,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 239,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 256,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 281,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 284,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 286,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 241,
+              "rule": "MD024",
+              "message": "Multiple headers with the same content",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 67,
+              "rule": "MD026",
+              "message": "Trailing punctuation in header",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 186,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 187,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md",
+              "line": 188,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 57,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 58,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 66,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 53,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 54,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 55,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 56,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 57,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md",
+              "line": 58,
+              "rule": "MD029",
+              "message": "Ordered list item prefix",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 22,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 38,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 120,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 151,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 194,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 266,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            },
+            {
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/getting-started.md",
+              "line": 273,
+              "rule": "MD013",
+              "message": "Line length",
+              "severity": "warning"
+            }
+          ],
+          "antiPatterns": [
+            {
+              "line": 3,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md"
+            },
+            {
+              "line": 4,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md"
+            },
+            {
+              "line": 5,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md"
+            },
+            {
+              "line": 66,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            },
+            {
+              "line": 67,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            },
+            {
+              "line": 91,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            },
+            {
+              "line": 92,
+              "message": "Trailing whitespace",
+              "pattern": "trailing-whitespace",
+              "file": "/home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md"
+            }
+          ],
+          "report": "### Markdown Linting Report\n\n**Linter:** markdownlint (mdl) v0.13.0\n**Files Checked:** 19\n**Clean Files:** 0\n**Files with Issues:** 19\n**Total Issues:** 297\n\n### Issues by Rule\n\n- **MD029**: 168 occurrence(s)\n- **MD013**: 114 occurrence(s)\n- **MD036**: 6 occurrence(s)\n- **MD024**: 3 occurrence(s)\n- **MD032**: 2 occurrence(s)\n- **MD007**: 1 occurrence(s)\n- **MD012**: 1 occurrence(s)\n- **MD001**: 1 occurrence(s)\n- **MD026**: 1 occurrence(s)\n\n### Issues by File\n\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/CLEAN_ARCHITECTURE_GUIDE.md: 45 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/REFERENTIAL_TRANSPARENCY.md: 38 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/HIGH_COHESION_GUIDE.md: 35 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/LOW_COUPLING_GUIDE.md: 35 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/AwsGeocoder-code-quality-assessment.md: 34 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/cicd-roadmap.md: 18 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/architecture.md: 16 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/CODE_QUALITY_CONTROL_GUIDE.md: 13 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/docs/contributing.md: 9 issue(s)\n- /home/mpb/Documents/GitHub/paraty_geoservices/.github/skills/next-roadmap-step/SKILL.md: 7 issue(s)\n- ... and 9 more files\n\n### Anti-Pattern Detection\n\n- trailing-whitespace: 7 occurrence(s)\n\n**Overall Quality:** ❌ Poor"
+        },
+        "duration": 11893,
+        "degraded": false
+      },
+      "step_02_5": {
+        "stepId": "step_02_5",
+        "stepName": "Documentation Optimization",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "summary": {
+            "totalFiles": 11,
+            "exactDuplicates": [],
+            "redundantPairs": [],
+            "outdatedFiles": [],
+            "edgeCases": [],
+            "filesOptimized": 0,
+            "errors": []
+          },
+          "optimizationResults": null,
+          "reportResult": null,
+          "executionTime": 0,
+          "errors": []
+        },
+        "duration": 120,
+        "degraded": false
+      },
+      "step_16": {
+        "stepId": "step_16",
+        "stepName": "Version Update",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "oldVersion": "1.2.1",
+          "newVersion": "1.2.2",
+          "bumpType": "patch",
+          "stats": {
+            "updated": 4,
+            "skipped": 6,
+            "failed": 0
+          },
+          "updates": [
+            {
+              "file": "package.json",
+              "success": true
+            },
+            {
+              "file": "pyproject.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "setup.py",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": "Cargo.toml",
+              "skipped": true,
+              "reason": "file not found"
+            },
+            {
+              "file": ".workflow-config.yaml",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/metrics/current_run.json",
+              "skipped": true
+            },
+            {
+              "file": ".ai_workflow/preflight_baseline.json",
+              "skipped": true
+            },
+            {
+              "file": "CHANGELOG.md",
+              "success": true
+            },
+            {
+              "file": "package-lock.json",
+              "success": true
+            },
+            {
+              "file": "src/infrastructure/providers/MockGeolocationProvider.ts",
+              "success": true
+            }
+          ],
+          "consistencyCheck": {
+            "ran": false
+          },
+          "duration": 6019
+        },
+        "duration": 6027,
+        "degraded": false
+      },
+      "step_21": {
+        "stepId": "step_21",
+        "stepName": "Doc Consolidation",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "clustersFound": 0,
+          "totalDocs": 19
+        },
+        "duration": 121,
+        "degraded": false
+      },
+      "step_11": {
+        "stepId": "step_11",
+        "stepName": "Context Management",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "completionRate": 88,
+          "completionStatus": "good",
+          "completedSteps": 15,
+          "totalSteps": 17,
+          "gitStatus": {
+            "isGitRepo": true,
+            "branch": "unknown",
+            "modifiedFiles": 0,
+            "untrackedFiles": 0,
+            "stagedFiles": 0,
+            "commitsAhead": 0
+          },
+          "changeImpact": "low",
+          "impactScore": 0,
+          "issues": {
+            "total": 0,
+            "critical": 0,
+            "warnings": 0,
+            "passed": 17
+          },
+          "duration": 227
+        },
+        "duration": 208,
+        "degraded": false
+      },
+      "step_18": {
+        "stepId": "step_18",
+        "stepName": "Debugging Analysis",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "personaKey": "async_flow_debugger_prompt",
+          "filesAnalyzed": [
+            "src/application/dtos/index.ts",
+            "src/application/index.ts",
+            "src/application/use-cases/index.ts",
+            "src/domain/entities/index.ts",
+            "src/domain/index.ts",
+            "src/domain/ports/index.ts",
+            "src/index.ts",
+            "src/infrastructure/index.ts",
+            "src/infrastructure/providers/index.ts",
+            "src/application/dtos/GetCurrentPositionOutput.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.ts",
+            "src/application/use-cases/WatchPositionUseCase.test.ts",
+            "src/application/use-cases/WatchPositionUseCase.ts",
+            "src/domain/entities/GeoAddress.ts",
+            "src/domain/entities/GeoPosition.ts",
+            "src/domain/entities/GeoPositionError.ts",
+            "src/domain/entities/GeoPositionOptions.ts",
+            "src/domain/ports/GeolocationProvider.test.ts",
+            "src/domain/ports/GeolocationProvider.ts"
+          ],
+          "totalSourceFiles": 26,
+          "aiContent": "#### Partition 1 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in any of the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 2 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in any of the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 3 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: promise chains, async/await\n\n- `Promise` usage: `new Promise((resolve, reject) => ...)` in `GetCurrentPositionUseCase.ts`\n- `async` test functions and `await` in `GetCurrentPositionUseCase.test.ts`\n- No `.then()`, `.catch()`, or network/fetch/HTTP calls found\n\n---\n\n**Execution Chain:**\n1. `GetCurrentPositionUseCase.execute()` returns a Promise wrapping a callback-based provider.\n2. In tests, `await useCase.execute()` is called.\n3. On success: provider calls `resolve({ position: pos })` → Promise resolves.\n4. On error: provider calls `reject(error)` → Promise rejects.\n\n---\n\n**Error Path Diagram:**\n```\n[Provider.getCurrentPosition]\n    ↓\n[Success callback?]\n    ↓\n┌──────┴──────┐\n↓             ↓\n[resolve()]   [reject()]\n↓             ↓\n[Promise resolved]   [Promise rejected]\n```\n\n---\n\n**Issue Identified:**  \nNone found in the provided excerpts. All async flows are properly wrapped and tested for both resolve and reject paths.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request.  \nAsync behavior is covered by unit tests using `await` and rejection assertions.\n\n#### Partition 4 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 5 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 6 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.",
+          "report": "# Step 18: Debugging Analysis — Async Flow Debugger\n\n## Files Analyzed\n- src/application/dtos/index.ts\n- src/application/index.ts\n- src/application/use-cases/index.ts\n- src/domain/entities/index.ts\n- src/domain/index.ts\n- src/domain/ports/index.ts\n- src/index.ts\n- src/infrastructure/index.ts\n- src/infrastructure/providers/index.ts\n- src/application/dtos/GetCurrentPositionOutput.ts\n- src/application/use-cases/GetCurrentPositionUseCase.test.ts\n- src/application/use-cases/GetCurrentPositionUseCase.ts\n- src/application/use-cases/WatchPositionUseCase.test.ts\n- src/application/use-cases/WatchPositionUseCase.ts\n- src/domain/entities/GeoAddress.ts\n- src/domain/entities/GeoPosition.ts\n- src/domain/entities/GeoPositionError.ts\n- src/domain/entities/GeoPositionOptions.ts\n- src/domain/ports/GeolocationProvider.test.ts\n- src/domain/ports/GeolocationProvider.ts\n\n## AI Analysis\n\n#### Partition 1 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in any of the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 2 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in any of the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 3 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: promise chains, async/await\n\n- `Promise` usage: `new Promise((resolve, reject) => ...)` in `GetCurrentPositionUseCase.ts`\n- `async` test functions and `await` in `GetCurrentPositionUseCase.test.ts`\n- No `.then()`, `.catch()`, or network/fetch/HTTP calls found\n\n---\n\n**Execution Chain:**\n1. `GetCurrentPositionUseCase.execute()` returns a Promise wrapping a callback-based provider.\n2. In tests, `await useCase.execute()` is called.\n3. On success: provider calls `resolve({ position: pos })` → Promise resolves.\n4. On error: provider calls `reject(error)` → Promise rejects.\n\n---\n\n**Error Path Diagram:**\n```\n[Provider.getCurrentPosition]\n    ↓\n[Success callback?]\n    ↓\n┌──────┴──────┐\n↓             ↓\n[resolve()]   [reject()]\n↓             ↓\n[Promise resolved]   [Promise rejected]\n```\n\n---\n\n**Issue Identified:**  \nNone found in the provided excerpts. All async flows are properly wrapped and tested for both resolve and reject paths.\n\n---\n\n**Validation:**  \nRuntime timing validation is unavailable from this request.  \nAsync behavior is covered by unit tests using `await` and rejection assertions.\n\n#### Partition 4 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 5 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n\n#### Partition 6 of 6\n\n**Async Flow Analysis**\n\nPatterns Present: none\n\n- No `async function`, `await`, `.then()`, `.catch()`, or `Promise` usage found in the provided files.\n- No `fetch`, `XMLHttpRequest`, or HTTP client/network calls present.\n\n**Execution Chain:**  \nNot applicable — no async functions or promise chains found.\n\n**Error Path Diagram:**  \nNot applicable — no try/catch, .catch(), or error handling logic found.\n\n**CORS/Network Validation:**  \nNot applicable — no network/fetch code found.\n\n**Timing Analysis:**  \nTiming evidence unavailable from static source excerpts.\n\n**Issue Identified:**  \nNone found in the provided files.\n\n**Validation:**  \nRuntime timing validation is unavailable from this request. No async or network code present in these excerpts.\n"
+        },
+        "duration": 23743,
+        "degraded": false
+      },
+      "step_11_5": {
+        "stepId": "step_11_5",
+        "stepName": "AWS LBS Validation",
+        "success": true,
+        "skipped": true,
+        "reason": "Step 11.5 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "Step 11.5 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup"
+        },
+        "duration": 10,
+        "degraded": false
+      },
+      "step_19": {
+        "stepId": "step_19",
+        "stepName": "TypeScript Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "filesAnalyzed": [
+            "jest.config.ts",
+            "src/application/dtos/GetCurrentPositionOutput.ts",
+            "src/application/dtos/index.ts",
+            "src/application/index.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.test.ts",
+            "src/application/use-cases/GetCurrentPositionUseCase.ts",
+            "src/application/use-cases/WatchPositionUseCase.test.ts",
+            "src/application/use-cases/WatchPositionUseCase.ts",
+            "src/application/use-cases/index.ts",
+            "src/domain/entities/GeoAddress.ts",
+            "src/domain/entities/GeoPosition.ts",
+            "src/domain/entities/GeoPositionError.ts",
+            "src/domain/entities/GeoPositionOptions.ts",
+            "src/domain/entities/index.ts",
+            "src/domain/index.ts",
+            "src/domain/ports/GeolocationProvider.test.ts",
+            "src/domain/ports/GeolocationProvider.ts",
+            "src/domain/ports/ReverseGeocoder.ts",
+            "src/domain/ports/index.ts",
+            "src/index.ts"
+          ],
+          "totalTsFiles": 26,
+          "issueScore": {
+            "anyCount": 0,
+            "tsIgnoreCount": 0,
+            "missingReturnTypeCount": 0,
+            "totalIssues": 0
+          },
+          "aiContent": "```\nNo updates needed - documentation is current\n\nReview summary:\n- All reviewed files use strict, type-safe TypeScript with no `any` usage or unsafe assertions.\n- All interfaces, generics, and utility types are used idiomatically.\n- Error handling is type-safe; no untyped or unsafe error flows.\n- All runtime boundaries (ports, DTOs) are fully typed and match the domain model.\n- tsconfig.json and tsconfig.esm.json both enable `\"strict\": true` and are consistent with the codebase.\n- No evidence of missing or misapplied advanced types, utility types, or generics.\n- No configuration, lint, or test coverage issues are visible in the provided context.\n\nNo action required.\n```",
+          "report": "# Step 19: TypeScript Review — Strider\n\n## Files Analyzed\n- jest.config.ts\n- src/application/dtos/GetCurrentPositionOutput.ts\n- src/application/dtos/index.ts\n- src/application/index.ts\n- src/application/use-cases/GetCurrentPositionUseCase.test.ts\n- src/application/use-cases/GetCurrentPositionUseCase.ts\n- src/application/use-cases/WatchPositionUseCase.test.ts\n- src/application/use-cases/WatchPositionUseCase.ts\n- src/application/use-cases/index.ts\n- src/domain/entities/GeoAddress.ts\n- src/domain/entities/GeoPosition.ts\n- src/domain/entities/GeoPositionError.ts\n- src/domain/entities/GeoPositionOptions.ts\n- src/domain/entities/index.ts\n- src/domain/index.ts\n- src/domain/ports/GeolocationProvider.test.ts\n- src/domain/ports/GeolocationProvider.ts\n- src/domain/ports/ReverseGeocoder.ts\n- src/domain/ports/index.ts\n- src/index.ts\n\n## Issue Score (Heuristic)\n\n| Metric | Count |\n|--------|-------|\n| Explicit `any` / `as any` | 0 |\n| `@ts-ignore` / `@ts-nocheck` | 0 |\n| Functions missing return type | 0 |\n| **Total** | **0** |\n\n## AI Analysis\n\n```\nNo updates needed - documentation is current\n\nReview summary:\n- All reviewed files use strict, type-safe TypeScript with no `any` usage or unsafe assertions.\n- All interfaces, generics, and utility types are used idiomatically.\n- Error handling is type-safe; no untyped or unsafe error flows.\n- All runtime boundaries (ports, DTOs) are fully typed and match the domain model.\n- tsconfig.json and tsconfig.esm.json both enable `\"strict\": true` and are consistent with the codebase.\n- No evidence of missing or misapplied advanced types, utility types, or generics.\n- No configuration, lint, or test coverage issues are visible in the provided context.\n\nNo action required.\n```\n"
+        },
+        "duration": 7762,
+        "degraded": false
+      },
+      "step_22": {
+        "stepId": "step_22",
+        "stepName": "Accessibility Review",
+        "success": true,
+        "skipped": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "message": "No HTML/UI files changed since last successful run"
+        },
+        "duration": 30,
+        "degraded": false
+      },
+      "step_11_6": {
+        "stepId": "step_11_6",
+        "stepName": "AWS Serverless AI Review",
+        "success": true,
+        "skipped": true,
+        "reason": "Step 11.6 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "Step 11.6 skipped — project kind 'nodejs_api' is not aws_lbs_backend_setup"
+        },
+        "duration": 17,
+        "degraded": false
+      },
+      "step_20": {
+        "stepId": "step_20",
+        "stepName": "Async Performance Review",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "degraded": false,
+          "skipped": false,
+          "fileCount": 5,
+          "skippedCount": 17,
+          "scores": {
+            "promiseConstructorCount": 1,
+            "unhandledRejectionCount": 0,
+            "missingCleanupCount": 0,
+            "totalIssues": 1
+          },
+          "report": "## Async Performance Review\n\n### Heuristic Pre-scan\n| Indicator | Count |\n| --- | --- |\n| Explicit Promise constructors | 1 |\n| Potential unhandled rejections (.then without .catch) | 0 |\n| Missing event listener cleanup | 0 |\n| **Total heuristic signals** | **1** |\n\n### AI Analysis\n\n#### Partition 1 of 3\n\n**Async Performance Review — paraty_geoservices (Partition 1/3)**  \n_Analyzed:_\n- `src/application/use-cases/GetCurrentPositionUseCase.ts`\n- `src/infrastructure/providers/AwsGeocoder.ts`\n\n---\n\n### 1. Overfetching\n- **AwsGeocoder.ts**: The `reverseGeocode` method POSTs only latitude/longitude and expects a full address object. No evidence of overfetching or missing field selection in the visible code.\n- **GetCurrentPositionUseCase.ts**: No network or DB fetches.\n\n**✅ No issues found**\n\n---\n\n### 2. Promise Overhead\n- **GetCurrentPositionUseCase.ts**:  \n  - **Issue**: Explicit `new Promise` wrapping a callback (lines 31–37). This is acceptable for callback-to-promise conversion, but if `getCurrentPosition` is already promise-based, this is redundant.\n  - **Fix**:  \n    _Before:_\n    ```ts\n    return new Promise((resolve, reject) => {\n      this.provider.getCurrentPosition(\n        (pos) => resolve({ position: pos }),\n        reject,\n        options,\n      );\n    });\n    ```\n    _After (if provider is promise-based):_\n    ```ts\n    return this.provider.getCurrentPosition(options).then(pos => ({ position: pos }));\n    ```\n  - **Impact**: Minor overhead if redundant; otherwise, this is a standard pattern.\n\n- **AwsGeocoder.ts**:  \n  - All async/await usage is appropriate; no unnecessary `async` functions or sequential awaits.\n\n**Severity**: LOW (if provider is callback-only, current pattern is correct)\n\n---\n\n### 3. Event Loop Congestion\n- No CPU-heavy synchronous work detected in async paths.\n\n**✅ No issues found**\n\n---\n\n### 4. Memory Leaks\n- No streams, event listeners, or timers in the visible code.\n\n**✅ No issues found**\n\n---\n\n### 5. API Call Batching\n- No N+1 or looped fetches; all API calls are single-shot.\n\n**✅ No issues found**\n\n---\n\n### 6. Debouncing & Throttling\n- No event handlers or polling loops.\n\n**✅ No issues found**\n\n---\n\n### 7. Error Handling\n- **AwsGeocoder.ts**:  \n  - All awaited fetches are wrapped in try/catch via function boundaries; errors are thrown with context.\n- **GetCurrentPositionUseCase.ts**:  \n  - Errors from the provider are passed to `reject`, which is correct for a promise wrapper.\n\n**✅ No issues found**\n\n---\n\n### 8. Promise Anti-Patterns\n- **GetCurrentPositionUseCase.ts**:  \n  - **Issue**: Explicit Promise constructor wrapping a callback is acceptable for promisifying, but if the provider is already promise-based, this is an anti-pattern.\n  - **Fix**: See Promise Overhead above.\n  - **Impact**: Readability and maintainability.\n\n**Severity**: LOW\n\n---\n\n### 9. Resource Cleanup\n- **AwsGeocoder.ts**:  \n  - **Issue**: `fetch` is used without `AbortController`, so requests cannot be cancelled if the consumer aborts.\n  - **Fix**:  \n    _Before:_\n    ```ts\n    const response = await fetch(this.endpoint, { ... });\n    ```\n    _After:_\n    ```ts\n    const controller = new AbortController();\n    const response = await fetch(this.endpoint, { ..., signal: controller.signal });\n    // Expose controller to allow cancellation if needed\n    ```\n  - **Impact**: Uncancellable requests may waste resources if the consumer aborts.\n\n**Severity**: MEDIUM\n\n---\n\n## Prioritized Recommendations\n\n1. **Add AbortController support** to `AwsGeocoder.reverseGeocode` for cancellable fetches (Resource Cleanup, MEDIUM).\n2. **Review Promise wrapping** in `GetCurrentPositionUseCase`: if the provider is already promise-based, refactor to avoid explicit `new Promise` (Promise Overhead/Anti-pattern, LOW).\n\n---\n\n## Summary Table\n\n| File                                         | Severity  | Dimension         | Issue Summary                                 |\n|-----------------------------------------------|-----------|-------------------|-----------------------------------------------|\n| src/infrastructure/providers/AwsGeocoder.ts   | MEDIUM    | Resource Cleanup  | No AbortController for fetch cancellation     |\n| src/application/use-cases/GetCurrentPositionUseCase.ts | LOW       | Promise Overhead/Anti-pattern | Explicit Promise wrapper (if provider is promise-based) |\n| Both files                                   | —         | Others            | ✅ No issues found in other dimensions         |\n\n---\n\n**End of Partition 1/3**  \n(Continue review for remaining async-relevant files in subsequent partitions.)\n\n#### Partition 2 of 3\n\n**Async Performance Review — paraty_geoservices (Partition 2/3)**  \n_Analyzed:_\n- `src/infrastructure/providers/MockGeolocationProvider.ts` (full)\n- `src/domain/ports/ReverseGeocoder.ts`\n\n---\n\n### 1. Overfetching\n- No network/database fetches or over-broad queries in these files.\n\n**✅ No issues found**\n\n---\n\n### 2. Promise Overhead\n- No use of `async`/`await`, `.then()`, or explicit Promise construction. All async simulation is via `setTimeout`.\n\n**✅ No issues found**\n\n---\n\n### 3. Event Loop Congestion\n- All async simulation uses `setTimeout` with configurable delay. No CPU-heavy synchronous work in async paths.\n\n**✅ No issues found**\n\n---\n\n### 4. Memory Leaks\n- **MockGeolocationProvider.ts**:  \n  - **Issue**: `setTimeout` handles for scheduled callbacks are tracked in `pendingTimeouts` and cleared in `destroy()`. However, if `destroy()` is not called, timeouts may persist, and active watches may accumulate if not cleared.\n  - **Fix**:  \n    _Before:_  \n    ```ts\n    // destroy() must be called manually to clear timeouts and watches\n    ```\n    _After:_  \n    ```ts\n    // Ensure destroy() is always called when the provider is no longer needed\n    ```\n  - **Impact**: If `destroy()` is not called, memory may leak due to retained timeouts and watches.  \n  **Severity**: MEDIUM\n\n---\n\n### 5. API Call Batching\n- No API/network calls or batching opportunities.\n\n**✅ No issues found**\n\n---\n\n### 6. Debouncing & Throttling\n- No event handlers or polling loops that require debouncing/throttling.\n\n**✅ No issues found**\n\n---\n\n### 7. Error Handling\n- All error paths are handled via callbacks. No floating promises or unhandled async errors.\n\n**✅ No issues found**\n\n---\n\n### 8. Promise Anti-Patterns\n- No explicit Promise construction, deferreds, or mixed async styles.\n\n**✅ No issues found**\n\n---\n\n### 9. Resource Cleanup\n- **MockGeolocationProvider.ts**:  \n  - **Issue**: Resource cleanup is implemented via `destroy()`, which clears timeouts and watches. However, there is no enforcement or reminder to call `destroy()` when the provider is no longer needed.\n  - **Fix**:  \n    _Before:_  \n    ```ts\n    // destroy() must be called manually\n    ```\n    _After:_  \n    ```ts\n    // Document and ensure destroy() is called in test/teardown or component unmount\n    ```\n  - **Impact**: Forgetting to call `destroy()` can lead to memory/resource leaks, especially in long-running test suites or hot-reload scenarios.  \n  **Severity**: MEDIUM\n\n---\n\n## Prioritized Recommendations\n\n1. **Enforce or document the need to call `destroy()`** on `MockGeolocationProvider` to prevent memory leaks from uncollected timeouts and watches (Memory Leaks/Resource Cleanup, MEDIUM).\n\n---\n\n## Summary Table\n\n| File                                         | Severity  | Dimension         | Issue Summary                                 |\n|-----------------------------------------------|-----------|-------------------|-----------------------------------------------|\n| src/infrastructure/providers/MockGeolocationProvider.ts | MEDIUM    | Memory Leaks/Resource Cleanup | Manual `destroy()` required to avoid leaks    |\n| src/domain/ports/ReverseGeocoder.ts          | —         | All               | ✅ No issues found                            |\n| MockGeolocationProvider.ts                   | —         | Others            | ✅ No issues found in other dimensions         |\n\n---\n\n**End of Partition 2/3**  \n(Continue review for remaining async-relevant files in subsequent partitions.)\n\n#### Partition 3 of 3\n\n**Async Performance Review — paraty_geoservices (Partition 3/3)**  \n_Analyzed:_  \n- `src/infrastructure/providers/BrowserGeolocationProvider.ts` (full)\n\n---\n\n### 1. Overfetching\n- No network/database fetches or over-broad queries.\n\n**✅ No issues found**\n\n---\n\n### 2. Promise Overhead\n- No use of `async`/`await`, `.then()`, or explicit Promise construction. All async is callback-based via the browser API.\n\n**✅ No issues found**\n\n---\n\n### 3. Event Loop Congestion\n- No synchronous CPU-heavy work in async paths.\n\n**✅ No issues found**\n\n---\n\n### 4. Memory Leaks\n- Uses browser geolocation API’s `watchPosition`/`clearWatch`.  \n- **Potential Issue**: If `clearWatch` is not called for every `watchPosition`, browser may retain listeners. However, the provider exposes `clearWatch` and leaves lifecycle management to the consumer.\n- **Fix**:  \n  _Before:_  \n  ```ts\n  // Consumer must call clearWatch(watchId) when done\n  ```\n  _After:_  \n  ```ts\n  // Document: Always call clearWatch(watchId) to prevent browser resource leaks\n  ```\n- **Impact**: Not calling `clearWatch` can leak browser resources in long-lived apps.  \n**Severity**: MEDIUM (documentation/enforcement, not code defect)\n\n---\n\n### 5. API Call Batching\n- No API/network calls or batching opportunities.\n\n**✅ No issues found**\n\n---\n\n### 6. Debouncing & Throttling\n- No event handlers or polling loops that require debouncing/throttling.\n\n**✅ No issues found**\n\n---\n\n### 7. Error Handling\n- All error paths are handled via callbacks. No floating promises or unhandled async errors.\n\n**✅ No issues found**\n\n---\n\n### 8. Promise Anti-Patterns\n- No explicit Promise construction, deferreds, or mixed async styles.\n\n**✅ No issues found**\n\n---\n\n### 9. Resource Cleanup\n- See Memory Leaks above: resource cleanup is the consumer’s responsibility via `clearWatch`.\n\n**✅ No issues found (provider exposes cleanup, but consumer must use it)**\n\n---\n\n## Prioritized Recommendations\n\n1. **Document/enforce the need to call `clearWatch(watchId)`** after `watchPosition` to prevent browser resource leaks (Memory Leaks, MEDIUM).\n\n---\n\n## Summary Table\n\n| File                                         | Severity  | Dimension         | Issue Summary                                 |\n|-----------------------------------------------|-----------|-------------------|-----------------------------------------------|\n| src/infrastructure/providers/BrowserGeolocationProvider.ts | MEDIUM    | Memory Leaks      | Consumer must call `clearWatch` to avoid leaks|\n| BrowserGeolocationProvider.ts                 | —         | Others            | ✅ No issues found in other dimensions         |\n\n---\n\n**End of Partition 3/3**  \n(Async performance review complete for all provided files.)",
+          "warnings": []
+        },
+        "duration": 32396,
+        "degraded": false,
+        "warnings": []
+      },
+      "step_23": {
+        "stepId": "step_23",
+        "stepName": "Performance Review",
+        "success": true,
+        "skipped": true,
+        "output": {
+          "success": true,
+          "skipped": true,
+          "message": "No JS/TS files found"
+        },
+        "duration": 15,
+        "degraded": false
+      },
+      "step_17": {
+        "stepId": "step_17",
+        "stepName": "Workflow Summary",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "summary": {
+            "metrics": {
+              "totalSteps": 0,
+              "successfulSteps": 0,
+              "failedSteps": 0,
+              "skippedSteps": 0,
+              "totalDuration": 0,
+              "avgDuration": 0,
+              "successRate": 0,
+              "startTime": "2026-05-14T14:14:54.178Z",
+              "endTime": "2026-05-14T21:34:46.957Z",
+              "workflowRunId": "workflow_20260514_182952",
+              "version": "1.0.0",
+              "mode": "interactive"
+            },
+            "timeline": {
+              "steps": [],
+              "phases": {
+                "initialization": [],
+                "documentation": [],
+                "validation": [],
+                "testing": [],
+                "quality": [],
+                "finalization": []
+              }
+            },
+            "cacheEfficiency": {
+              "cacheHits": 0,
+              "cacheMisses": 0,
+              "totalRequests": 0,
+              "hitRate": 0,
+              "quality": "unknown"
+            },
+            "recommendations": [],
+            "report": "# Workflow Summary Report\n\n**Workflow Run ID:** workflow_20260514_182952\n**Version:** 1.0.0\n**Mode:** interactive\n**Start Time:** 2026-05-14T14:14:54.178Z\n**End Time:** 2026-05-14T21:34:46.957Z\n**Total Duration:** 0s\n\n---\n\n## Executive Summary\n\n**Overall Status:** ⚠️ Completed\n**Success Rate:** 0.0%\n**Total Steps:** 0\n**Successful:** 0 ✅\n**Average Step Duration:** 0s\n\n---\n\n## Execution Timeline\n\n\n\n---\n\n## Phase Breakdown\n\n\n\n---\n\n## Performance Metrics\n\n| Metric | Value |\n|--------|-------|\n| Total Duration | 0s |\n| Average Step Duration | 0s |\n| Total Steps | 0 |\n| Success Rate | 0.0% |\n\n---\n\n*Generated by AI Workflow Automation v1.0.0*\n\n*Report generated at: 2026-05-14T21:34:46.958Z*\n"
+          },
+          "message": "Workflow summary generated successfully"
+        },
+        "duration": 9,
+        "degraded": false
+      },
+      "step_14": {
+        "stepId": "step_14",
+        "stepName": "Prompt Engineering",
+        "success": true,
+        "skipped": true,
+        "reason": "project type not eligible",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "project type not eligible"
+        },
+        "duration": 8,
+        "degraded": false
+      },
+      "step_0f": {
+        "stepId": "step_0f",
+        "stepName": "Commit Artifacts",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "committed": true,
+          "files": [
+            ".ai_workflow/.step_cache/step_06_partition.json",
+            ".ai_workflow/.step_cache/step_10_partition.json",
+            ".ai_workflow/.step_cache/step_10_quality.json",
+            ".ai_workflow/cache/step_20_async_history.json",
+            ".ai_workflow/cache/step_21_doc_consolidation.json",
+            ".ai_workflow/metrics/current_run.json",
+            ".ai_workflow/preflight_baseline.json"
+          ],
+          "summary": "Committed 7 artifact file(s)"
+        },
+        "duration": 42,
+        "degraded": false
+      },
+      "step_15": {
+        "stepId": "step_15",
+        "stepName": "UX Analysis",
+        "success": true,
+        "skipped": true,
+        "reason": "non-web project kind: nodejs_api",
+        "output": {
+          "success": true,
+          "skipped": true,
+          "reason": "non-web project kind: nodejs_api"
+        },
+        "duration": 17,
+        "degraded": false
+      },
+      "step_12": {
+        "stepId": "step_12",
+        "stepName": "Git Finalization",
+        "success": true,
+        "skipped": false,
+        "output": {
+          "success": true,
+          "branch": "main",
+          "commitMessage": "feat(implementation): update version to 1.2.2 and sync mock provider\n\n- Bump project version to 1.2.2 in package.json and package-lock.json\n- Update MockGeolocationProvider and related docs to reflect new version\n- Revise CHANGELOG.md for 1.2.2 release\n- Ensure consistency across implementation and documentation\n\nNo breaking changes detected.\n\n[workflow-automation v1.2.2]  \nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+          "pushed": true,
+          "report": "### Git Finalization Summary\n\n**Branch:** main\n**Commits Ahead:** 2\n**Commits Behind:** 0\n**Commit Type:** feat(implementation)\n**Modified Files:** 5\n**Total Changes:** 6\n\n### Change Breakdown\n\n- Documentation: 2 files\n- Tests: 0 files\n- Scripts: 0 files\n- Code: 1 files\n- Config: 2 files\n\n### Commit Message\n\n```\nfeat(implementation): update version to 1.2.2 and sync mock provider\n\n- Bump project version to 1.2.2 in package.json and package-lock.json\n- Update MockGeolocationProvider and related docs to reflect new version\n- Revise CHANGELOG.md for 1.2.2 release\n- Ensure consistency across implementation and documentation\n\nNo breaking changes detected.\n\n[workflow-automation v1.2.2]  \nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>\n```\n\n**Push Status:** ✅ Pushed successfully"
+        },
+        "duration": 8968,
+        "degraded": false
+      }
+    },
+    "context": {
+      "workflowDir": "/home/mpb/Documents/GitHub/paraty_geoservices/.ai_workflow",
+      "projectRoot": "/home/mpb/Documents/GitHub/paraty_geoservices",
+      "auto": false,
+      "workflowRunId": "workflow_20260514_182952",
+      "modifiedFiles": [
+        ".github/CLEAN_ARCHITECTURE_GUIDE.md",
+        ".github/HIGH_COHESION_GUIDE.md",
+        ".github/LOW_COUPLING_GUIDE.md",
+        ".github/REFERENTIAL_TRANSPARENCY.md",
+        ".github/copilot-instructions.md",
+        "CHANGELOG.md",
+        "README.md",
+        "dist/domain/entities/GeoAddress.d.ts",
+        "dist/domain/entities/GeoAddress.d.ts.map",
+        "dist/domain/entities/GeoAddress.js",
+        "dist/domain/entities/GeoAddress.js.map",
+        "dist/domain/entities/index.d.ts",
+        "dist/domain/entities/index.d.ts.map",
+        "dist/domain/index.d.ts",
+        "dist/domain/index.d.ts.map",
+        "dist/domain/index.js.map",
+        "dist/domain/ports/ReverseGeocoder.d.ts",
+        "dist/domain/ports/ReverseGeocoder.d.ts.map",
+        "dist/domain/ports/ReverseGeocoder.js",
+        "dist/domain/ports/ReverseGeocoder.js.map",
+        "dist/domain/ports/index.d.ts",
+        "dist/domain/ports/index.d.ts.map",
+        "dist/esm/domain/entities/GeoAddress.js",
+        "dist/esm/domain/ports/ReverseGeocoder.js",
+        "dist/esm/index.js",
+        "dist/esm/infrastructure/index.js",
+        "dist/esm/infrastructure/providers/AwsAddressMapper.js",
+        "dist/esm/infrastructure/providers/AwsGeocoder.js",
+        "dist/esm/infrastructure/providers/MockGeolocationProvider.js",
+        "dist/esm/infrastructure/providers/index.js",
+        "dist/esm/types/domain/entities/GeoAddress.d.ts",
+        "dist/esm/types/domain/entities/index.d.ts",
+        "dist/esm/types/domain/index.d.ts",
+        "dist/esm/types/domain/ports/ReverseGeocoder.d.ts",
+        "dist/esm/types/domain/ports/index.d.ts",
+        "dist/esm/types/index.d.ts",
+        "dist/esm/types/infrastructure/index.d.ts",
+        "dist/esm/types/infrastructure/providers/AwsAddressMapper.d.ts",
+        "dist/esm/types/infrastructure/providers/AwsGeocoder.d.ts",
+        "dist/esm/types/infrastructure/providers/MockGeolocationProvider.d.ts",
+        "dist/esm/types/infrastructure/providers/index.d.ts",
+        "dist/index.d.ts",
+        "dist/index.d.ts.map",
+        "dist/index.js",
+        "dist/index.js.map",
+        "dist/infrastructure/index.d.ts",
+        "dist/infrastructure/index.d.ts.map",
+        "dist/infrastructure/index.js",
+        "dist/infrastructure/index.js.map",
+        "dist/infrastructure/providers/AwsAddressMapper.d.ts",
+        "dist/infrastructure/providers/AwsAddressMapper.d.ts.map",
+        "dist/infrastructure/providers/AwsAddressMapper.js",
+        "dist/infrastructure/providers/AwsAddressMapper.js.map",
+        "dist/infrastructure/providers/AwsGeocoder.d.ts",
+        "dist/infrastructure/providers/AwsGeocoder.d.ts.map",
+        "dist/infrastructure/providers/AwsGeocoder.js",
+        "dist/infrastructure/providers/AwsGeocoder.js.map",
+        "dist/infrastructure/providers/MockGeolocationProvider.d.ts",
+        "dist/infrastructure/providers/MockGeolocationProvider.js",
+        "dist/infrastructure/providers/index.d.ts",
+        "dist/infrastructure/providers/index.d.ts.map",
+        "dist/infrastructure/providers/index.js",
+        "dist/infrastructure/providers/index.js.map",
+        "docs/AwsGeocoder-code-quality-assessment.md",
+        "docs/CLEAN_ARCHITECTURE_GUIDE.md",
+        "docs/CODE_QUALITY_CONTROL_GUIDE.md",
+        "docs/HIGH_COHESION_GUIDE.md",
+        "docs/LOW_COUPLING_GUIDE.md",
+        "docs/README.md",
+        "docs/REFERENTIAL_TRANSPARENCY.md",
+        "docs/architecture.md",
+        "docs/contributing.md",
+        "docs/getting-started.md",
+        "package-lock.json",
+        "package.json",
+        "src/domain/entities/GeoAddress.ts",
+        "src/domain/entities/index.ts",
+        "src/domain/index.ts",
+        "src/domain/ports/ReverseGeocoder.ts",
+        "src/domain/ports/index.ts",
+        "src/index.ts",
+        "src/infrastructure/index.ts",
+        "src/infrastructure/providers/AwsAddressMapper.ts",
+        "src/infrastructure/providers/AwsGeocoder.ts",
+        "src/infrastructure/providers/MockGeolocationProvider.ts",
+        "src/infrastructure/providers/index.ts",
+        "test/infrastructure/providers/AwsAddressMapper.test.ts",
+        "test/infrastructure/providers/AwsGeocoder.test.ts",
+        ".ai_workflow/metrics/current_run.json",
+        ".ai_workflow/preflight_baseline.json"
+      ],
+      "projectType": "typescript-library",
+      "scope": "full_validation",
+      "projectDescription": "A reverse geocoding service library developed in TypeScript and Node.js.",
+      "alternatives": false,
+      "preflightCheck": {
+        "passed": true,
+        "advisory": false,
+        "hasForceExitWarning": false,
+        "skipped": false,
+        "packageManager": "npm",
+        "commands": [
+          {
+            "name": "git-stash",
+            "command": "git stash list",
+            "passed": true,
+            "stashCount": 0
+          },
+          {
+            "name": "test",
+            "command": "npm test",
+            "passed": true
+          },
+          {
+            "name": "build",
+            "command": "npm run build",
+            "passed": true
+          }
+        ],
+        "message": "Ran 3 pre-flight quality suite(s)"
+      },
+      "resumeCommandHint": "ai-workflow resume --latest",
+      "changeStats": {
+        "changed": 90,
+        "added": 0,
+        "modified": 90,
+        "deleted": 0,
+        "codeFiles": 78,
+        "docsFiles": 12,
+        "testFiles": 2,
+        "changePercentage": 100
+      },
+      "criticalStepIds": [
+        "step_00",
+        "step_0b",
+        "step_01",
+        "step_01_5",
+        "step_02",
+        "step_02_5",
+        "step_21",
+        "step_03",
+        "step_04",
+        "step_05",
+        "step_06",
+        "step_07",
+        "step_08",
+        "step_09",
+        "step_10",
+        "step_13",
+        "step_11",
+        "step_11_5",
+        "step_11_6",
+        "step_14",
+        "step_15",
+        "step_16",
+        "step_18",
+        "step_19",
+        "step_20",
+        "step_22",
+        "step_23",
+        "step_17",
+        "step_0f"
+      ],
+      "allowFinalizeOnFailure": false,
+      "configFiles": [
+        ".workflow-config.yaml",
+        "jest.config.ts",
+        "tsconfig.json",
+        "tsconfig.test.json",
+        "package.json"
+      ]
+    }
+  },
+  "metadata": {
+    "totalSteps": 30,
+    "progress": 0
+  }
+}
