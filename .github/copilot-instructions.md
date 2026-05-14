@@ -9,8 +9,9 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 ## Architecture and Source Layout
 
 - The codebase is organized into stable source layers:
-  - `src/domain/`
+  - `src/` (primary source modules and public API)
   - `src/application/`
+  - `src/domain/`
   - `src/infrastructure/`
 - Maintain clear separation between these layers. Place new modules in the appropriate subdirectory.
 
