@@ -2,8 +2,8 @@
 # deploy.sh
 # Builds and deploys paraty_geoservices for CDN delivery via jsDelivr (GitHub source).
 #
-# Strategy: creates a local release branch containing the built dist/ files,
-# tags it, pushes the tag to GitHub, then removes the branch locally.
+# Strategy: force-adds the built dist/ files to a commit on the current branch,
+# tags it, and pushes the tag to GitHub.
 # jsDelivr resolves the tag at: https://cdn.jsdelivr.net/gh/<owner>/<repo>@<tag>/
 #
 # Usage:
@@ -68,6 +68,7 @@ info "dist-tag     : $NPM_TAG"
 info "Git tag      : $TAG"
 info "Repo         : github.com/${REPO}"
 [[ "$DRY_RUN" == true ]] && echo -e "  Mode    : ${CYAN}dry-run${NC}"
+echo ""
 
 # ── Guard: clean working tree ─────────────────────────────────────────────────
 if ! git diff --quiet || ! git diff --cached --quiet; then
@@ -76,48 +77,58 @@ fi
 
 # ── Guard: check whether tag already exists and whether it has been delivered ──
 TAG_EXISTS_LOCALLY=false
+TAG_EXISTS_ON_REMOTE=false
 if git rev-parse "${TAG}" >/dev/null 2>&1; then
   TAG_EXISTS_LOCALLY=true
   if git ls-remote --tags origin "refs/tags/${TAG}" 2>/dev/null | grep -q .; then
-    warn "Tag ${TAG} already exists and is already on the remote."
-    warn "Skipping build/test/tag steps — resuming from CDN delivery step."
+    TAG_EXISTS_ON_REMOTE=true
+    warn "Tag ${TAG} already exists on the remote."
+    warn "Skipping install/test — build will still run to ensure dist/ is current."
     echo ""
   else
     warn "Tag ${TAG} exists locally but has not been pushed to the remote yet."
-    warn "Skipping build/test steps and resuming from CDN delivery (push) step."
+    warn "Skipping install/test — build will still run to ensure dist/ is current."
     echo ""
   fi
 fi
 
+# ── Helper: does the tag's commit tree already include build artifacts? ────────
+_tag_has_artifacts() {
+  git ls-tree -r "${TAG}" --name-only 2>/dev/null | grep -q "^dist/src/index\.js$"
+}
+
 if [[ "${TAG_EXISTS_LOCALLY}" == "false" ]]; then
-  # ── Step 1/6 — Install + Validate ──────────────────────────────────────────
-  info "Step 1/6 — Installing dependencies and type-checking …"
+  # ── Step 1/5 — Install + Validate ──────────────────────────────────────────
+  info "Step 1/5 — Installing dependencies and type-checking …"
   npm ci --prefer-offline --no-audit
   npm run validate || fail "Type-check failed. Aborting deploy."
   ok "Dependencies installed and types valid"
   echo ""
 
-  # ── Step 2/6 — Test ────────────────────────────────────────────────────────
-  info "Step 2/6 — Running tests …"
+  # ── Step 2/5 — Test ────────────────────────────────────────────────────────
+  info "Step 2/5 — Running tests …"
   npm test || fail "Tests failed. Aborting deploy."
   ok "Tests passed"
   echo ""
-
-  # ── Step 3/6 — Build (CJS + ESM) ───────────────────────────────────────────
-  info "Step 3/6 — Building CJS and ESM bundles …"
-  npm run build     || fail "CJS build failed. Aborting deploy."
-  npm run build:esm || fail "ESM build failed. Aborting deploy."
-  ok "Build complete (dist/ · dist/esm/)"
-  echo ""
 else
-  info "Step 1/6 — Skipped (tag already built locally)"
-  info "Step 2/6 — Skipped (tag already built locally)"
-  info "Step 3/6 — Skipped (tag already built locally)"
+  info "Step 1/5 — Skipped (tag already built locally)"
+  info "Step 2/5 — Skipped (tag already built locally)"
   echo ""
 fi
 
-# ── Step 4/6 — CDN delivery (commit artifacts, tag & push to GitHub) ─────────
-info "Step 4/6 — Enabling CDN delivery via GitHub …"
+# ── Step 3/5 — Build (CJS + ESM) — always runs to keep dist/ current ─────────
+info "Step 3/5 — Building CJS and ESM bundles …"
+npm run build     || fail "CJS build failed. Aborting deploy."
+npm run build:esm || fail "ESM build failed. Aborting deploy."
+ok "Build complete (dist/ · dist/esm/)"
+echo ""
+
+# ── Step 4/5 — CDN delivery (commit artifacts, tag & push to GitHub) ─────────
+info "Step 4/5 — Enabling CDN delivery via GitHub …"
+
+if [[ -z "${CURRENT_BRANCH}" ]]; then
+  fail "Could not determine current git branch (detached HEAD?)"
+fi
 
 # Force-add compiled dist/ artifacts (dist/ is in .gitignore but must be
 # committed to the GitHub tag for jsDelivr CDN delivery to work)
@@ -125,28 +136,62 @@ git add -f dist/
 if git diff --cached --quiet; then
   warn "Build artifacts unchanged — skipping commit"
 else
-  git commit -m "chore: build artifacts for ${TAG}
+  if [[ "$DRY_RUN" == true ]]; then
+    info "[dry-run] Would commit build artifacts for ${TAG}"
+    git reset HEAD dist/ >/dev/null
+  else
+    git commit -m "chore: build artifacts for ${TAG}
 
 Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
-  ok "Committed build artifacts"
+    ok "Committed build artifacts"
+  fi
 fi
 
-CURRENT_BRANCH="$(git branch --show-current)"
-if [[ -z "${CURRENT_BRANCH}" ]]; then
-  fail "Could not determine current git branch (detached HEAD?)"
-fi
-
-git pull --rebase origin "${CURRENT_BRANCH}"
-
-if [[ "${TAG_EXISTS_LOCALLY}" == "false" ]]; then
-  git tag -a "${TAG}" -m "Release ${TAG}"
-  ok "Created tag ${TAG}"
+if [[ "$DRY_RUN" == true ]]; then
+  info "[dry-run] Would pull --rebase origin ${CURRENT_BRANCH}"
 else
-  info "Reusing existing local tag ${TAG}"
+  git pull --rebase origin "${CURRENT_BRANCH}"
 fi
 
-git push origin "${CURRENT_BRANCH}" --tags
-ok "Pushed to origin/${CURRENT_BRANCH} with tag ${TAG}"
+# Determine whether the tag needs to be (re)created and force-pushed.
+# An existing tag that was created before the artifact commit lacks dist/
+# in its tree and must be replaced so jsDelivr can serve the files.
+TAG_NEEDS_FORCE_PUSH=false
+if [[ "${TAG_EXISTS_LOCALLY}" == "false" ]]; then
+  if [[ "$DRY_RUN" == true ]]; then
+    info "[dry-run] Would create tag ${TAG}"
+  else
+    git tag -a "${TAG}" -m "Release ${TAG}"
+    ok "Created tag ${TAG}"
+  fi
+elif ! _tag_has_artifacts; then
+  warn "Existing tag ${TAG} lacks build artifacts — recreating to include them"
+  if [[ "$DRY_RUN" == true ]]; then
+    info "[dry-run] Would delete and re-create tag ${TAG} pointing to HEAD"
+  else
+    git tag -d "${TAG}"
+    git tag -a "${TAG}" -m "Release ${TAG}"
+    ok "Re-created tag ${TAG} → HEAD (now includes build artifacts)"
+  fi
+  TAG_NEEDS_FORCE_PUSH=true
+else
+  info "Reusing existing tag ${TAG} (already contains build artifacts)"
+fi
+
+# Push branch first (covers any new artifact commit), then the tag.
+# A re-created tag must be force-pushed since the remote already has the old one.
+if [[ "$DRY_RUN" == true ]]; then
+  info "[dry-run] Would push origin/${CURRENT_BRANCH} with tag ${TAG}${TAG_NEEDS_FORCE_PUSH:+ (force)}"
+else
+  git push origin "${CURRENT_BRANCH}"
+  if [[ "${TAG_NEEDS_FORCE_PUSH}" == "true" ]]; then
+    git push --force origin "refs/tags/${TAG}"
+    ok "Force-pushed updated tag ${TAG} to origin"
+  else
+    git push origin --tags
+  fi
+  ok "Pushed to origin/${CURRENT_BRANCH} with tag ${TAG}"
+fi
 echo ""
 
 
@@ -162,8 +207,8 @@ echo ""
 ok "Deployment of ${TAG} complete! 🚀"
 echo ""
 
-# ── Step 6/6 — CDN availability check ────────────────────────────────────────
-info "Step 6/6 — Checking CDN availability for ${TAG} …"
+# ── Step 5/5 — CDN availability check ────────────────────────────────────────
+info "Step 5/5 — Checking CDN availability for ${TAG} …"
 
 MAIN_FILE="dist/src/index.js"
 GITHUB_USER="${GH_REPO%%/*}"
