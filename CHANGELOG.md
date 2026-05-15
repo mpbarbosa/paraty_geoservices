@@ -23,6 +23,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Public re-exports for `GeolocationService`, `throttle`, and `ThrottledFunction` from
   the package root (`src/index.ts`).
 - `docs/architecture.md`: added `src/application/services/` and `src/utils/` sections.
+- `src/domain/ports/GeolocationPermissionReader.ts` — permission-state port for
+  browser-capable geolocation adapters.
+- `createBrowserGeolocationService` in `src/infrastructure/createBrowserGeolocationService.ts`
+  and the package root — infrastructure-layer factory for browser-friendly
+  `GeolocationService` composition.
 
 - `AwsGeocoder` in `src/infrastructure/providers/AwsGeocoder.ts` for AWS
   Location Service-compatible reverse geocoding with standardized Brazilian
@@ -47,6 +52,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `docs/architecture.md`, `docs/getting-started.md`, and
   `docs/contributing.md` to document the built-in mock provider and its role
   in the infrastructure layer.
+- `GeolocationService` now requires an injected `GeolocationProvider` and
+  delegates permission checks through a port-compatible collaborator instead of
+  importing `BrowserGeolocationProvider` or reading `navigator` directly.
+- `BrowserGeolocationProvider` and `MockGeolocationProvider` now implement
+  `checkPermissions()` for permission-aware integrations and tests.
 
 ## [1.2.5] - 2026-05-11
 

@@ -15,6 +15,10 @@
  */
 
 import GeolocationProvider from '../../domain/ports/GeolocationProvider';
+import type {
+	GeolocationPermissionReader,
+	GeolocationPermissionState,
+} from '../../domain/ports/GeolocationPermissionReader';
 import type { GeoPosition } from '../../domain/entities/GeoPosition';
 import type { GeoPositionError } from '../../domain/entities/GeoPositionError';
 import type { GeoPositionOptions } from '../../domain/entities/GeoPositionOptions';
@@ -42,7 +46,10 @@ import type { GeoPositionOptions } from '../../domain/entities/GeoPositionOption
  * // Injected navigator for tests or custom runtimes
  * const provider = new BrowserGeolocationProvider(navigatorMock);
  */
-export class BrowserGeolocationProvider extends GeolocationProvider {
+export class BrowserGeolocationProvider
+	extends GeolocationProvider
+	implements GeolocationPermissionReader
+{
 	private readonly injectedNavigator: Navigator | null;
 	private readonly useGlobalNavigator: boolean;
 
@@ -125,6 +132,23 @@ export class BrowserGeolocationProvider extends GeolocationProvider {
 	isPermissionsAPISupported(): boolean {
 		const activeNavigator = this.resolveNavigator();
 		return Boolean(activeNavigator && 'permissions' in activeNavigator);
+	}
+
+	/**
+	 * Resolves geolocation permission state through the Permissions API when
+	 * available, otherwise falls back to `'prompt'`.
+	 */
+	checkPermissions(): Promise<GeolocationPermissionState> {
+		const activeNavigator = this.resolveNavigator();
+
+		if (!activeNavigator || !this.isPermissionsAPISupported()) {
+			return Promise.resolve('prompt');
+		}
+
+		return activeNavigator.permissions.query({ name: 'geolocation' }).then(
+			(result) => result.state,
+			() => 'prompt',
+		);
 	}
 
 	/**

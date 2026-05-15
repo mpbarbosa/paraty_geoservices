@@ -97,6 +97,17 @@ class BrowserGeolocationProvider extends GeolocationProvider_1.default {
         return Boolean(activeNavigator && 'permissions' in activeNavigator);
     }
     /**
+     * Resolves geolocation permission state through the Permissions API when
+     * available, otherwise falls back to `'prompt'`.
+     */
+    checkPermissions() {
+        const activeNavigator = this.resolveNavigator();
+        if (!activeNavigator || !this.isPermissionsAPISupported()) {
+            return Promise.resolve('prompt');
+        }
+        return activeNavigator.permissions.query({ name: 'geolocation' }).then((result) => result.state, () => 'prompt');
+    }
+    /**
      * Returns the active navigator instance used by this provider.
      *
      * Returns the injected navigator when one was supplied at construction, the

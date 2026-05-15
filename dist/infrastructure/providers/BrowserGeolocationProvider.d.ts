@@ -14,6 +14,7 @@
  * @author Marcelo Pereira Barbosa
  */
 import GeolocationProvider from '../../domain/ports/GeolocationProvider';
+import type { GeolocationPermissionReader, GeolocationPermissionState } from '../../domain/ports/GeolocationPermissionReader';
 import type { GeoPosition } from '../../domain/entities/GeoPosition';
 import type { GeoPositionError } from '../../domain/entities/GeoPositionError';
 import type { GeoPositionOptions } from '../../domain/entities/GeoPositionOptions';
@@ -40,7 +41,7 @@ import type { GeoPositionOptions } from '../../domain/entities/GeoPositionOption
  * // Injected navigator for tests or custom runtimes
  * const provider = new BrowserGeolocationProvider(navigatorMock);
  */
-export declare class BrowserGeolocationProvider extends GeolocationProvider {
+export declare class BrowserGeolocationProvider extends GeolocationProvider implements GeolocationPermissionReader {
     private readonly injectedNavigator;
     private readonly useGlobalNavigator;
     constructor(navigatorObj?: Navigator | null);
@@ -59,6 +60,11 @@ export declare class BrowserGeolocationProvider extends GeolocationProvider {
      * @returns `true` if `navigator.permissions` exists; `false` otherwise.
      */
     isPermissionsAPISupported(): boolean;
+    /**
+     * Resolves geolocation permission state through the Permissions API when
+     * available, otherwise falls back to `'prompt'`.
+     */
+    checkPermissions(): Promise<GeolocationPermissionState>;
     /**
      * Returns the active navigator instance used by this provider.
      *

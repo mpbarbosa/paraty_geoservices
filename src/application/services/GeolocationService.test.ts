@@ -16,6 +16,7 @@ import { describe, it, expect, jest, beforeEach, afterEach } from '@jest/globals
 import { GeolocationService } from './GeolocationService';
 import { MockGeolocationProvider } from '../../infrastructure/providers/MockGeolocationProvider';
 import { BrowserGeolocationProvider } from '../../infrastructure/providers/BrowserGeolocationProvider';
+import type { GeolocationPermissionReader } from '../../domain/ports/GeolocationPermissionReader';
 import type { GeoPosition } from '../../domain/entities/GeoPosition';
 import type { GeoPositionError } from '../../domain/entities/GeoPositionError';
 
@@ -42,6 +43,12 @@ const TIMEOUT_ERROR: GeoPositionError = { code: 3, message: 'Timeout' };
 // ─── getSingleLocationUpdate ─────────────────────────────────────────────────
 
 describe('GeolocationService – getSingleLocationUpdate', () => {
+	it('requires an injected provider', () => {
+		expect(() => new GeolocationService(undefined as unknown as MockGeolocationProvider)).toThrow(
+			'GeolocationService requires a GeolocationProvider instance',
+		);
+	});
+
 	it('resolves with position on success', async () => {
 		const pos = makePosition();
 		const provider = new MockGeolocationProvider({ defaultPosition: pos });
@@ -504,6 +511,20 @@ describe('GeolocationService – checkPermissions', () => {
 
 		const result = await service.checkPermissions();
 		expect(result).toBe('prompt');
+	});
+
+	it('prefers an explicit permission reader when provided', async () => {
+		const provider = new MockGeolocationProvider({ permissionState: 'prompt' });
+		const checkPermissions = jest
+			.fn<() => Promise<'denied'>>()
+			.mockResolvedValue('denied');
+		const permissionReader: GeolocationPermissionReader = {
+			checkPermissions,
+		};
+		const service = new GeolocationService(provider, { permissionReader });
+
+		await expect(service.checkPermissions()).resolves.toBe('denied');
+		expect(checkPermissions).toHaveBeenCalledTimes(1);
 	});
 });
 

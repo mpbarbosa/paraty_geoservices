@@ -6,14 +6,10 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 `paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.
 
-## Architecture and Source Layout
+## Source Layout
 
-- The codebase is organized into stable source layers:
-  - `src/` (primary source modules and public API)
-  - `src/application/`
-  - `src/domain/`
-  - `src/infrastructure/`
-- Maintain clear separation between these layers. Place new modules in the appropriate subdirectory.
+- Shared low-level utilities are in `src/utils/`.
+- Maintain clear separation of concerns when adding new modules.
 
 ## Design Guidance
 

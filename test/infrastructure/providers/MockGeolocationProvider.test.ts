@@ -54,6 +54,12 @@ describe('MockGeolocationProvider', () => {
       expect(provider).toBeInstanceOf(GeolocationProvider);
     });
 
+    it('should expose a configurable permission state for tests', async () => {
+      const provider = new MockGeolocationProvider({ permissionState: 'denied' });
+
+      await expect(provider.checkPermissions()).resolves.toBe('denied');
+    });
+
     it('should accept a custom unsupported configuration', () => {
       const provider = new MockGeolocationProvider({ supported: false, delay: 25 });
 

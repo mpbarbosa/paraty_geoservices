@@ -95,6 +95,30 @@ describe('BrowserGeolocationProvider', () => {
 
       expect(provider.isPermissionsAPISupported()).toBe(false);
     });
+
+    it('should resolve permission state through the Permissions API', async () => {
+      const provider = new BrowserGeolocationProvider(
+        createNavigatorMock({
+          permissions: {
+            query: jest.fn().mockResolvedValue({ state: 'granted' }),
+          },
+        }),
+      );
+
+      await expect(provider.checkPermissions()).resolves.toBe('granted');
+    });
+
+    it('should fall back to prompt when permission lookup fails', async () => {
+      const provider = new BrowserGeolocationProvider(
+        createNavigatorMock({
+          permissions: {
+            query: jest.fn().mockRejectedValue(new Error('unsupported')),
+          },
+        }),
+      );
+
+      await expect(provider.checkPermissions()).resolves.toBe('prompt');
+    });
   });
 
   describe('getCurrentPosition', () => {

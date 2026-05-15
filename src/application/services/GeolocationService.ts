@@ -16,10 +16,13 @@
  */
 
 import { GeolocationProvider } from '../../domain/ports/GeolocationProvider';
+import type {
+	GeolocationPermissionReader,
+	GeolocationPermissionState,
+} from '../../domain/ports/GeolocationPermissionReader';
 import type { GeoPosition } from '../../domain/entities/GeoPosition';
 import type { GeoPositionError } from '../../domain/entities/GeoPositionError';
 import type { GeoPositionOptions } from '../../domain/entities/GeoPositionOptions';
-import { BrowserGeolocationProvider } from '../../infrastructure/providers/BrowserGeolocationProvider';
 import { throttle } from '../../utils/throttle';
 import type { ThrottledFunction } from '../../utils/throttle';
 
@@ -32,9 +35,15 @@ const DEFAULT_OPTIONS: GeoPositionOptions = {
 	maximumAge: 0,
 };
 
-/** Minimal interface for providers that expose navigator access. */
-interface NavigatorAccessor {
-	getNavigator?(): Navigator | null;
+export interface GeolocationServiceConfig {
+	geolocationOptions?: GeoPositionOptions;
+	permissionReader?: GeolocationPermissionReader;
+}
+
+function isGeolocationPermissionReader(
+	value: GeolocationProvider | GeolocationPermissionReader,
+): value is GeolocationPermissionReader {
+	return typeof (value as { checkPermissions?: unknown }).checkPermissions === 'function';
 }
 
 /**
@@ -42,14 +51,14 @@ interface NavigatorAccessor {
  *
  * **Constructor injection:**
  * Pass any `GeolocationProvider` instance — `BrowserGeolocationProvider`,
- * `MockGeolocationProvider`, or a custom adapter. When omitted, a default
- * `BrowserGeolocationProvider` backed by the global `navigator` is used.
+ * `MockGeolocationProvider`, or a custom adapter.
  *
  * @class GeolocationService
  *
  * @example
  * // Browser usage
- * const service = new GeolocationService();
+ * const provider = new BrowserGeolocationProvider();
+ * const service = new GeolocationService(provider);
  * const position = await service.getSingleLocationUpdate();
  *
  * @example
@@ -72,19 +81,25 @@ class GeolocationService {
 	private _rawWatchHandler: (position: GeoPosition) => void;
 	private _throttleInterval: number;
 	private config: { geolocationOptions: GeoPositionOptions };
+	private permissionReader: GeolocationPermissionReader | null;
 	private provider: GeolocationProvider;
 
 	/**
 	 * Creates a new `GeolocationService`.
 	 *
-	 * @param provider - Geolocation provider to use. Defaults to `BrowserGeolocationProvider`.
+	 * @param provider - Geolocation provider to use.
 	 * @param config   - Optional configuration object.
 	 * @param config.geolocationOptions - Options forwarded to the provider (accuracy, timeout, etc.).
+	 * @param config.permissionReader - Optional collaborator used by `checkPermissions()`.
 	 */
 	constructor(
-		provider?: GeolocationProvider | null,
-		config: { geolocationOptions?: GeoPositionOptions } = {},
+		provider: GeolocationProvider,
+		config: GeolocationServiceConfig = {},
 	) {
+		if (!provider) {
+			throw new TypeError('GeolocationService requires a GeolocationProvider instance');
+		}
+
 		this.watchId = null;
 		this.isWatching = false;
 		this.lastKnownPosition = null;
@@ -101,12 +116,10 @@ class GeolocationService {
 		this.config = {
 			geolocationOptions: config.geolocationOptions ?? DEFAULT_OPTIONS,
 		};
-
-		this.provider =
-			provider ??
-			new BrowserGeolocationProvider(
-				typeof navigator !== 'undefined' ? navigator : null,
-			);
+		this.provider = provider;
+		this.permissionReader =
+			config.permissionReader ??
+			(isGeolocationPermissionReader(provider) ? provider : null);
 	}
 
 	/**
@@ -116,19 +129,8 @@ class GeolocationService {
 	 *
 	 * @returns `'granted'`, `'denied'`, or `'prompt'`.
 	 */
-	async checkPermissions(): Promise<string> {
-		try {
-			const nav: Navigator | null =
-				(this.provider as NavigatorAccessor).getNavigator?.() ??
-				(typeof navigator !== 'undefined' ? navigator : null);
-			if (nav && 'permissions' in nav) {
-				const result = await nav.permissions.query({ name: 'geolocation' });
-				return result.state;
-			}
-		} catch {
-			// fall through to default
-		}
-		return 'prompt';
+	checkPermissions(): Promise<GeolocationPermissionState> {
+		return this.permissionReader?.checkPermissions() ?? Promise.resolve('prompt');
 	}
 
 	/**

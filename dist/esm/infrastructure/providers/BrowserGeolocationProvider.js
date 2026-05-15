@@ -13,7 +13,7 @@
  * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
-import GeolocationProvider from '../../domain/ports/GeolocationProvider.js';
+import GeolocationProvider from '../../domain/ports/GeolocationProvider';
 /**
  * Concrete infrastructure adapter that delegates geolocation operations to the
  * browser's Web Geolocation API (`navigator.geolocation`).
@@ -89,6 +89,17 @@ export class BrowserGeolocationProvider extends GeolocationProvider {
     isPermissionsAPISupported() {
         const activeNavigator = this.resolveNavigator();
         return Boolean(activeNavigator && 'permissions' in activeNavigator);
+    }
+    /**
+     * Resolves geolocation permission state through the Permissions API when
+     * available, otherwise falls back to `'prompt'`.
+     */
+    checkPermissions() {
+        const activeNavigator = this.resolveNavigator();
+        if (!activeNavigator || !this.isPermissionsAPISupported()) {
+            return Promise.resolve('prompt');
+        }
+        return activeNavigator.permissions.query({ name: 'geolocation' }).then((result) => result.state, () => 'prompt');
     }
     /**
      * Returns the active navigator instance used by this provider.

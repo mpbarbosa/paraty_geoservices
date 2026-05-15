@@ -39,6 +39,7 @@ class MockGeolocationProvider extends GeolocationProvider_1.default {
             defaultPosition: config.defaultPosition ?? null,
             defaultError: config.defaultError ?? null,
             delay: config.delay ?? 0,
+            permissionState: config.permissionState ?? 'prompt',
         };
     }
     /** @inheritdoc */
@@ -100,6 +101,12 @@ class MockGeolocationProvider extends GeolocationProvider_1.default {
      */
     isPermissionsAPISupported() {
         return false;
+    }
+    /**
+     * Returns the configured permission state for deterministic tests.
+     */
+    checkPermissions() {
+        return Promise.resolve(this.config.permissionState);
     }
     /**
      * Sets the position returned by future calls and clears any configured error.

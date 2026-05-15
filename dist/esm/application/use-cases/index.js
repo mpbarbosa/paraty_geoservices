@@ -1,2 +1,2 @@
-export { GetCurrentPositionUseCase } from './GetCurrentPositionUseCase.js';
-export { WatchPositionUseCase } from './WatchPositionUseCase.js';
+export { GetCurrentPositionUseCase } from './GetCurrentPositionUseCase';
+export { WatchPositionUseCase } from './WatchPositionUseCase';

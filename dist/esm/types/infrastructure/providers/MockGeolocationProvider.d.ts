@@ -15,6 +15,7 @@
  * @author Marcelo Pereira Barbosa
  */
 import GeolocationProvider from '../../domain/ports/GeolocationProvider';
+import type { GeolocationPermissionReader, GeolocationPermissionState } from '../../domain/ports/GeolocationPermissionReader';
 import type { GeoPosition } from '../../domain/entities/GeoPosition';
 import type { GeoPositionError } from '../../domain/entities/GeoPositionError';
 import type { GeoPositionOptions } from '../../domain/entities/GeoPositionOptions';
@@ -23,6 +24,7 @@ export interface MockGeolocationProviderConfig {
     defaultPosition?: GeoPosition | null;
     defaultError?: GeoPositionError | null;
     delay?: number;
+    permissionState?: GeolocationPermissionState;
 }
 /**
  * Mock implementation of the geolocation provider port.
@@ -31,7 +33,7 @@ export interface MockGeolocationProviderConfig {
  * @extends GeolocationProvider
  * @since 1.2.5
  */
-export declare class MockGeolocationProvider extends GeolocationProvider {
+export declare class MockGeolocationProvider extends GeolocationProvider implements GeolocationPermissionReader {
     private config;
     private watchIdCounter;
     private readonly activeWatches;
@@ -51,6 +53,10 @@ export declare class MockGeolocationProvider extends GeolocationProvider {
      * @returns Always `false`, because the mock has no real Permissions API.
      */
     isPermissionsAPISupported(): boolean;
+    /**
+     * Returns the configured permission state for deterministic tests.
+     */
+    checkPermissions(): Promise<GeolocationPermissionState>;
     /**
      * Sets the position returned by future calls and clears any configured error.
      *

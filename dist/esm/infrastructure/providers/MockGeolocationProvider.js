@@ -14,7 +14,7 @@
  * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
-import GeolocationProvider from '../../domain/ports/GeolocationProvider.js';
+import GeolocationProvider from '../../domain/ports/GeolocationProvider';
 /**
  * Mock implementation of the geolocation provider port.
  *
@@ -33,6 +33,7 @@ export class MockGeolocationProvider extends GeolocationProvider {
             defaultPosition: config.defaultPosition ?? null,
             defaultError: config.defaultError ?? null,
             delay: config.delay ?? 0,
+            permissionState: config.permissionState ?? 'prompt',
         };
     }
     /** @inheritdoc */
@@ -94,6 +95,12 @@ export class MockGeolocationProvider extends GeolocationProvider {
      */
     isPermissionsAPISupported() {
         return false;
+    }
+    /**
+     * Returns the configured permission state for deterministic tests.
+     */
+    checkPermissions() {
+        return Promise.resolve(this.config.permissionState);
     }
     /**
      * Sets the position returned by future calls and clears any configured error.

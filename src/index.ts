@@ -14,6 +14,10 @@ export type { GeoAddress } from './domain/entities/GeoAddress';
 export type { GeoPosition } from './domain/entities/GeoPosition';
 export type { GeoPositionError } from './domain/entities/GeoPositionError';
 export type { GeoPositionOptions } from './domain/entities/GeoPositionOptions';
+export type {
+	GeolocationPermissionReader,
+	GeolocationPermissionState,
+} from './domain/ports/GeolocationPermissionReader';
 export { GeolocationProvider } from './domain/ports/GeolocationProvider';
 export type { ReverseGeocoder } from './domain/ports/ReverseGeocoder';
 
@@ -22,6 +26,7 @@ export { GetCurrentPositionUseCase } from './application/use-cases/GetCurrentPos
 export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCase';
 export type { GetCurrentPositionOutput } from './application/dtos/GetCurrentPositionOutput';
 export { GeolocationService } from './application/services/GeolocationService';
+export type { GeolocationServiceConfig } from './application/services/GeolocationService';
 
 // Utils
 export { throttle } from './utils/throttle';
@@ -35,3 +40,7 @@ export type {
 } from './infrastructure/providers/AwsGeocoder';
 export { BrowserGeolocationProvider } from './infrastructure/providers/BrowserGeolocationProvider';
 export { MockGeolocationProvider } from './infrastructure/providers/MockGeolocationProvider';
+export { createBrowserGeolocationService } from './infrastructure/createBrowserGeolocationService';
+export type {
+  CreateBrowserGeolocationServiceConfig,
+} from './infrastructure/createBrowserGeolocationService';

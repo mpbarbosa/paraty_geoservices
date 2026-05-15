@@ -16,6 +16,10 @@
  */
 
 import GeolocationProvider from '../../domain/ports/GeolocationProvider';
+import type {
+	GeolocationPermissionReader,
+	GeolocationPermissionState,
+} from '../../domain/ports/GeolocationPermissionReader';
 import type { GeoPosition } from '../../domain/entities/GeoPosition';
 import type { GeoPositionError } from '../../domain/entities/GeoPositionError';
 import type { GeoPositionOptions } from '../../domain/entities/GeoPositionOptions';
@@ -25,6 +29,7 @@ export interface MockGeolocationProviderConfig {
 	defaultPosition?: GeoPosition | null;
 	defaultError?: GeoPositionError | null;
 	delay?: number;
+	permissionState?: GeolocationPermissionState;
 }
 
 interface WatchEntry {
@@ -39,7 +44,10 @@ interface WatchEntry {
  * @extends GeolocationProvider
  * @since 1.2.5
  */
-export class MockGeolocationProvider extends GeolocationProvider {
+export class MockGeolocationProvider
+	extends GeolocationProvider
+	implements GeolocationPermissionReader
+{
 	private config: Required<MockGeolocationProviderConfig>;
 	private watchIdCounter = 0;
 	private readonly activeWatches = new Map<number, WatchEntry>();
@@ -52,6 +60,7 @@ export class MockGeolocationProvider extends GeolocationProvider {
 			defaultPosition: config.defaultPosition ?? null,
 			defaultError: config.defaultError ?? null,
 			delay: config.delay ?? 0,
+			permissionState: config.permissionState ?? 'prompt',
 		};
 	}
 
@@ -135,6 +144,13 @@ export class MockGeolocationProvider extends GeolocationProvider {
 	 */
 	isPermissionsAPISupported(): boolean {
 		return false;
+	}
+
+	/**
+	 * Returns the configured permission state for deterministic tests.
+	 */
+	checkPermissions(): Promise<GeolocationPermissionState> {
+		return Promise.resolve(this.config.permissionState);
 	}
 
 	/**
