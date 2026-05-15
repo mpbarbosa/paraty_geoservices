@@ -9,7 +9,7 @@
  * class focused on HTTP orchestration only.
  *
  * @module infrastructure/providers/AwsGeocoder
- * @since 1.2.3
+ * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -25,7 +25,7 @@ const AwsAddressMapper_1 = require("./AwsAddressMapper");
  * `AWS_LBS_BASE_URL` environment variable.
  *
  * @class AwsGeocoder
- * @since 1.2.3
+ * @since 1.2.5
  */
 class AwsGeocoder {
     constructor(baseUrl) {

@@ -8,7 +8,7 @@
  * class focused on HTTP orchestration only.
  *
  * @module infrastructure/providers/AwsGeocoder
- * @since 1.2.3
+ * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
 import { toGeoAddress } from './AwsAddressMapper';
@@ -22,7 +22,7 @@ import { toGeoAddress } from './AwsAddressMapper';
  * `AWS_LBS_BASE_URL` environment variable.
  *
  * @class AwsGeocoder
- * @since 1.2.3
+ * @since 1.2.5
  */
 export class AwsGeocoder {
     constructor(baseUrl) {

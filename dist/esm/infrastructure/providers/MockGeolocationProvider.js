@@ -11,7 +11,7 @@
  * need an initial emission without a real device.
  *
  * @module infrastructure/providers/MockGeolocationProvider
- * @since 1.2.3
+ * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
 import GeolocationProvider from '../../domain/ports/GeolocationProvider';
@@ -20,7 +20,7 @@ import GeolocationProvider from '../../domain/ports/GeolocationProvider';
  *
  * @class MockGeolocationProvider
  * @extends GeolocationProvider
- * @since 1.2.3
+ * @since 1.2.5
  */
 export class MockGeolocationProvider extends GeolocationProvider {
     constructor(config = {}) {

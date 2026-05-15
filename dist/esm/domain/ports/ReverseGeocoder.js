@@ -5,7 +5,7 @@
  * implementation, enabling provider substitution via dependency injection.
  *
  * @module domain/ports/ReverseGeocoder
- * @since 1.2.3
+ * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
 export {};
