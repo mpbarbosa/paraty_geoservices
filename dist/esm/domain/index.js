@@ -1,1 +1,1 @@
-export { GeolocationProvider } from './ports/GeolocationProvider';
+export { GeolocationProvider } from './ports/GeolocationProvider.js';

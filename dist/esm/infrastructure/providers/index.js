@@ -1,4 +1,4 @@
-export { AwsGeocoder } from './AwsGeocoder';
-export { BrowserGeolocationProvider } from './BrowserGeolocationProvider';
-export { MockGeolocationProvider } from './MockGeolocationProvider';
-export { parseLabel, resolveStateCode, normalizeCountry, toGeoAddress } from './AwsAddressMapper';
+export { AwsGeocoder } from './AwsGeocoder.js';
+export { BrowserGeolocationProvider } from './BrowserGeolocationProvider.js';
+export { MockGeolocationProvider } from './MockGeolocationProvider.js';
+export { parseLabel, resolveStateCode, normalizeCountry, toGeoAddress } from './AwsAddressMapper.js';

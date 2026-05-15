@@ -13,7 +13,7 @@
  * @since 1.0.2
  * @author Marcelo Pereira Barbosa
  */
-import GeolocationProvider from '../../domain/ports/GeolocationProvider';
+import GeolocationProvider from '../../domain/ports/GeolocationProvider.js';
 /**
  * Concrete infrastructure adapter that delegates geolocation operations to the
  * browser's Web Geolocation API (`navigator.geolocation`).
