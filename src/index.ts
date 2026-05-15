@@ -17,10 +17,15 @@ export type { GeoPositionOptions } from './domain/entities/GeoPositionOptions';
 export { GeolocationProvider } from './domain/ports/GeolocationProvider';
 export type { ReverseGeocoder } from './domain/ports/ReverseGeocoder';
 
-// Application — use cases & DTOs
+// Application — use cases, services & DTOs
 export { GetCurrentPositionUseCase } from './application/use-cases/GetCurrentPositionUseCase';
 export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCase';
 export type { GetCurrentPositionOutput } from './application/dtos/GetCurrentPositionOutput';
+export { GeolocationService } from './application/services/GeolocationService';
+
+// Utils
+export { throttle } from './utils/throttle';
+export type { ThrottledFunction } from './utils/throttle';
 
 // Infrastructure — concrete adapters
 export { AwsGeocoder } from './infrastructure/providers/AwsGeocoder';

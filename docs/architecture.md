@@ -15,6 +15,7 @@
 │   │           Application                    │   │
 │   │  GetCurrentPositionUseCase               │   │
 │   │  WatchPositionUseCase                    │   │
+│   │  GeolocationService                      │   │
 │   │                                          │   │
 │   │   ┌──────────────────────────────────┐   │   │
 │   │   │           Domain                 │   │   │
@@ -84,6 +85,18 @@ Output shapes that cross the use-case boundary.
 
 Each use case receives a `GeolocationProvider` via **constructor injection**, making them fully testable without any real device or browser.
 
+#### Services (`src/application/services/`)
+
+| File | Class | Description |
+|---|---|---|
+| `GeolocationService.ts` | `GeolocationService` | High-level façade combining single-shot and continuous position access with leading-edge throttling and race-condition protection |
+
+`GeolocationService` wraps any `GeolocationProvider` and adds three capabilities not present in the individual use cases:
+
+- **Leading-edge throttle** on watch callbacks (`setThrottleInterval(ms)`, default 5 s)
+- **Race-condition guard** for single-shot requests (`hasPendingRequest()`)
+- **Automatic low-accuracy retry** when a high-accuracy `getCurrentPosition` times out (error code 3)
+
 ---
 
 ### Infrastructure (`src/infrastructure/`)
@@ -109,7 +122,15 @@ Brazilian-friendly structure for downstream consumers.
 
 ---
 
-## Data Flow
+## Utils (`src/utils/`)
+
+Pure helper functions with no external dependencies.
+
+| File | Exports | Description |
+|---|---|---|
+| `throttle.ts` | `throttle`, `ThrottledFunction` | Leading-edge throttle HOF; limits call frequency to at most once per `wait` ms |
+
+---
 
 ### Single position request
 

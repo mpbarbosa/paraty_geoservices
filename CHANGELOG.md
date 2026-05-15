@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `GeolocationService` in `src/application/services/GeolocationService.ts` — high-level façade
+  combining single-shot and continuous geolocation access with:
+  - Leading-edge throttle on watch callbacks (default 5 s, configurable via `setThrottleInterval`)
+  - Race-condition guard for `getSingleLocationUpdate` (`hasPendingRequest()`)
+  - Automatic low-accuracy retry when a high-accuracy request times out (code 3)
+  - `flushThrottle()` escape hatch to bypass the cooldown on demand
+- `src/application/services/GeolocationService.test.ts` covering 34 scenarios:
+  throttle behaviour, race-condition protection, watch lifecycle, error forwarding,
+  `checkPermissions`, and end-to-end provider integration.
+- `throttle` utility in `src/utils/throttle.ts` — leading-edge throttle HOF with `flush()`
+  escape hatch; migrated from guia_js.
+- Public re-exports for `GeolocationService`, `throttle`, and `ThrottledFunction` from
+  the package root (`src/index.ts`).
+- `docs/architecture.md`: added `src/application/services/` and `src/utils/` sections.
+
 - `AwsGeocoder` in `src/infrastructure/providers/AwsGeocoder.ts` for AWS
   Location Service-compatible reverse geocoding with standardized Brazilian
   address output.
