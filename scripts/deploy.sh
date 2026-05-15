@@ -94,7 +94,7 @@ fi
 
 # ── Helper: does the tag's commit tree already include build artifacts? ────────
 _tag_has_artifacts() {
-  git ls-tree -r "${TAG}" --name-only 2>/dev/null | grep -q "^dist/src/index\.js$"
+  git ls-tree -r "${TAG}" --name-only 2>/dev/null | grep -q "^dist/index\.js$"
 }
 
 if [[ "${TAG_EXISTS_LOCALLY}" == "false" ]]; then
@@ -199,9 +199,9 @@ echo ""
 info "jsDelivr CDN URLs for ${PACKAGE_NAME}@${VERSION}:"
 echo ""
 echo -e "  ${GREEN}GitHub (pinned to ${TAG})${NC}"
-echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/src/index.js"
+echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/index.js"
 echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/esm/index.js"
-echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/types/src/index.d.ts"
+echo "    https://cdn.jsdelivr.net/gh/${GH_REPO}@${TAG}/dist/index.d.ts"
 echo ""
 
 ok "Deployment of ${TAG} complete! 🚀"
@@ -210,7 +210,7 @@ echo ""
 # ── Step 5/5 — CDN availability check ────────────────────────────────────────
 info "Step 5/5 — Checking CDN availability for ${TAG} …"
 
-MAIN_FILE="dist/src/index.js"
+MAIN_FILE="dist/index.js"
 GITHUB_USER="${GH_REPO%%/*}"
 GITHUB_REPO_NAME="${GH_REPO##*/}"
 CDN_URL="https://cdn.jsdelivr.net/gh/${GH_REPO}@${VERSION}/${MAIN_FILE}"
