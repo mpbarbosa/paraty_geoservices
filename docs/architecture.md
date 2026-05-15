@@ -110,13 +110,16 @@ Concrete adapters that connect the domain ports to real external systems.
 | `providers/AwsGeocoder.ts` | `AwsGeocoder` | AWS Location Service-compatible reverse-geocoding HTTP endpoint, returning raw payloads plus standardized Brazilian addresses |
 | `providers/BrowserGeolocationProvider.ts` | `BrowserGeolocationProvider` | `navigator.geolocation` (Web Geolocation API), with optional navigator injection for tests and custom runtimes |
 | `providers/MockGeolocationProvider.ts` | `MockGeolocationProvider` | Deterministic in-memory positions/errors for tests and local development |
+| `createBrowserGeolocationService.ts` | `createBrowserGeolocationService` | Composition helper that wires `GeolocationService` to `BrowserGeolocationProvider` in the infrastructure layer |
 
 `AwsGeocoder` is the HTTP-facing reverse-geocoding adapter. It calls an
 AWS-compatible `/api/geocode/reverse` endpoint, accepts an explicit base URL or
 falls back to `AWS_LBS_BASE_URL`, and normalizes the returned address into a
 Brazilian-friendly structure for downstream consumers.
 
-`BrowserGeolocationProvider` is the browser-facing adapter. It can either use the ambient global `navigator` or accept an injected navigator in its constructor, and it exposes the concrete helper methods `isPermissionsAPISupported()` and `getNavigator()` for capability checks and advanced integration scenarios.
+`BrowserGeolocationProvider` is the browser-facing adapter. It can either use the ambient global `navigator` or accept an injected navigator in its constructor, and it exposes the concrete helper methods `isPermissionsAPISupported()`, `getNavigator()`, and `checkPermissions()` for browser-specific capability checks.
+
+`createBrowserGeolocationService` keeps browser-provider construction in the infrastructure layer, satisfying the clean-architecture rule that `src/application/` code must not instantiate concrete adapters.
 
 `MockGeolocationProvider` is the deterministic testing adapter. It implements the same domain port without touching browser APIs, supports fixed positions or fixed errors, can simulate callback delays, and can manually fan out watch updates to active subscribers.
 

@@ -81,6 +81,21 @@ const output = await useCase.execute();
 console.log(output.position.coords.latitude);
 ```
 
+If you want the higher-level service façade in a browser environment, use the
+built-in infrastructure factory instead of constructing the browser provider
+inside application code:
+
+```typescript
+import { createBrowserGeolocationService } from 'paraty_geoservices';
+
+const service = createBrowserGeolocationService({
+  geolocationOptions: { enableHighAccuracy: true },
+});
+
+const position = await service.getSingleLocationUpdate();
+console.log(position.coords.latitude);
+```
+
 If you need reverse geocoding against an AWS Location Service-compatible
 endpoint, the library also ships with an HTTP adapter:
 

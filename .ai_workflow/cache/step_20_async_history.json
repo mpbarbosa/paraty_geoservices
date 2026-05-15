@@ -10,7 +10,15 @@
       "hasAsyncPatterns": false
     },
     "src/application/index.ts": {
-      "mtimeMs": 1778522588287,
+      "mtimeMs": 1778842008501,
+      "hasAsyncPatterns": false
+    },
+    "src/application/services/GeolocationService.ts": {
+      "mtimeMs": 1778843286835,
+      "hasAsyncPatterns": true
+    },
+    "src/application/services/index.ts": {
+      "mtimeMs": 1778841883395,
       "hasAsyncPatterns": false
     },
     "src/application/use-cases/GetCurrentPositionUseCase.ts": {
@@ -46,8 +54,12 @@
       "hasAsyncPatterns": false
     },
     "src/domain/index.ts": {
-      "mtimeMs": 1778793236591,
+      "mtimeMs": 1778843286832,
       "hasAsyncPatterns": false
+    },
+    "src/domain/ports/GeolocationPermissionReader.ts": {
+      "mtimeMs": 1778843286824,
+      "hasAsyncPatterns": true
     },
     "src/domain/ports/GeolocationProvider.ts": {
       "mtimeMs": 1778543365155,
@@ -58,15 +70,19 @@
       "hasAsyncPatterns": true
     },
     "src/domain/ports/index.ts": {
-      "mtimeMs": 1778793236591,
+      "mtimeMs": 1778843286833,
       "hasAsyncPatterns": false
     },
     "src/index.ts": {
-      "mtimeMs": 1778793236591,
+      "mtimeMs": 1778843286837,
+      "hasAsyncPatterns": false
+    },
+    "src/infrastructure/createBrowserGeolocationService.ts": {
+      "mtimeMs": 1778843286835,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/index.ts": {
-      "mtimeMs": 1778793236591,
+      "mtimeMs": 1778843286837,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/providers/AwsAddressMapper.ts": {
@@ -78,15 +94,23 @@
       "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/BrowserGeolocationProvider.ts": {
-      "mtimeMs": 1778550647527,
+      "mtimeMs": 1778843286836,
       "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/MockGeolocationProvider.ts": {
-      "mtimeMs": 1778803759974,
+      "mtimeMs": 1778843286837,
       "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/index.ts": {
-      "mtimeMs": 1778793236592,
+      "mtimeMs": 1778843286837,
+      "hasAsyncPatterns": false
+    },
+    "src/utils/index.ts": {
+      "mtimeMs": 1778841825381,
+      "hasAsyncPatterns": false
+    },
+    "src/utils/throttle.ts": {
+      "mtimeMs": 1778841819937,
       "hasAsyncPatterns": false
     }
   }
