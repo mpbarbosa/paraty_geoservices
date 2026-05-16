@@ -4,7 +4,7 @@
 
 Follow the inward-only dependency rule: Infrastructure → Application → Domain. New providers go in `src/infrastructure/providers/` and must extend `GeolocationProvider`. Domain and application layers must not import from infrastructure.
 
-See `.github/CLEAN_ARCHITECTURE_GUIDE.md`, `.github/HIGH_COHESION_GUIDE.md`, and `.github/LOW_COUPLING_GUIDE.md` for detailed guidance.
+See `docs/CLEAN_ARCHITECTURE_GUIDE.md`, `docs/HIGH_COHESION_GUIDE.md`, and `docs/LOW_COUPLING_GUIDE.md` for detailed guidance.
 
 ## Development setup
 
@@ -12,12 +12,13 @@ See `.github/CLEAN_ARCHITECTURE_GUIDE.md`, `.github/HIGH_COHESION_GUIDE.md`, and
 npm ci
 npm test
 npm run build
+npm audit --audit-level=high
 ```
 
 ## Code standards
 
 - **Language:** TypeScript strict mode. No `any` without explicit justification.
-- **Formatting/linting:** `npm run lint` must pass (ESLint). Run before committing.
+- **Formatting:** no standalone lint script is currently defined; keep changes consistent with the existing code style and rely on the repository validation commands before committing.
 - **No magic numbers:** use named constants for timeouts, intervals, and error codes.
 - **No globals:** do not write to `globalThis`, `window`, or `process.env`.
 - **Error names:** set `err.name` on custom errors to distinguish them from generic `Error`.
@@ -30,7 +31,7 @@ Tests live in two places:
 - `src/**/*.test.ts` — co-located unit tests (preferred for new code).
 - `test/` — integration and e2e tests.
 
-Follow `.github/UNIT_TEST_GUIDE.md`. Key rules:
+Follow `docs/UNIT_TEST_GUIDE.md`. Key rules:
 
 - Each test covers one behaviour; name it as a sentence (`it('returns cached position within throttle window')`).
 - No shared mutable state between tests; use `beforeEach` to reset fixtures.

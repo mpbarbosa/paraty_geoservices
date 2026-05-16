@@ -10,7 +10,7 @@
  * @author Marcelo Pereira Barbosa
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createBrowserGeolocationService = exports.MockGeolocationProvider = exports.BrowserGeolocationProvider = exports.AwsGeocoder = exports.throttle = exports.GeolocationService = exports.WatchPositionUseCase = exports.GetCurrentPositionUseCase = exports.GeolocationProvider = void 0;
+exports.createBrowserGeolocationService = exports.MockGeolocationProvider = exports.BrowserGeolocationProvider = exports.AwsGeocoder = exports.throttle = exports.ChangeDetectionCoordinator = exports.GeolocationService = exports.WatchPositionUseCase = exports.GetCurrentPositionUseCase = exports.GeolocationProvider = void 0;
 var GeolocationProvider_1 = require("./domain/ports/GeolocationProvider");
 Object.defineProperty(exports, "GeolocationProvider", { enumerable: true, get: function () { return GeolocationProvider_1.GeolocationProvider; } });
 // Application — use cases, services & DTOs
@@ -20,6 +20,8 @@ var WatchPositionUseCase_1 = require("./application/use-cases/WatchPositionUseCa
 Object.defineProperty(exports, "WatchPositionUseCase", { enumerable: true, get: function () { return WatchPositionUseCase_1.WatchPositionUseCase; } });
 var GeolocationService_1 = require("./application/services/GeolocationService");
 Object.defineProperty(exports, "GeolocationService", { enumerable: true, get: function () { return GeolocationService_1.GeolocationService; } });
+var ChangeDetectionCoordinator_1 = require("./application/services/ChangeDetectionCoordinator");
+Object.defineProperty(exports, "ChangeDetectionCoordinator", { enumerable: true, get: function () { return ChangeDetectionCoordinator_1.ChangeDetectionCoordinator; } });
 // Utils
 var throttle_1 = require("./utils/throttle");
 Object.defineProperty(exports, "throttle", { enumerable: true, get: function () { return throttle_1.throttle; } });

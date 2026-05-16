@@ -9,7 +9,7 @@
  *   GeolocationService.providerPattern.test.ts
  *
  * @module application/services/GeolocationService.test
- * @since 1.4.0
+ * @since 1.5.0
  */
 
 import { describe, it, expect, jest, beforeEach, afterEach } from '@jest/globals';

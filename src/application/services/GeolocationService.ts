@@ -11,7 +11,7 @@
  * combined, rate-limited façade.
  *
  * @module application/services/GeolocationService
- * @since 1.4.0
+ * @since 1.5.0
  * @author Marcelo Pereira Barbosa
  */
 
@@ -298,7 +298,7 @@ class GeolocationService {
 	 *
 	 * Use sparingly — for example when the user explicitly taps "refresh location".
 	 *
-	 * @since 1.4.0
+	 * @since 1.5.0
 	 */
 	flushThrottle(): void {
 		this.lastSingleFetchTime = 0;
@@ -312,7 +312,7 @@ class GeolocationService {
 	 * which GPS events are forwarded changes.
 	 *
 	 * @param ms - New throttle interval in milliseconds.
-	 * @since 1.4.0
+	 * @since 1.5.0
 	 */
 	setThrottleInterval(ms: number): void {
 		this._throttleInterval = ms;

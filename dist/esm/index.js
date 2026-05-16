@@ -13,6 +13,7 @@ export { GeolocationProvider } from './domain/ports/GeolocationProvider';
 export { GetCurrentPositionUseCase } from './application/use-cases/GetCurrentPositionUseCase';
 export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCase';
 export { GeolocationService } from './application/services/GeolocationService';
+export { ChangeDetectionCoordinator } from './application/services/ChangeDetectionCoordinator';
 // Utils
 export { throttle } from './utils/throttle';
 // Infrastructure — concrete adapters

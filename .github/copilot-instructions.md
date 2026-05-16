@@ -11,23 +11,10 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 - Shared low-level utilities are in `src/utils/`.
 - Maintain clear separation of concerns when adding or modifying modules.
 
-## Design and Implementation Guidance
-
-- Follow standard best practices for modularity and separation of concerns.
-- When unsure about architecture, dependencies, or workflow, consult the authoritative documentation below.
-
 ## Validation
 
 - Run tests with: `npm test`
 - Build the project with: `npm run build`
-
-## Reference Documentation
-
-Consult these documents for authoritative guidance:
-- `README.md` — Project overview and usage
-- `CHANGELOG.md` — Notable changes
-- `CONTRIBUTING.md` — Contribution and dependency rules
-- `CLAUDE.md` — Claude-specific codebase guidance
 
 ## Build Artifacts
 
@@ -39,3 +26,13 @@ Consult these documents for authoritative guidance:
 
 - Workflow configuration: `.workflow-config.yaml`
 - Runtime artifacts and cache: `.ai_workflow/`
+
+## Reference Documentation
+
+Consult these documents for authoritative guidance:
+- `README.md` — Project overview and usage
+- `CHANGELOG.md` — Notable changes
+- `CONTRIBUTING.md` — Contribution and dependency rules
+- `CLAUDE.md` — Claude-specific codebase guidance
+
+When unsure about architecture, dependencies, or workflow, refer to the above documentation.

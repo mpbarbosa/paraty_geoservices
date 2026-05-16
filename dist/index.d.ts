@@ -20,6 +20,8 @@ export { WatchPositionUseCase } from './application/use-cases/WatchPositionUseCa
 export type { GetCurrentPositionOutput } from './application/dtos/GetCurrentPositionOutput';
 export { GeolocationService } from './application/services/GeolocationService';
 export type { GeolocationServiceConfig } from './application/services/GeolocationService';
+export { ChangeDetectionCoordinator } from './application/services/ChangeDetectionCoordinator';
+export type { AddressFieldChangeEvent, AddressChangeType, IAddressChangeObserver, IObserverSubject, IAddressComponentExtractor, IAddressState, ILogger, } from './application/services/ChangeDetectionCoordinator';
 export { throttle } from './utils/throttle';
 export type { ThrottledFunction } from './utils/throttle';
 export { AwsGeocoder } from './infrastructure/providers/AwsGeocoder';

@@ -1,8 +1,15 @@
 import {
   GetCurrentPositionUseCase,
   WatchPositionUseCase,
+  ChangeDetectionCoordinator,
 } from '../../src/application/index';
-import type { GetCurrentPositionOutput } from '../../src/application/index';
+import type {
+  GetCurrentPositionOutput,
+  AddressFieldChangeEvent,
+  IAddressState,
+  IObserverSubject,
+  ILogger,
+} from '../../src/application/index';
 
 describe('application/index exports', () => {
   it('should export GetCurrentPositionUseCase as a constructor', () => {
@@ -42,6 +49,35 @@ describe('application/index exports', () => {
     };
     const output: GetCurrentPositionOutput = { position: mockGeoPosition as any };
     expect(output.position).toBe(mockGeoPosition);
+  });
+
+  it('should export ChangeDetectionCoordinator as a constructor', () => {
+    const addressState: IAddressState = { currentAddress: null };
+    const observerSubject: IObserverSubject = { observers: [], functionObservers: [] };
+    const logger: ILogger = {
+      warn: jest.fn(),
+      error: jest.fn(),
+      info: jest.fn(),
+    };
+
+    const instance = new ChangeDetectionCoordinator({
+      addressState,
+      observerSubject,
+      logger,
+    });
+
+    expect(instance).toBeInstanceOf(ChangeDetectionCoordinator);
+  });
+
+  it('should export ChangeDetectionCoordinator event types', () => {
+    const event: AddressFieldChangeEvent = {
+      from: 'Rua Antiga',
+      to: 'Rua Nova',
+      previousAddress: null,
+      currentAddress: null,
+    };
+
+    expect(event.to).toBe('Rua Nova');
   });
 
 });

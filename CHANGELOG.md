@@ -44,19 +44,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   use-case integration, and the package root re-export.
 - Public re-exports for `MockGeolocationProvider` from the infrastructure
   barrels and the package root.
+- Public re-exports for `ChangeDetectionCoordinator` and its supporting
+  application-layer types from the application barrels and the package root.
+- `.github/dependabot.yml` for weekly npm dependency update pull requests.
 
 ### Changed
 
+- `package.json` now declares dual CJS/ESM package-root entry points via
+  `"main"`, `"module"`, and `"exports"` so npm/bundler consumers can resolve
+  `paraty_geoservices` without hard-coding `dist/index.js` or
+  `dist/esm/index.js`.
 - `README.md`, `docs/architecture.md`, `docs/getting-started.md`, and
   `docs/contributing.md` to document the AWS reverse-geocoding adapter.
 - `docs/architecture.md`, `docs/getting-started.md`, and
   `docs/contributing.md` to document the built-in mock provider and its role
   in the infrastructure layer.
+- `README.md`, `docs/architecture.md`, `docs/getting-started.md`, and
+  `docs/cicd-roadmap.md` to document the package-root
+  `ChangeDetectionCoordinator` export and mark the public API hardening roadmap
+  step as shipped.
 - `GeolocationService` now requires an injected `GeolocationProvider` and
   delegates permission checks through a port-compatible collaborator instead of
   importing `BrowserGeolocationProvider` or reading `navigator` directly.
 - `BrowserGeolocationProvider` and `MockGeolocationProvider` now implement
   `checkPermissions()` for permission-aware integrations and tests.
+- `npm run test:coverage` now writes reports to `.ai_workflow/coverage`,
+  avoiding stale permission issues from an existing root-owned `coverage/`
+  directory in local environments.
+
+### CI
+
+- `.github/workflows/ci.yml` now runs `npm run test:coverage` instead of plain
+  `npm test` and uploads the generated `.ai_workflow/coverage/` artifact for
+  each Node matrix job.
+- `jest.config.js` now enforces global coverage thresholds of 97% for lines,
+  statements, and functions, plus 91% for branches, based on the current suite
+  baseline.
+- `docs/cicd-roadmap.md` now marks Phase 2 (Coverage Gates) as shipped.
+- `.github/workflows/release.yml` now automates tagged releases by running type
+  checking, build, tests, `npm pack --dry-run`, `npm publish`, and GitHub
+  Release creation for `v*.*.*` tags.
+- `.github/workflows/release.yml` now follows successful tagged releases with a
+  `docs` job that regenerates TypeDoc, uploads `docs/api/` as a Pages artifact,
+  and deploys the API reference to GitHub Pages.
+- `docs/cicd-roadmap.md` now marks Phase 3 (Automated Release Pipeline) as
+  shipped and documents the tag-driven release flow.
+- `docs/cicd-roadmap.md` now marks Phase 4 (Documentation Publishing) as
+  shipped and documents the GitHub Pages deployment flow for `docs/api/`.
+- `.github/workflows/ci.yml` now runs `npm audit --audit-level=high` on each CI
+  matrix job, and `docs/cicd-roadmap.md` now marks Phase 5 (Dependency and
+  Security Auditing) as shipped.
 
 ## [1.2.5] - 2026-05-11
 

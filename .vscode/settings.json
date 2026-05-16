@@ -1,0 +1,14 @@
+{
+  "search.exclude": {
+    "**/.ai_workflow": true,
+    "**/coverage": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/.ai_workflow/**": true,
+    "**/coverage/**": true,
+    "**/dist/**": true,
+    "**/node_modules/**": true
+  }
+}

@@ -6,7 +6,7 @@ project:
   type: 'typescript-library'
   description: 'A reverse geocoding service library developed in TypeScript and Node.js.'
   kind: 'nodejs_api'
-  version: '1.0.2'
+  version: '1.5.0'
 
 tech_stack:
   primary_language: 'typescript'
@@ -23,16 +23,20 @@ structure:
     - src
   test_dirs:
     - src
+    - test
   docs_dirs:
     - docs
   config_files:
     - .workflow-config.yaml
-    - jest.config.ts
+    - jest.config.js
     - tsconfig.json
     - tsconfig.test.json
     - package.json
   artifact_dir: '.ai_workflow'
   exclude_paths:
+    - dist
+    - coverage
+    - node_modules
     - .ai_workflow/logs
     - .ai_workflow/summaries
     - .ai_workflow/backlog

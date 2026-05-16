@@ -19,6 +19,9 @@ const result = await geocoder.reverseGeocode(-23.55052, -46.633309);
 console.log(result);
 ```
 
+All public APIs are available from the package root. Prefer
+`paraty_geoservices` over deep imports into `dist/` or internal source paths.
+
 ---
 
 ## AwsGeocoder
@@ -72,11 +75,12 @@ If you omit the constructor argument, `AwsGeocoder` reads the base URL from the
 Extend `GeolocationProvider` and implement all four abstract methods:
 
 ```typescript
-import GeolocationProvider, {
+import {
+  GeolocationProvider,
   GeoPosition,
   GeoPositionError,
   GeoPositionOptions,
-} from 'paraty_geoservices/GeolocationProvider';
+} from 'paraty_geoservices';
 
 class BrowserGeolocationProvider extends GeolocationProvider {
   isSupported(): boolean {
@@ -114,6 +118,43 @@ class BrowserGeolocationProvider extends GeolocationProvider {
 }
 ```
 
+---
+
+## ChangeDetectionCoordinator
+
+`ChangeDetectionCoordinator` is available from the package root for consumers
+that need address-field change orchestration without importing internal build
+paths.
+
+```typescript
+import {
+  ChangeDetectionCoordinator,
+  type AddressFieldChangeEvent,
+  type IAddressState,
+  type IObserverSubject,
+  type ILogger,
+} from 'paraty_geoservices';
+
+const addressState: IAddressState = { currentAddress: null };
+const observerSubject: IObserverSubject = { observers: [], functionObservers: [] };
+const logger: ILogger = console;
+
+const coordinator = new ChangeDetectionCoordinator({
+  addressState,
+  observerSubject,
+  logger,
+});
+
+const event: AddressFieldChangeEvent = {
+  from: 'Rua Antiga',
+  to: 'Rua Nova',
+  previousAddress: null,
+  currentAddress: null,
+};
+
+coordinator.notifyStreetChangeObservers(event);
+```
+
 ### API reference
 
 #### `getCurrentPosition(successCallback, errorCallback, options?)`
@@ -146,3 +187,4 @@ Returns `true` if the provider can supply geolocation data in the current enviro
 npm test              # run unit tests
 npm run test:coverage # run tests with coverage report
 npm run build         # compile TypeScript to dist/
+npm audit --audit-level=high # fail on high/critical dependency issues
