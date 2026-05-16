@@ -17,6 +17,7 @@ Use this guide together with:
 - [High Cohesion Guide](./HIGH_COHESION_GUIDE.md)
 - [Low Coupling Guide](./LOW_COUPLING_GUIDE.md)
 - [Referential Transparency Guide](./REFERENTIAL_TRANSPARENCY.md)
+- [Unit Test Guide](./UNIT_TEST_GUIDE.md)
 
 ## Goal
 
@@ -26,7 +27,7 @@ Catch quality regressions early by checking that new code:
 2. keeps public APIs clear and intentional
 3. isolates provider SDK and HTTP details at adapter boundaries
 4. preserves deterministic domain and helper logic where practical
-5. stays covered by repository validation and focused tests
+5. stays covered by repository validation and focused, deterministic unit tests
 
 ## Quality gates
 
@@ -81,6 +82,22 @@ full reference.
   significant enough to regress independently.
 - Split tests along responsibility seams when a refactor separates domain rules
   from transport or mapping logic.
+- Unit tests should verify one narrow behavior with explicit inputs and isolated
+  effects.
+- Domain, DTO, and helper tests should prefer plain data assertions with no live
+  browser APIs, HTTP calls, clocks, or environment dependencies.
+- Application-layer tests should inject collaborators explicitly and prefer
+  `MockGeolocationProvider` or a small purpose-built stub over real geolocation
+  behavior.
+- Infrastructure adapter tests should stub `fetch`, browser-facing APIs, mapped
+  CDN imports, and environment state so they do not become accidental
+  integration tests.
+- Timing-sensitive tests should use fake timers for throttling, delayed
+  callbacks, and request lifecycle behavior instead of wall-clock delays.
+- Tests that mutate `globalThis`, `process.env`, or similar shared state must
+  restore it after each test so execution order does not affect outcomes.
+
+See [Unit Test Guide](./UNIT_TEST_GUIDE.md) for the full reference.
 
 ### 6. Documentation gate
 
@@ -114,6 +131,10 @@ Run the repository validation commands for substantive code changes:
 1. Test: `npm test`
 2. Build: `npm run build`
 
+For unit-level validation, keep `npm test` fast and stable by leaving
+browser-driven or workflow-wide scenarios in `test/e2e/` rather than forcing
+them into the default suite.
+
 ## Review checklist
 
 - [ ] The change belongs to the correct layer (`src/domain/`, `src/application/`, or `src/infrastructure/`).
@@ -122,6 +143,9 @@ Run the repository validation commands for substantive code changes:
 - [ ] Pure helpers (address normalization, coordinate validation) are separated from runtime orchestration.
 - [ ] New abstractions improve clarity more than they increase indirection.
 - [ ] Tests cover the changed boundary and any newly extracted critical helper.
+- [ ] Unit tests stay focused, deterministic, and isolated from live I/O.
+- [ ] Timing-sensitive behavior uses fake timers rather than wall-clock delays.
+- [ ] Tests that mutate shared global or process state restore it after each run.
 - [ ] Docs and changelog reflect any meaningful API or behavior change.
 - [ ] Repository validation commands still pass (`npm test`, `npm run build`).
 - [ ] No `src/domain/` or `src/application/` file imports from `src/infrastructure/`.

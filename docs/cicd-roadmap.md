@@ -12,20 +12,23 @@ This document describes the recommended CI/CD pipeline for `paraty_geoservices`,
 | Coverage reporting | Manual — `npm run test:coverage` |
 | Build verification | Manual — `npm run build` |
 | Docs generation | Manual — `npm run docs` |
-| Automated pipeline | **None** |
+| Automated pipeline | **Phase 1 complete** — `.github/workflows/ci.yml` |
 | npm publish | **Manual** |
 
 ---
 
-## Phase 1 — Continuous Integration (Priority: High)
+## Phase 1 — Continuous Integration ✓ (shipped 2026-05-15)
 
 **Goal:** Every push and every pull request is automatically validated.
 
 ### What to automate
 
 - `npm ci` (reproducible install from lock file)
+- `tsc --noEmit` (type-check without emitting output — fast, catches type errors before the full build)
 - `npm run build` (TypeScript compilation, both CJS and ESM outputs)
-- `npm test` (73+ unit tests via Jest)
+- `npm run docs` (TypeDoc build integrity — fails if exported types are malformed)
+- `npm test` (163+ unit tests via Jest)
+- `npm pack --dry-run` (verify the published file list matches `package.json` `main` and `types` before any release)
 
 ### Suggested workflow — `.github/workflows/ci.yml`
 
@@ -58,12 +61,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Type check
+        run: npx tsc --noEmit
+
       - name: Build
         run: npm run build
 
+      - name: Check docs build
+        run: npm run docs
+
       - name: Test
         run: npm test
+
+      - name: Verify publish file list
+        run: npm pack --dry-run
 ```
+
+### Why `npx tsc` instead of `tsc`?
+
+The project pins TypeScript 6.x in `devDependencies`. A bare `tsc` call resolves to whatever binary is first on the runner's PATH, which may be a different (older) version installed globally or by a sibling project. `npx tsc` always resolves to the version installed by `npm ci`, keeping CI and local builds consistent.
 
 ### Why a Node matrix?
 
@@ -98,7 +114,7 @@ const config: Config = {
 };
 ```
 
-Start conservatively (80/70) and raise thresholds as coverage improves. The current suite (73 tests, clean pass) should already exceed these values.
+Run `npm run test:coverage` once locally before committing the threshold to baseline the current numbers. Set the initial threshold at or just below that baseline so CI passes immediately, then raise it incrementally. The current suite (163 tests, clean pass) should comfortably exceed 80/70.
 
 **`.github/workflows/ci.yml`** — replace the `Test` step:
 

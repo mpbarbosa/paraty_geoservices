@@ -10,6 +10,7 @@ This folder contains all project documentation.
 | [`HIGH_COHESION_GUIDE.md`](./HIGH_COHESION_GUIDE.md) | Design rules for keeping modules focused and single-purpose |
 | [`LOW_COUPLING_GUIDE.md`](./LOW_COUPLING_GUIDE.md) | Design rules for keeping dependencies explicit and narrow |
 | [`REFERENTIAL_TRANSPARENCY.md`](./REFERENTIAL_TRANSPARENCY.md) | Design rules for deterministic, side-effect-free logic |
+| [`UNIT_TEST_GUIDE.md`](./UNIT_TEST_GUIDE.md) | Unit-testing rules for fast, deterministic, architecture-aligned tests |
 | [`api/`](./api/index.html) | Auto-generated TypeDoc API reference — open `api/index.html` in a browser |
 
 ## Regenerating the API reference

@@ -13,8 +13,12 @@
       "mtimeMs": 1778842008501,
       "hasAsyncPatterns": false
     },
+    "src/application/services/ChangeDetectionCoordinator.ts": {
+      "mtimeMs": 1778895353174,
+      "hasAsyncPatterns": false
+    },
     "src/application/services/GeolocationService.ts": {
-      "mtimeMs": 1778843286835,
+      "mtimeMs": 1778943158256,
       "hasAsyncPatterns": true
     },
     "src/application/services/index.ts": {
@@ -58,7 +62,7 @@
       "hasAsyncPatterns": false
     },
     "src/domain/ports/GeolocationPermissionReader.ts": {
-      "mtimeMs": 1778843286824,
+      "mtimeMs": 1778943158256,
       "hasAsyncPatterns": true
     },
     "src/domain/ports/GeolocationProvider.ts": {
@@ -78,7 +82,7 @@
       "hasAsyncPatterns": false
     },
     "src/infrastructure/createBrowserGeolocationService.ts": {
-      "mtimeMs": 1778843286835,
+      "mtimeMs": 1778943158256,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/index.ts": {
@@ -110,7 +114,7 @@
       "hasAsyncPatterns": false
     },
     "src/utils/throttle.ts": {
-      "mtimeMs": 1778841819937,
+      "mtimeMs": 1778943158257,
       "hasAsyncPatterns": false
     }
   }

@@ -1,13 +1,14 @@
 {
   "version": 1,
   "partitionIndex": 1,
-  "totalPartitions": 4,
-  "filesHash": "698ea54e",
+  "totalPartitions": 5,
+  "filesHash": "74baa04e",
   "partitionLabels": [
     "src/application, src/domain",
     "test/application",
     "test/domain",
-    "test/infrastructure"
+    "test/infrastructure",
+    "test/utils, test/__mocks__"
   ],
-  "updatedAt": "2026-05-15T12:08:55.537Z"
+  "updatedAt": "2026-05-16T14:50:20.821Z"
 }

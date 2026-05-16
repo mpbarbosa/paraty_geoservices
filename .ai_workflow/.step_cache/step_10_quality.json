@@ -4,7 +4,7 @@
     "jest.config.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-11T19:25:44.106Z"
+      "lastAnalyzed": "2026-05-16T14:52:19.629Z"
     },
     "run-docker-tests.sh": {
       "score": 100,
@@ -104,7 +104,7 @@
     "src/application/services/GeolocationService.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-15T12:12:56.144Z"
+      "lastAnalyzed": "2026-05-16T14:52:19.629Z"
     },
     "src/application/services/index.ts": {
       "score": 100,
@@ -115,6 +115,21 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-15T12:12:56.144Z"
+    },
+    "src/application/services/ChangeDetectionCoordinator.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-16T14:52:19.629Z"
+    },
+    "src/types/bessa_patterns.d.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-16T14:52:19.629Z"
+    },
+    "src/types/olinda_utils.d.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-16T14:52:19.629Z"
     }
   }
 }
