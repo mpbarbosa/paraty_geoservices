@@ -6,7 +6,7 @@
  * underlying runtime supports it.
  *
  * @module domain/ports/GeolocationPermissionReader
- * @since 1.3.0
+ * @since 1.4.0
  * @author Marcelo Pereira Barbosa
  */
 export {};
