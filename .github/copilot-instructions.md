@@ -1,20 +1,20 @@
 # Copilot Guidance — paraty_geoservices
 
-This file provides durable, high-signal guidance for Copilot-assisted development in this repository. For implementation details and up-to-date reference, see the authoritative docs listed below.
+This file provides durable, high-signal guidance for Copilot-assisted development in this repository. For implementation details and up-to-date reference, consult the authoritative documents listed below.
 
 ## Project Purpose
 
 `paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.
 
-## Source Layout
+## Source Layout and Architecture
 
 - Shared low-level utilities are in `src/utils/`.
-- Maintain clear separation of concerns when adding new modules.
+- Maintain clear separation of concerns when adding or modifying modules.
 
-## Design Guidance
+## Design and Implementation Guidance
 
-- Follow standard software engineering best practices for modularity and separation of concerns.
-- When in doubt about architecture or dependencies, consult the authoritative documentation.
+- Follow standard best practices for modularity and separation of concerns.
+- When unsure about architecture, dependencies, or workflow, consult the authoritative documentation below.
 
 ## Validation
 
@@ -23,8 +23,11 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 ## Reference Documentation
 
-- For project overview and usage, see `README.md`.
-- For notable changes, see `CHANGELOG.md`.
+Consult these documents for authoritative guidance:
+- `README.md` — Project overview and usage
+- `CHANGELOG.md` — Notable changes
+- `CONTRIBUTING.md` — Contribution and dependency rules
+- `CLAUDE.md` — Claude-specific codebase guidance
 
 ## Build Artifacts
 

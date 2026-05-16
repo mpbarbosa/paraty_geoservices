@@ -90,7 +90,6 @@ describe('GetCurrentPositionUseCase', () => {
 				options?: GeoPositionOptions,
 			): void {
 				spy(success, _error, options);
-				success(MOCK_POSITION);
 			}
 			watchPosition(): null { return null; }
 			clearWatch(): void {}

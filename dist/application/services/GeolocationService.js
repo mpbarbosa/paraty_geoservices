@@ -12,7 +12,7 @@
  * combined, rate-limited façade.
  *
  * @module application/services/GeolocationService
- * @since 1.3.0
+ * @since 1.4.0
  * @author Marcelo Pereira Barbosa
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -90,6 +90,10 @@ class GeolocationService {
     checkPermissions() {
         return this.permissionReader?.checkPermissions() ?? Promise.resolve('prompt');
     }
+    _clearPendingState() {
+        this.isPendingRequest = false;
+        this.pendingPromise = null;
+    }
     /**
      * Gets a single location update.
      *
@@ -109,23 +113,15 @@ class GeolocationService {
             this.lastKnownPosition) {
             return Promise.resolve(this.lastKnownPosition);
         }
+        if (!this.provider.isSupported()) {
+            const err = new Error('Geolocation is not supported by this browser');
+            err.name = 'NotSupportedError';
+            return Promise.reject(err);
+        }
+        this.isPendingRequest = true;
         this.pendingPromise = new Promise((resolve, reject) => {
-            if (this.isPendingRequest) {
-                const err = new Error('A geolocation request is already pending');
-                err.name = 'RequestPendingError';
-                reject(err);
-                return;
-            }
-            if (!this.provider.isSupported()) {
-                const err = new Error('Geolocation is not supported by this browser');
-                err.name = 'NotSupportedError';
-                reject(err);
-                return;
-            }
-            this.isPendingRequest = true;
             this.provider.getCurrentPosition((position) => {
-                this.isPendingRequest = false;
-                this.pendingPromise = null;
+                this._clearPendingState();
                 this.lastKnownPosition = position;
                 this.lastSingleFetchTime = Date.now();
                 resolve(position);
@@ -138,20 +134,17 @@ class GeolocationService {
                         timeout: 10000,
                     };
                     this.provider.getCurrentPosition((position) => {
-                        this.isPendingRequest = false;
-                        this.pendingPromise = null;
+                        this._clearPendingState();
                         this.lastKnownPosition = position;
                         this.lastSingleFetchTime = Date.now();
                         resolve(position);
                     }, (fallbackErr) => {
-                        this.isPendingRequest = false;
-                        this.pendingPromise = null;
+                        this._clearPendingState();
                         reject(fallbackErr);
                     }, fallbackOptions);
                     return;
                 }
-                this.isPendingRequest = false;
-                this.pendingPromise = null;
+                this._clearPendingState();
                 reject(err);
             }, this.config.geolocationOptions);
         });
@@ -228,7 +221,7 @@ class GeolocationService {
      *
      * Use sparingly — for example when the user explicitly taps "refresh location".
      *
-     * @since 1.3.0
+     * @since 1.4.0
      */
     flushThrottle() {
         this.lastSingleFetchTime = 0;
@@ -241,7 +234,7 @@ class GeolocationService {
      * which GPS events are forwarded changes.
      *
      * @param ms - New throttle interval in milliseconds.
-     * @since 1.3.0
+     * @since 1.4.0
      */
     setThrottleInterval(ms) {
         this._throttleInterval = ms;

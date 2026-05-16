@@ -34,7 +34,6 @@ warn()  { echo -e "${YELLOW}[deploy] ⚠${NC} $*"; }
 fail()  { echo -e "${RED}[deploy] ✗${NC} $*" >&2; exit 1; }
 
 CYAN='\033[0;36m'
-BOLD='\033[1m'
 NC='\033[0m'
 
 command -v npm >/dev/null 2>&1 || fail "npm not found on PATH."
@@ -77,11 +76,9 @@ fi
 
 # ── Guard: check whether tag already exists and whether it has been delivered ──
 TAG_EXISTS_LOCALLY=false
-TAG_EXISTS_ON_REMOTE=false
 if git rev-parse "${TAG}" >/dev/null 2>&1; then
   TAG_EXISTS_LOCALLY=true
   if git ls-remote --tags origin "refs/tags/${TAG}" 2>/dev/null | grep -q .; then
-    TAG_EXISTS_ON_REMOTE=true
     warn "Tag ${TAG} already exists on the remote."
     warn "Skipping install/test — build will still run to ensure dist/ is current."
     echo ""

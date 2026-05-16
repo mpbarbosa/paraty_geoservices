@@ -323,9 +323,10 @@ describe('GeolocationProvider (abstract base class / domain port)', () => {
 			expect(provider).toBeInstanceOf(GeolocationProvider);
 		});
 
-		it('supports the named export alongside the default export', () => {
+		it('supports the named export alongside the default export', async () => {
 			// Both default and named export must reference the same constructor.
-			const { GeolocationProvider: Named } = require('./GeolocationProvider');
+			// Dynamic import instead of require() to stay compatible with ESM configurations.
+			const { GeolocationProvider: Named } = await import('./GeolocationProvider');
 			expect(Named).toBe(GeolocationProvider);
 		});
 	});

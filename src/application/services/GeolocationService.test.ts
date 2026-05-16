@@ -9,7 +9,7 @@
  *   GeolocationService.providerPattern.test.ts
  *
  * @module application/services/GeolocationService.test
- * @since 1.3.0
+ * @since 1.4.0
  */
 
 import { describe, it, expect, jest, beforeEach, afterEach } from '@jest/globals';
@@ -87,7 +87,6 @@ describe('GeolocationService – getSingleLocationUpdate', () => {
 		const fallbackPos = makePosition();
 		let callCount = 0;
 		const provider = new MockGeolocationProvider();
-		const originalGetCurrent = provider.getCurrentPosition.bind(provider);
 		jest
 			.spyOn(provider, 'getCurrentPosition')
 			.mockImplementation(
