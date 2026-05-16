@@ -35,7 +35,7 @@ exports.throttle = throttle;
  * // Force the next call through regardless of the cooldown
  * throttledHandler.flush();
  *
- * @since 1.4.0
+ * @since 1.5.0
  */
 function throttle(fn, wait) {
     if (typeof fn !== 'function') {

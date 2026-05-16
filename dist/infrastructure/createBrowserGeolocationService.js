@@ -6,7 +6,7 @@
  * preserving a convenient entry point for browser consumers.
  *
  * @module infrastructure/createBrowserGeolocationService
- * @since 1.4.0
+ * @since 1.5.0
  * @author Marcelo Pereira Barbosa
  */
 Object.defineProperty(exports, "__esModule", { value: true });
