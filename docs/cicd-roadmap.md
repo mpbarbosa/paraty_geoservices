@@ -9,11 +9,13 @@ This document describes the recommended CI/CD pipeline for `paraty_geoservices`,
 | Concern | Status |
 |---|---|
 | Unit tests | Manual — `npm test` |
-| Coverage reporting | Manual — `npm run test:coverage` |
+| Coverage reporting | **Phase 2 complete** — `npm run test:coverage` in CI with uploaded `.ai_workflow/coverage/` artifact |
 | Build verification | Manual — `npm run build` |
-| Docs generation | Manual — `npm run docs` |
+| Docs generation | **Phase 4 complete** — release workflow regenerates TypeDoc and publishes `docs/api/` to GitHub Pages |
 | Automated pipeline | **Phase 1 complete** — `.github/workflows/ci.yml` |
-| npm publish | **Manual** |
+| npm publish | **Phase 3 complete** — `.github/workflows/release.yml` on version tags |
+| Dependency auditing | **Phase 5 complete** — CI runs `npm audit --audit-level=high` and Dependabot opens weekly npm update PRs |
+| Public API surface | **Phase 6 complete** — `ChangeDetectionCoordinator` and its types are exported from the layer barrels and package root |
 
 ---
 
@@ -89,32 +91,32 @@ The project pins TypeScript 6.x in `devDependencies`. A bare `tsc` call resolves
 
 ---
 
-## Phase 2 — Coverage Gates (Priority: Medium)
+## Phase 2 — Coverage Gates ✓ (shipped 2026-05-16)
 
 **Goal:** Prevent untested code from reaching `main`.
 
-`jest.config.ts` already has `collectCoverageFrom` configured for `src/**/*.ts`. The only missing piece is a threshold and a CI step that runs `npm run test:coverage`.
+This phase is now shipped. CI runs `npm run test:coverage`, uploads the `.ai_workflow/coverage/` artifact, and enforces an initial baseline-safe global threshold.
 
 ### Changes required
 
-**`jest.config.ts`** — add a `coverageThreshold` block:
+**`jest.config.js`** — current global threshold:
 
 ```typescript
-const config: Config = {
+module.exports = {
   // ... existing keys ...
   collectCoverageFrom: ['src/**/*.ts', '!src/**/*.test.ts'],
   coverageThreshold: {
     global: {
-      lines: 80,
-      functions: 80,
-      branches: 70,
-      statements: 80,
+      lines: 97,
+      functions: 97,
+      branches: 91,
+      statements: 97,
     },
   },
 };
 ```
 
-Run `npm run test:coverage` once locally before committing the threshold to baseline the current numbers. Set the initial threshold at or just below that baseline so CI passes immediately, then raise it incrementally. The current suite (163 tests, clean pass) should comfortably exceed 80/70.
+The threshold was set from the measured baseline and rounded down to stable whole numbers so CI passes immediately while still gating regressions. Raise the thresholds incrementally as new tests land.
 
 **`.github/workflows/ci.yml`** — replace the `Test` step:
 
@@ -126,7 +128,7 @@ Run `npm run test:coverage` once locally before committing the threshold to base
         uses: actions/upload-artifact@v4
         with:
           name: coverage-node-${{ matrix.node-version }}
-          path: coverage/
+          path: .ai_workflow/coverage/
           retention-days: 7
 ```
 
@@ -140,16 +142,18 @@ If public visibility of coverage trends is desired, add after the upload step:
       - name: Publish to Codecov
         uses: codecov/codecov-action@v4
         with:
-          files: coverage/lcov.info
+          files: .ai_workflow/coverage/lcov.info
 ```
 
 ### Effort: Low (1–2 hours)
 
 ---
 
-## Phase 3 — Automated Release Pipeline (Priority: Medium)
+## Phase 3 — Automated Release Pipeline ✓ (shipped 2026-05-16)
 
 **Goal:** A tagged release on GitHub triggers a build, test, and npm publish — no manual steps.
+
+This phase is now shipped. Pushing a `v*.*.*` tag runs a release workflow that type-checks, builds, tests, verifies the publish artefact, publishes to npm, and creates a GitHub Release.
 
 ### Workflow — `.github/workflows/release.yml`
 
@@ -180,11 +184,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Type check
+        run: npx tsc --noEmit
+
       - name: Build
         run: npm run build
 
       - name: Test
         run: npm test
+
+      - name: Verify publish file list
+        run: npm pack --dry-run
 
       - name: Publish to npm
         run: npm publish --access public
@@ -197,7 +207,7 @@ jobs:
           generate_release_notes: true
 ```
 
-### Release procedure (after this workflow is in place)
+### Release procedure
 
 1. Update `CHANGELOG.md` — move items from `[Unreleased]` to the new version section.
 2. Bump version in `package.json` (`npm version patch|minor|major`).
@@ -212,9 +222,11 @@ Add `NPM_TOKEN` to the repository's **Settings → Secrets and variables → Act
 
 ---
 
-## Phase 4 — Documentation Publishing (Priority: Low)
+## Phase 4 — Documentation Publishing ✓ (shipped 2026-05-16)
 
 **Goal:** The TypeDoc API reference at `docs/api/` is regenerated and deployed automatically on every release.
+
+This phase is now shipped. After a tagged release succeeds, the same workflow generates the TypeDoc site, uploads `docs/api/` as a Pages artifact, and deploys it to GitHub Pages.
 
 ### Workflow addition — append a `docs` job to `release.yml`
 
@@ -224,7 +236,7 @@ Add `NPM_TOKEN` to the repository's **Settings → Secrets and variables → Act
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: read
       pages: write
       id-token: write
 
@@ -246,11 +258,17 @@ Add `NPM_TOKEN` to the repository's **Settings → Secrets and variables → Act
       - name: Generate TypeDoc
         run: npm run docs
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/api
+
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
-        with:
-          source: docs/api/
 ```
 
 Enable GitHub Pages in **Settings → Pages → Source: GitHub Actions** before the first deploy.
@@ -259,11 +277,15 @@ Enable GitHub Pages in **Settings → Pages → Source: GitHub Actions** before 
 
 ---
 
-## Phase 5 — Dependency and Security Auditing (Priority: Low)
+## Phase 5 — Dependency and Security Auditing ✓ (shipped 2026-05-16)
 
 **Goal:** Surface vulnerable or outdated dependencies automatically.
 
-### Add to `ci.yml`, inside the `test` job
+This phase is now shipped. CI runs `npm audit --audit-level=high` on every
+push and pull request, and Dependabot is configured to open weekly npm update
+PRs from `.github/dependabot.yml`.
+
+### Implemented CI step
 
 ```yaml
       - name: Audit dependencies
@@ -272,9 +294,9 @@ Enable GitHub Pages in **Settings → Pages → Source: GitHub Actions** before 
 
 `--audit-level=high` fails the build only on high/critical vulnerabilities, avoiding noise from low-severity advisories.
 
-### Optional: Dependabot
+### Implemented Dependabot configuration
 
-Add `.github/dependabot.yml` to receive automated PRs for dependency updates:
+`.github/dependabot.yml` now enables weekly npm dependency update PRs:
 
 ```yaml
 version: 2
@@ -290,14 +312,65 @@ updates:
 
 ---
 
+## Phase 6 — Public API Surface Hardening ✓ (shipped 2026-05-16)
+
+**Goal:** Ensure reusable application-layer services can be consumed through the package's stable public entrypoint instead of internal deep paths.
+
+This phase is now shipped. `ChangeDetectionCoordinator` and its public support
+types are re-exported from `src/application/services/index.ts`,
+`src/application/index.ts`, and the package root `src/index.ts`, with tests and
+documentation covering package-root imports.
+
+During downstream integration work in `guia_js`, one gap surfaced clearly: `ChangeDetectionCoordinator` is implemented and built in `paraty_geoservices`, but it is not exported from `src/index.ts`. That forces consumers to rely on internal build paths such as `dist/esm/application/services/ChangeDetectionCoordinator.js`, which are not part of the documented API contract and may not be available through CDN delivery for a given tag.
+
+### Implemented changes
+
+**`src/index.ts`**, **`src/application/index.ts`**, and
+**`src/application/services/index.ts`** now export the coordinator and its
+public types:
+
+```typescript
+export { ChangeDetectionCoordinator } from './application/services/ChangeDetectionCoordinator';
+export type {
+  AddressFieldChangeEvent,
+  AddressChangeType,
+  IAddressChangeObserver,
+  IObserverSubject,
+  IAddressComponentExtractor,
+  IAddressState,
+  ILogger,
+} from './application/services/ChangeDetectionCoordinator';
+```
+
+**Packaging / release verification**
+
+After adding the export:
+
+1. Run `npm run build` to regenerate both CJS and ESM outputs.
+2. Run `npm test` to confirm no internal import assumptions broke.
+3. Run `npm pack --dry-run` to verify the generated entrypoints and type declarations are included in the package.
+4. Validate the release artefact through the package entrypoint rather than a deep file path.
+
+### Why this matters
+
+- Gives downstream apps a stable, documented import path.
+- Prevents coupling to internal `dist/esm/...` layout details.
+- Makes CDN and package-consumer integration more reliable.
+- Keeps the public API aligned with functionality the project already ships.
+
+### Effort: Low (1–2 hours)
+
+---
+
 ## Recommended Implementation Order
 
 | Phase | Workflow file | Effort | Unblocks |
 |---|---|---|---|
 | 1 — CI | `ci.yml` | Low | All subsequent phases |
-| 2 — Coverage gates | `ci.yml` update + `jest.config.ts` | Low | Quality enforcement |
+| 2 — Coverage gates | `ci.yml` update + `jest.config.js` | Low | Quality enforcement |
 | 3 — Release pipeline | `release.yml` | Medium | Automated npm publishes |
-| 4 — Docs publishing | `release.yml` update | Low | Public API reference |
-| 5 — Security auditing | `ci.yml` update + `dependabot.yml` | Low | Dependency hygiene |
+| 4 — Docs publishing | `release.yml` update | Shipped | Public API reference |
+| 5 — Security auditing | Shipped | Low | Dependency hygiene |
+| 6 — Public API surface hardening | Shipped | Low | Stable downstream consumption |
 
-Phases 1 and 2 can be shipped in a single PR. Phases 3–5 are independent of each other once Phase 1 is in place.
+Phases 1 and 2 can be shipped in a single PR. Phases 3–6 are independent of each other once Phase 1 is in place.

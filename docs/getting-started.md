@@ -96,6 +96,27 @@ const position = await service.getSingleLocationUpdate();
 console.log(position.coords.latitude);
 ```
 
+If you need address-change orchestration, import
+`ChangeDetectionCoordinator` from the package root rather than reaching into
+`dist/...` internals:
+
+```typescript
+import {
+  ChangeDetectionCoordinator,
+  type IAddressState,
+  type IObserverSubject,
+  type ILogger,
+} from 'paraty_geoservices';
+
+const coordinator = new ChangeDetectionCoordinator({
+  addressState: { currentAddress: null } satisfies IAddressState,
+  observerSubject: { observers: [], functionObservers: [] } satisfies IObserverSubject,
+  logger: console as ILogger,
+});
+
+coordinator.setupChangeDetection();
+```
+
 If you need reverse geocoding against an AWS Location Service-compatible
 endpoint, the library also ships with an HTTP adapter:
 

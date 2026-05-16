@@ -90,12 +90,18 @@ Each use case receives a `GeolocationProvider` via **constructor injection**, ma
 | File | Class | Description |
 |---|---|---|
 | `GeolocationService.ts` | `GeolocationService` | High-level façade combining single-shot and continuous position access with leading-edge throttling and race-condition protection |
+| `ChangeDetectionCoordinator.ts` | `ChangeDetectionCoordinator` | Coordinates address-field change detection and notifies typed object/function observers through injected application-layer ports |
 
 `GeolocationService` wraps any `GeolocationProvider` and adds three capabilities not present in the individual use cases:
 
 - **Leading-edge throttle** on watch callbacks (`setThrottleInterval(ms)`, default 5 s)
 - **Race-condition guard** for single-shot requests (`hasPendingRequest()`)
 - **Automatic low-accuracy retry** when a high-accuracy `getCurrentPosition` times out (error code 3)
+
+`ChangeDetectionCoordinator` stays in the application layer by depending only on
+local ports (`IObserverSubject`, `IAddressComponentExtractor`, `IAddressState`,
+`ILogger`) plus domain entities. It is re-exported through the package root so
+downstream consumers can avoid deep `dist/...` imports.
 
 ---
 

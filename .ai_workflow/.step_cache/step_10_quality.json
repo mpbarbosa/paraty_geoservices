@@ -34,7 +34,7 @@
     "src/application/index.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-12T02:36:16.367Z"
+      "lastAnalyzed": "2026-05-16T23:43:47.398Z"
     },
     "src/application/use-cases/GetCurrentPositionUseCase.ts": {
       "score": 100,
@@ -89,7 +89,7 @@
     "src/index.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-13T02:04:35.660Z"
+      "lastAnalyzed": "2026-05-16T23:43:47.398Z"
     },
     "src/domain/entities/GeoAddress.ts": {
       "score": 100,
@@ -109,7 +109,7 @@
     "src/application/services/index.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-15T12:12:56.144Z"
+      "lastAnalyzed": "2026-05-16T23:43:47.398Z"
     },
     "src/domain/ports/GeolocationPermissionReader.ts": {
       "score": 100,
@@ -130,6 +130,11 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-16T14:52:19.629Z"
+    },
+    "jest.config.js": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-16T23:43:47.398Z"
     }
   }
 }
