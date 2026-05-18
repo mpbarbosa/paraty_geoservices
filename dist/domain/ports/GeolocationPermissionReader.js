@@ -7,7 +7,7 @@
  * underlying runtime supports it.
  *
  * @module domain/ports/GeolocationPermissionReader
- * @since 1.5.0
+ * @since 1.6.0
  * @author Marcelo Pereira Barbosa
  */
 Object.defineProperty(exports, "__esModule", { value: true });

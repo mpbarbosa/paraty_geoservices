@@ -5,7 +5,7 @@
  * preserving a convenient entry point for browser consumers.
  *
  * @module infrastructure/createBrowserGeolocationService
- * @since 1.5.0
+ * @since 1.6.0
  * @author Marcelo Pereira Barbosa
  */
 import { GeolocationService } from '../application/services/GeolocationService';
