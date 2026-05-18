@@ -42,14 +42,23 @@ Plain TypeScript interfaces that describe the core data shapes.
 | `GeoPosition.ts` | `GeoPosition` | Acquired coordinate fix (lat, lon, accuracy, …) |
 | `GeoPositionError.ts` | `GeoPositionError` | Provider error (code + message) |
 | `GeoPositionOptions.ts` | `GeoPositionOptions` | Accuracy, timeout, and cache hints |
+| `GeoAddress.ts` | `GeoAddress` | Provider-agnostic resolved address (English field names) |
+| `GeoReverseGeocodeError.ts` | `GeoReverseGeocodeError` | Reverse-geocoding error (code + message) |
 
 #### Ports (`src/domain/ports/`)
 
 Abstract contracts (in Hexagonal Architecture terms, both _driving_ and _driven_ ports live here).
 
-| File | Exported class | Description |
+| File | Exported type | Description |
 |---|---|---|
-| `GeolocationProvider.ts` | `GeolocationProvider` | Abstract base class every adapter must extend |
+| `GeolocationProvider.ts` | `GeolocationProvider` (abstract class) | Callback-based geolocation port every position adapter must extend |
+| `ReverseGeocoder.ts` | `ReverseGeocoder` (interface) | Promise-based reverse-geocoding port for coordinate → address adapters |
+| `GeolocationPermissionReader.ts` | `GeolocationPermissionReader` (interface) | Optional permission-state reader for browser-capable providers |
+
+`GeolocationProvider` uses an **abstract class** because the browser Geolocation API is
+callback-based (`getCurrentPosition`, `watchPosition`). `ReverseGeocoder` uses an **interface**
+with a single `async reverseGeocode(latitude, longitude)` method because reverse geocoding is
+naturally modeled as a Promise-returning operation.
 
 The `GeolocationProvider` port defines four operations:
 
@@ -59,6 +68,15 @@ watchPosition(success, error, options?)      → number | null
 clearWatch(watchId)                          → void
 isSupported()                                → boolean
 ```
+
+The `ReverseGeocoder` port defines one operation:
+
+```
+reverseGeocode(latitude, longitude) → Promise<GeoAddress>
+```
+
+Failures reject with {@link GeoReverseGeocodeError} (`code` `1` invalid coordinates,
+`2` network, `3` provider/HTTP).
 
 ---
 
@@ -91,6 +109,11 @@ Each use case receives a `GeolocationProvider` via **constructor injection**, ma
 |---|---|---|
 | `GeolocationService.ts` | `GeolocationService` | High-level façade combining single-shot and continuous position access with leading-edge throttling and race-condition protection |
 | `ChangeDetectionCoordinator.ts` | `ChangeDetectionCoordinator` | Coordinates address-field change detection and notifies typed object/function observers through injected application-layer ports |
+| `ReverseGeocoder.ts` | `ReverseGeocoderService` (package root) | Orchestrates Nominatim/AWS reverse geocoding, observers, and address normalization — **not** the domain `ReverseGeocoder` port |
+
+Import the orchestrator from the package root as `ReverseGeocoderService` to avoid clashing
+with the domain port type `ReverseGeocoder`. The application barrel (`src/application/index.ts`)
+exports only `ReverseGeocoderService`, not the class name `ReverseGeocoder`.
 
 `GeolocationService` wraps any `GeolocationProvider` and adds three capabilities not present in the individual use cases:
 
@@ -113,15 +136,27 @@ Concrete adapters that connect the domain ports to real external systems.
 
 | File | Class | Adapts |
 |---|---|---|
-| `providers/AwsGeocoder.ts` | `AwsGeocoder` | AWS Location Service-compatible reverse-geocoding HTTP endpoint, returning raw payloads plus standardized Brazilian addresses |
+| `providers/AwsGeocoder.ts` | `AwsGeocoder` | Implements `ReverseGeocoder`; calls AWS Location Service-compatible HTTP endpoint and returns `GeoAddress` |
+| `providers/MockReverseGeocoder.ts` | `MockReverseGeocoder` | Implements `ReverseGeocoder`; deterministic addresses/errors for tests |
+| `providers/NominatimGeocoder.ts` | `NominatimGeocoder` | Implements `ReverseGeocoder`; OpenStreetMap Nominatim HTTP with optional CORS fallback |
 | `providers/BrowserGeolocationProvider.ts` | `BrowserGeolocationProvider` | `navigator.geolocation` (Web Geolocation API), with optional navigator injection for tests and custom runtimes |
 | `providers/MockGeolocationProvider.ts` | `MockGeolocationProvider` | Deterministic in-memory positions/errors for tests and local development |
 | `createBrowserGeolocationService.ts` | `createBrowserGeolocationService` | Composition helper that wires `GeolocationService` to `BrowserGeolocationProvider` in the infrastructure layer |
+| `createReverseGeocoderService.ts` | `createReverseGeocoderService` | Composition helper that wires `ReverseGeocoderService` to `NominatimGeocoder` and optional `AwsGeocoder` |
 
-`AwsGeocoder` is the HTTP-facing reverse-geocoding adapter. It calls an
-AWS-compatible `/api/geocode/reverse` endpoint, accepts an explicit base URL or
-falls back to `AWS_LBS_BASE_URL`, and normalizes the returned address into a
-Brazilian-friendly structure for downstream consumers.
+`AwsGeocoder` is the HTTP-facing reverse-geocoding adapter. It implements the
+`ReverseGeocoder` port, calls an AWS-compatible `/api/geocode/reverse` endpoint,
+accepts an explicit base URL or falls back to `AWS_LBS_BASE_URL`, maps responses
+through `AwsAddressMapper`, and returns a provider-agnostic `GeoAddress`.
+
+`MockReverseGeocoder` implements the same port without network I/O for unit tests.
+
+`NominatimGeocoder` calls the Nominatim reverse endpoint, maps responses through
+`NominatimAddressMapper`, and supports legacy `fetchManager` injection plus
+optional CORS-proxy retry.
+
+`createReverseGeocoderService` keeps reverse-geocoding adapter construction in
+the infrastructure layer (same pattern as `createBrowserGeolocationService`).
 
 `BrowserGeolocationProvider` is the browser-facing adapter. It can either use the ambient global `navigator` or accept an injected navigator in its constructor, and it exposes the concrete helper methods `isPermissionsAPISupported()`, `getNavigator()`, and `checkPermissions()` for browser-specific capability checks.
 

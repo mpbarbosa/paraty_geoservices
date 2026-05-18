@@ -21,6 +21,10 @@
       "mtimeMs": 1778973509079,
       "hasAsyncPatterns": false
     },
+    "src/application/ObserverSubject.ts": {
+      "mtimeMs": 1779062232766,
+      "hasAsyncPatterns": true
+    },
     "src/application/dtos/GetCurrentPositionOutput.ts": {
       "mtimeMs": 1778543365146,
       "hasAsyncPatterns": false
@@ -30,7 +34,7 @@
       "hasAsyncPatterns": false
     },
     "src/application/index.ts": {
-      "mtimeMs": 1778973374298,
+      "mtimeMs": 1779060153397,
       "hasAsyncPatterns": false
     },
     "src/application/services/ChangeDetectionCoordinator.ts": {
@@ -38,11 +42,19 @@
       "hasAsyncPatterns": false
     },
     "src/application/services/GeolocationService.ts": {
-      "mtimeMs": 1778975049599,
+      "mtimeMs": 1779062232783,
+      "hasAsyncPatterns": true
+    },
+    "src/application/services/ReverseGeocoder.ts": {
+      "mtimeMs": 1779062232766,
       "hasAsyncPatterns": true
     },
     "src/application/services/index.ts": {
-      "mtimeMs": 1778973374297,
+      "mtimeMs": 1779060153397,
+      "hasAsyncPatterns": false
+    },
+    "src/application/services/reverseGeocoderEvents.ts": {
+      "mtimeMs": 1779062232766,
       "hasAsyncPatterns": false
     },
     "src/application/use-cases/GetCurrentPositionUseCase.ts": {
@@ -73,16 +85,20 @@
       "mtimeMs": 1778543365154,
       "hasAsyncPatterns": false
     },
+    "src/domain/entities/GeoReverseGeocodeError.ts": {
+      "mtimeMs": 1779036704112,
+      "hasAsyncPatterns": false
+    },
     "src/domain/entities/index.ts": {
-      "mtimeMs": 1778793236591,
+      "mtimeMs": 1779036731980,
       "hasAsyncPatterns": false
     },
     "src/domain/index.ts": {
-      "mtimeMs": 1778843286832,
+      "mtimeMs": 1779036735278,
       "hasAsyncPatterns": false
     },
     "src/domain/ports/GeolocationPermissionReader.ts": {
-      "mtimeMs": 1778975049599,
+      "mtimeMs": 1779062232783,
       "hasAsyncPatterns": true
     },
     "src/domain/ports/GeolocationProvider.ts": {
@@ -90,20 +106,28 @@
       "hasAsyncPatterns": false
     },
     "src/domain/ports/ReverseGeocoder.ts": {
-      "mtimeMs": 1778803759973,
+      "mtimeMs": 1779036724042,
       "hasAsyncPatterns": true
     },
     "src/domain/ports/index.ts": {
-      "mtimeMs": 1778843286833,
+      "mtimeMs": 1779036733015,
       "hasAsyncPatterns": false
     },
     "src/index.ts": {
-      "mtimeMs": 1778973374298,
+      "mtimeMs": 1779060153397,
+      "hasAsyncPatterns": false
+    },
+    "src/infrastructure/ObserverSubject.ts": {
+      "mtimeMs": 1779060153397,
       "hasAsyncPatterns": false
     },
     "src/infrastructure/createBrowserGeolocationService.ts": {
-      "mtimeMs": 1778975049599,
+      "mtimeMs": 1779062232783,
       "hasAsyncPatterns": false
+    },
+    "src/infrastructure/createReverseGeocoderService.ts": {
+      "mtimeMs": 1779037311881,
+      "hasAsyncPatterns": true
     },
     "src/infrastructure/index.ts": {
       "mtimeMs": 1778843286837,
@@ -114,7 +138,7 @@
       "hasAsyncPatterns": false
     },
     "src/infrastructure/providers/AwsGeocoder.ts": {
-      "mtimeMs": 1778803759974,
+      "mtimeMs": 1779036729670,
       "hasAsyncPatterns": true
     },
     "src/infrastructure/providers/BrowserGeolocationProvider.ts": {
@@ -125,8 +149,20 @@
       "mtimeMs": 1778843286837,
       "hasAsyncPatterns": true
     },
+    "src/infrastructure/providers/MockReverseGeocoder.ts": {
+      "mtimeMs": 1779036716642,
+      "hasAsyncPatterns": true
+    },
+    "src/infrastructure/providers/NominatimAddressMapper.ts": {
+      "mtimeMs": 1779037243795,
+      "hasAsyncPatterns": false
+    },
+    "src/infrastructure/providers/NominatimGeocoder.ts": {
+      "mtimeMs": 1779037390083,
+      "hasAsyncPatterns": true
+    },
     "src/infrastructure/providers/index.ts": {
-      "mtimeMs": 1778843286837,
+      "mtimeMs": 1779037338895,
       "hasAsyncPatterns": false
     },
     "src/utils/index.ts": {
@@ -134,8 +170,12 @@
       "hasAsyncPatterns": false
     },
     "src/utils/throttle.ts": {
-      "mtimeMs": 1778975049600,
+      "mtimeMs": 1779062232783,
       "hasAsyncPatterns": false
+    },
+    "src/utils/withObserver.ts": {
+      "mtimeMs": 1779062232777,
+      "hasAsyncPatterns": true
     }
   }
 }

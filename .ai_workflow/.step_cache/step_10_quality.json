@@ -34,7 +34,7 @@
     "src/application/index.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-16T23:43:47.398Z"
+      "lastAnalyzed": "2026-05-17T23:56:51.830Z"
     },
     "src/application/use-cases/GetCurrentPositionUseCase.ts": {
       "score": 100,
@@ -109,7 +109,7 @@
     "src/application/services/index.ts": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-16T23:43:47.398Z"
+      "lastAnalyzed": "2026-05-17T23:56:51.830Z"
     },
     "src/domain/ports/GeolocationPermissionReader.ts": {
       "score": 100,
@@ -135,6 +135,21 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-16T23:43:47.398Z"
+    },
+    "src/application/ObserverSubject.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-17T23:56:51.830Z"
+    },
+    "src/application/services/ReverseGeocoder.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-17T23:56:51.830Z"
+    },
+    "src/application/services/reverseGeocoderEvents.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-17T23:56:51.830Z"
     }
   }
 }
