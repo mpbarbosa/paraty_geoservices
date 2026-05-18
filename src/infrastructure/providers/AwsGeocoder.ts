@@ -13,6 +13,7 @@
  */
 
 import type { GeoAddress } from '../../domain/entities/GeoAddress';
+import { createGeoReverseGeocodeError } from '../../domain/entities/GeoReverseGeocodeError';
 import type { ReverseGeocoder } from '../../domain/ports/ReverseGeocoder';
 import { toGeoAddress } from './AwsAddressMapper';
 
@@ -96,24 +97,40 @@ export class AwsGeocoder implements ReverseGeocoder {
    * @param latitude  - Coordinate latitude.
    * @param longitude - Coordinate longitude.
    * @returns A provider-agnostic {@link GeoAddress} for the given coordinates.
-   * @throws On invalid coordinates, network failure, or non-OK HTTP status.
+   * @throws {@link GeoReverseGeocodeError} On invalid coordinates, network failure,
+   *         or non-OK HTTP status.
    */
   async reverseGeocode(
     latitude: number,
     longitude: number,
   ): Promise<GeoAddress> {
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-      throw new Error('(AwsGeocoder) Invalid coordinates');
+      throw createGeoReverseGeocodeError(
+        1,
+        '(AwsGeocoder) Invalid coordinates',
+      );
     }
 
-    const response = await fetch(this.endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ latitude, longitude }),
-    });
+    let response: Response;
+
+    try {
+      response = await fetch(this.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ latitude, longitude }),
+      });
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : String(err);
+      throw createGeoReverseGeocodeError(
+        2,
+        `(AwsGeocoder) Network error: ${message}`,
+      );
+    }
 
     if (!response.ok) {
-      throw new Error(
+      throw createGeoReverseGeocodeError(
+        3,
         `(AwsGeocoder) HTTP ${response.status}: ${response.statusText}`,
       );
     }

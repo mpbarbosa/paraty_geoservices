@@ -14,6 +14,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AwsGeocoder = void 0;
+const GeoReverseGeocodeError_1 = require("../../domain/entities/GeoReverseGeocodeError");
 const AwsAddressMapper_1 = require("./AwsAddressMapper");
 /**
  * Reverse geocoder that calls an AWS Location Service-compatible API.
@@ -42,19 +43,27 @@ class AwsGeocoder {
      * @param latitude  - Coordinate latitude.
      * @param longitude - Coordinate longitude.
      * @returns A provider-agnostic {@link GeoAddress} for the given coordinates.
-     * @throws On invalid coordinates, network failure, or non-OK HTTP status.
+     * @throws {@link GeoReverseGeocodeError} On invalid coordinates, network failure,
+     *         or non-OK HTTP status.
      */
     async reverseGeocode(latitude, longitude) {
         if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-            throw new Error('(AwsGeocoder) Invalid coordinates');
+            throw (0, GeoReverseGeocodeError_1.createGeoReverseGeocodeError)(1, '(AwsGeocoder) Invalid coordinates');
         }
-        const response = await fetch(this.endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ latitude, longitude }),
-        });
+        let response;
+        try {
+            response = await fetch(this.endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ latitude, longitude }),
+            });
+        }
+        catch (err) {
+            const message = err instanceof Error ? err.message : String(err);
+            throw (0, GeoReverseGeocodeError_1.createGeoReverseGeocodeError)(2, `(AwsGeocoder) Network error: ${message}`);
+        }
         if (!response.ok) {
-            throw new Error(`(AwsGeocoder) HTTP ${response.status}: ${response.statusText}`);
+            throw (0, GeoReverseGeocodeError_1.createGeoReverseGeocodeError)(3, `(AwsGeocoder) HTTP ${response.status}: ${response.statusText}`);
         }
         const rawData = (await response.json());
         return (0, AwsAddressMapper_1.toGeoAddress)(rawData);

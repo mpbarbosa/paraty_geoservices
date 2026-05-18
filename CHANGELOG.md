@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `GeoAddress` entity and `ReverseGeocoder` domain port for provider-agnostic reverse geocoding.
+- `GeoReverseGeocodeError` with codes for invalid coordinates, network failures, and provider errors.
+- `src/domain/ports/ReverseGeocoder.test.ts` — port contract tests via test doubles.
+- `MockReverseGeocoder` infrastructure adapter and `test/infrastructure/providers/MockReverseGeocoder.test.ts`.
+- `docs/ReverseGeocoder-port-code-quality-assessment.md` — quality assessment for the domain port.
+- `NominatimGeocoder` infrastructure adapter, `NominatimAddressMapper`, and `createReverseGeocoderService` factory.
+- `docs/ReverseGeocoder-service-code-quality-assessment.md` — quality assessment for the application orchestrator.
+- `ObserverSubject` moved to `src/application/ObserverSubject.ts`.
+
 - `GeolocationService` in `src/application/services/GeolocationService.ts` — high-level façade
   combining single-shot and continuous geolocation access with:
   - Leading-edge throttle on watch callbacks (default 5 s, configurable via `setThrottleInterval`)
@@ -49,6 +58,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.github/dependabot.yml` for weekly npm dependency update pull requests.
 
 ### Changed
+
+- **`ReverseGeocoderService` constructor** — now requires `ReverseGeocoderServiceOptions` with injected `nominatimGeocoder` (and optional `awsGeocoder`). Use `createReverseGeocoderService(fetchManager, config)` for legacy `fetchManager` wiring.
+- `ReverseGeocoderService` returns `GeoAddress` from `fetchAddress()`; HTTP and CORS logic moved to `NominatimGeocoder`.
+- `AwsGeocoder.reverseGeocode` now rejects with structured `GeoReverseGeocodeError` instances.
+- `src/application/index.ts` exports the orchestrator only as `ReverseGeocoderService` (no `ReverseGeocoder` class alias) to avoid clashing with the domain port type.
+- `docs/architecture.md` documents `GeoAddress`, `ReverseGeocoder`, `GeoReverseGeocodeError`, and the interface vs. abstract-class port split.
 
 - `package.json` now declares dual CJS/ESM package-root entry points via
   `"main"`, `"module"`, and `"exports"` so npm/bundler consumers can resolve

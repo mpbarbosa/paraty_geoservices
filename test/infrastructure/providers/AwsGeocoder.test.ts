@@ -163,7 +163,10 @@ describe('AwsGeocoder', () => {
 
       await expect(
         geocoder.reverseGeocode(-23.55052, -46.633309),
-      ).rejects.toThrow('HTTP 500');
+      ).rejects.toMatchObject({
+        code: 3,
+        message: expect.stringContaining('HTTP 500'),
+      });
     });
 
     it('should throw on network failure', async () => {
@@ -174,7 +177,10 @@ describe('AwsGeocoder', () => {
 
       await expect(
         geocoder.reverseGeocode(-23.55052, -46.633309),
-      ).rejects.toThrow('Network error');
+      ).rejects.toMatchObject({
+        code: 2,
+        message: expect.stringContaining('Network error'),
+      });
     });
 
     it('should throw on invalid coordinates', async () => {
@@ -182,7 +188,10 @@ describe('AwsGeocoder', () => {
 
       await expect(
         geocoder.reverseGeocode(Number.NaN, -46.633309),
-      ).rejects.toThrow('Invalid coordinates');
+      ).rejects.toMatchObject({
+        code: 1,
+        message: expect.stringContaining('Invalid coordinates'),
+      });
     });
   });
 

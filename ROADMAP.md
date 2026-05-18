@@ -11,7 +11,7 @@ intercepts `dist/index.js` at build time and replaces it with the local sibling-
 providers are bundled inline (no runtime CDN fetch).  
 However, `dist/esm/index.js` was **not** intercepted. Provider re-export files in guia_js
 (`BrowserGeolocationProvider.ts`, `GeolocationProvider.ts`, `MockGeolocationProvider.ts`) all import
-from `dist/esm/index.js`. When a new tag (e.g. `v1.5.0`) is pushed and CDN hasn't cached the new
+from `dist/esm/index.js`. When a new tag (e.g. `v1.6.0`) is pushed and CDN hasn't cached the new
 `dist/esm/index.js` yet, Chromium in the E2E Docker container receives 404s for those imports, causing
 `WebGeocodingManager` construction to fail silently (error boundary catches it), and all geolocation
 E2E tests to time out.

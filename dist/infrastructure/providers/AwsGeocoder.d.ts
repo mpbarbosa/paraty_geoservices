@@ -77,7 +77,8 @@ export declare class AwsGeocoder implements ReverseGeocoder {
      * @param latitude  - Coordinate latitude.
      * @param longitude - Coordinate longitude.
      * @returns A provider-agnostic {@link GeoAddress} for the given coordinates.
-     * @throws On invalid coordinates, network failure, or non-OK HTTP status.
+     * @throws {@link GeoReverseGeocodeError} On invalid coordinates, network failure,
+     *         or non-OK HTTP status.
      */
     reverseGeocode(latitude: number, longitude: number): Promise<GeoAddress>;
     private static resolveBaseUrlFromEnvironment;

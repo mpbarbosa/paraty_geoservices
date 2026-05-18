@@ -11,6 +11,7 @@
  * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
+import { createGeoReverseGeocodeError } from '../../domain/entities/GeoReverseGeocodeError';
 import { toGeoAddress } from './AwsAddressMapper';
 /**
  * Reverse geocoder that calls an AWS Location Service-compatible API.
@@ -39,19 +40,27 @@ export class AwsGeocoder {
      * @param latitude  - Coordinate latitude.
      * @param longitude - Coordinate longitude.
      * @returns A provider-agnostic {@link GeoAddress} for the given coordinates.
-     * @throws On invalid coordinates, network failure, or non-OK HTTP status.
+     * @throws {@link GeoReverseGeocodeError} On invalid coordinates, network failure,
+     *         or non-OK HTTP status.
      */
     async reverseGeocode(latitude, longitude) {
         if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-            throw new Error('(AwsGeocoder) Invalid coordinates');
+            throw createGeoReverseGeocodeError(1, '(AwsGeocoder) Invalid coordinates');
         }
-        const response = await fetch(this.endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ latitude, longitude }),
-        });
+        let response;
+        try {
+            response = await fetch(this.endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ latitude, longitude }),
+            });
+        }
+        catch (err) {
+            const message = err instanceof Error ? err.message : String(err);
+            throw createGeoReverseGeocodeError(2, `(AwsGeocoder) Network error: ${message}`);
+        }
         if (!response.ok) {
-            throw new Error(`(AwsGeocoder) HTTP ${response.status}: ${response.statusText}`);
+            throw createGeoReverseGeocodeError(3, `(AwsGeocoder) HTTP ${response.status}: ${response.statusText}`);
         }
         const rawData = (await response.json());
         return toGeoAddress(rawData);
