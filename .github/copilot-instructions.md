@@ -6,21 +6,23 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 
 `paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.
 
-## Architecture and Source Layout
+## Architecture
 
 - Shared low-level utilities are in `src/utils/`.
 - Maintain clear separation of concerns when adding or modifying modules.
 
 ## Validation
 
-- Run tests with: `npm test`
-- Build the project with: `npm run build`
+- To test: `npm test`
+- To build: `npm run build`
 
 ## Build Artifacts
 
-- Main entry point: `dist/index.js`
-- Type definitions: `dist/index.d.ts`
 - Do not edit files in `dist/`; they are generated output.
+- Main entry points and types:
+  - CommonJS: `dist/index.js`
+  - ESM: `dist/esm/index.js`
+  - Types: `dist/index.d.ts`
 
 ## Workflow Surfaces
 
@@ -30,10 +32,10 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 ## Reference Documentation
 
 For implementation details, design principles, and contribution rules, consult:
-- `README.md` — Project overview and usage
-- `CHANGELOG.md` — Notable changes
-- `CONTRIBUTING.md` — Contribution and dependency rules
-- `CLAUDE.md` — Claude-specific codebase guidance
-- `ROADMAP.md` — Project roadmap
+- `README.md`
+- `CHANGELOG.md`
+- `CONTRIBUTING.md`
+- `CLAUDE.md`
+- `ROADMAP.md`
 
 When unsure about architecture, dependencies, or workflow, refer to these documents.

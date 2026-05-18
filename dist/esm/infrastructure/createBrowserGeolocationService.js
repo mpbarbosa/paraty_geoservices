@@ -8,8 +8,8 @@
  * @since 1.6.0
  * @author Marcelo Pereira Barbosa
  */
-import { GeolocationService } from '../application/services/GeolocationService';
-import { BrowserGeolocationProvider } from './providers/BrowserGeolocationProvider';
+import { GeolocationService } from '../application/services/GeolocationService.js';
+import { BrowserGeolocationProvider } from './providers/BrowserGeolocationProvider.js';
 /**
  * Creates a `GeolocationService` pre-wired with `BrowserGeolocationProvider`.
  *

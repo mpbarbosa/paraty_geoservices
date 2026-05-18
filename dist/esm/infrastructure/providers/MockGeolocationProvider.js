@@ -14,7 +14,7 @@
  * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
-import GeolocationProvider from '../../domain/ports/GeolocationProvider';
+import GeolocationProvider from '../../domain/ports/GeolocationProvider.js';
 /**
  * Mock implementation of the geolocation provider port.
  *

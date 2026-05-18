@@ -1,1 +1,1 @@
-export { createGeoReverseGeocodeError } from './GeoReverseGeocodeError';
+export { createGeoReverseGeocodeError } from './GeoReverseGeocodeError.js';

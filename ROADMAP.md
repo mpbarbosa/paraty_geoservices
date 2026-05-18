@@ -26,6 +26,11 @@ library through the package root instead of pinning `dist/index.js` or `dist/esm
 This reduces coupling to raw build paths, but it does **not** fully eliminate the CDN propagation risk
 for direct `dist/esm/index.js` fetches.
 
+**Progress (2026-05-17):** Implemented roadmap step 4 in `paraty_geoservices` by making the packaged ESM
+artifact Node-consumable (`dist/esm/package.json` with `"type": "module"` plus rewritten relative `.js`
+specifiers) and adding `npm run verify:package` smoke tests for isolated CJS, ESM, and TypeScript
+consumers. This validates the npm/package-root consumption path end to end before release.
+
 **Recommended fix in paraty_geoservices:**  
 Pick **one** of:
 1. Ensure the `dist/esm/index.js` file is committed and available on GitHub **before** pushing a

@@ -188,7 +188,7 @@ describe('GeolocationService – getSingleLocationUpdate throttle', () => {
 	beforeEach(() => { jest.useFakeTimers(); });
 	afterEach(() => {
 		jest.useRealTimers();
-		jest.clearAllMocks();
+		jest.restoreAllMocks();
 	});
 
 	// Helper: provider whose getCurrentPosition fires the callback synchronously
@@ -266,7 +266,7 @@ describe('GeolocationService – watchCurrentLocation throttle', () => {
 	beforeEach(() => { jest.useFakeTimers(); });
 	afterEach(() => {
 		jest.useRealTimers();
-		jest.clearAllMocks();
+		jest.restoreAllMocks();
 	});
 
 	function makeWatchProvider() {

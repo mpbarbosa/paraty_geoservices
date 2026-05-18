@@ -7,7 +7,7 @@
  * @since 1.2.6
  * @author Marcelo Pereira Barbosa
  */
-import { createGeoReverseGeocodeError, } from '../../domain/entities/GeoReverseGeocodeError';
+import { createGeoReverseGeocodeError, } from '../../domain/entities/GeoReverseGeocodeError.js';
 /**
  * Deterministic {@link ReverseGeocoder} for tests.
  *

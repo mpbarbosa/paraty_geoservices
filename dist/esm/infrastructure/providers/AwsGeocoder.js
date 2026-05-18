@@ -11,8 +11,8 @@
  * @since 1.2.5
  * @author Marcelo Pereira Barbosa
  */
-import { createGeoReverseGeocodeError } from '../../domain/entities/GeoReverseGeocodeError';
-import { toGeoAddress } from './AwsAddressMapper';
+import { createGeoReverseGeocodeError } from '../../domain/entities/GeoReverseGeocodeError.js';
+import { toGeoAddress } from './AwsAddressMapper.js';
 /**
  * Reverse geocoder that calls an AWS Location Service-compatible API.
  *

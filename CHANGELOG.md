@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.2] - 2026-05-17
+
+### Added
+
+- `scripts/verify-package-consumers.mjs` — packs the repository and smoke-tests isolated CommonJS, ESM, and TypeScript consumers against the tarball.
+
+### Changed
+
+- The ESM build now rewrites emitted relative imports with `.js` extensions and writes `dist/esm/package.json` with `"type": "module"` so Node package consumers can load `dist/esm/index.js`.
+- `package.json` now includes `prepack` and `verify:package` scripts for package-consumer validation.
+- `docs/cicd-roadmap.md`, `docs/contributing.md`, and `ROADMAP.md` now document the shipped package-consumer verification phase.
+
+### CI
+
+- `.github/workflows/ci.yml` and `.github/workflows/release.yml` now run `npm run verify:package` after `npm pack --dry-run` to validate the packed artifact before release.
+
+## [1.6.0] - 2026-05-17
+
 ### Added
 
 - `GeoAddress` entity and `ReverseGeocoder` domain port for provider-agnostic reverse geocoding.
@@ -17,6 +35,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `NominatimGeocoder` infrastructure adapter, `NominatimAddressMapper`, and `createReverseGeocoderService` factory.
 - `docs/ReverseGeocoder-service-code-quality-assessment.md` — quality assessment for the application orchestrator.
 - `ObserverSubject` moved to `src/application/ObserverSubject.ts`.
+
+### Changed
+
+- **`ReverseGeocoderService` constructor** — now requires `ReverseGeocoderServiceOptions` with injected `nominatimGeocoder` (and optional `awsGeocoder`). Use `createReverseGeocoderService(fetchManager, config)` for legacy `fetchManager` wiring.
+- `ReverseGeocoderService` returns `GeoAddress` from `fetchAddress()`; HTTP and CORS logic moved to `NominatimGeocoder`.
+- `AwsGeocoder.reverseGeocode` now rejects with structured `GeoReverseGeocodeError` instances.
+- `src/application/index.ts` exports the orchestrator only as `ReverseGeocoderService` (no `ReverseGeocoder` class alias) to avoid clashing with the domain port type.
+- `docs/architecture.md` documents `GeoAddress`, `ReverseGeocoder`, `GeoReverseGeocodeError`, and the interface vs. abstract-class port split.
+
+## [1.5.0] - 2026-05-16
+
+### Added
 
 - `GeolocationService` in `src/application/services/GeolocationService.ts` — high-level façade
   combining single-shot and continuous geolocation access with:
@@ -58,12 +88,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.github/dependabot.yml` for weekly npm dependency update pull requests.
 
 ### Changed
-
-- **`ReverseGeocoderService` constructor** — now requires `ReverseGeocoderServiceOptions` with injected `nominatimGeocoder` (and optional `awsGeocoder`). Use `createReverseGeocoderService(fetchManager, config)` for legacy `fetchManager` wiring.
-- `ReverseGeocoderService` returns `GeoAddress` from `fetchAddress()`; HTTP and CORS logic moved to `NominatimGeocoder`.
-- `AwsGeocoder.reverseGeocode` now rejects with structured `GeoReverseGeocodeError` instances.
-- `src/application/index.ts` exports the orchestrator only as `ReverseGeocoderService` (no `ReverseGeocoder` class alias) to avoid clashing with the domain port type.
-- `docs/architecture.md` documents `GeoAddress`, `ReverseGeocoder`, `GeoReverseGeocodeError`, and the interface vs. abstract-class port split.
 
 - `package.json` now declares dual CJS/ESM package-root entry points via
   `"main"`, `"module"`, and `"exports"` so npm/bundler consumers can resolve

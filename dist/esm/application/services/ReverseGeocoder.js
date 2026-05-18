@@ -11,9 +11,9 @@
  * @module application/services/ReverseGeocoder
  * @since 1.6.0
  */
-import { ObserverSubject } from '../ObserverSubject';
-import { withObserver } from '../../utils/withObserver';
-import { ADDRESS_FETCHED_EVENT, GEOCODING_ERROR_EVENT, POSITION_UPDATE_EVENT, IMMEDIATE_ADDRESS_UPDATE_EVENT, } from './reverseGeocoderEvents';
+import { ObserverSubject } from '../ObserverSubject.js';
+import { withObserver } from '../../utils/withObserver.js';
+import { ADDRESS_FETCHED_EVENT, GEOCODING_ERROR_EVENT, POSITION_UPDATE_EVENT, IMMEDIATE_ADDRESS_UPDATE_EVENT, } from './reverseGeocoderEvents.js';
 const defaultLogger = {
     info: (message, ...args) => console.log(message, ...args),
     warn: (message, ...args) => console.warn(message, ...args),

@@ -3,7 +3,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ['**/*.test.ts'],
-  testPathIgnorePatterns: ['/node_modules/'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   moduleNameMapper: {
     '^https://cdn\\.jsdelivr\\.net/npm/bessa_patterns\\.ts@.*':
       '<rootDir>/test/__mocks__/bessa_patterns.ts',

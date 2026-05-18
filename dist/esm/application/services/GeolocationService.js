@@ -14,7 +14,7 @@
  * @since 1.6.0
  * @author Marcelo Pereira Barbosa
  */
-import { throttle } from '../../utils/throttle';
+import { throttle } from '../../utils/throttle.js';
 /** Default throttle interval: at most one position update per 5 seconds. */
 const GEOLOCATION_THROTTLE_INTERVAL = 5000;
 const DEFAULT_OPTIONS = {

@@ -1,2 +1,2 @@
-export { createGeoReverseGeocodeError } from './entities/GeoReverseGeocodeError';
-export { GeolocationProvider } from './ports/GeolocationProvider';
+export { createGeoReverseGeocodeError } from './entities/GeoReverseGeocodeError.js';
+export { GeolocationProvider } from './ports/GeolocationProvider.js';
