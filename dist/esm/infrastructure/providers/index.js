@@ -1,7 +1,7 @@
-export { AwsGeocoder } from './AwsGeocoder';
-export { BrowserGeolocationProvider } from './BrowserGeolocationProvider';
-export { MockGeolocationProvider } from './MockGeolocationProvider';
-export { MockReverseGeocoder } from './MockReverseGeocoder';
-export { NominatimGeocoder } from './NominatimGeocoder';
-export { buildNominatimReverseUrl, toGeoAddressFromNominatim, } from './NominatimAddressMapper';
-export { parseLabel, resolveStateCode, normalizeCountry, toGeoAddress } from './AwsAddressMapper';
+export { AwsGeocoder } from './AwsGeocoder.js';
+export { BrowserGeolocationProvider } from './BrowserGeolocationProvider.js';
+export { MockGeolocationProvider } from './MockGeolocationProvider.js';
+export { MockReverseGeocoder } from './MockReverseGeocoder.js';
+export { NominatimGeocoder } from './NominatimGeocoder.js';
+export { buildNominatimReverseUrl, toGeoAddressFromNominatim, } from './NominatimAddressMapper.js';
+export { parseLabel, resolveStateCode, normalizeCountry, toGeoAddress } from './AwsAddressMapper.js';

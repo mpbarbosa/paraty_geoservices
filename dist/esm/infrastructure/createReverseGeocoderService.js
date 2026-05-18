@@ -7,9 +7,9 @@
  * @module infrastructure/createReverseGeocoderService
  * @since 1.2.6
  */
-import { ReverseGeocoder as ReverseGeocoderService, } from '../application/services/ReverseGeocoder';
-import { AwsGeocoder } from './providers/AwsGeocoder';
-import { NominatimGeocoder, } from './providers/NominatimGeocoder';
+import { ReverseGeocoder as ReverseGeocoderService, } from '../application/services/ReverseGeocoder.js';
+import { AwsGeocoder } from './providers/AwsGeocoder.js';
+import { NominatimGeocoder, } from './providers/NominatimGeocoder.js';
 /**
  * Creates a fully wired reverse-geocoding orchestrator.
  *

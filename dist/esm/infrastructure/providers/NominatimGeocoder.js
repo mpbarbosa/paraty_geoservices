@@ -4,8 +4,8 @@
  * @module infrastructure/providers/NominatimGeocoder
  * @since 1.2.6
  */
-import { createGeoReverseGeocodeError } from '../../domain/entities/GeoReverseGeocodeError';
-import { buildNominatimReverseUrl, toGeoAddressFromNominatim, } from './NominatimAddressMapper';
+import { createGeoReverseGeocodeError } from '../../domain/entities/GeoReverseGeocodeError.js';
+import { buildNominatimReverseUrl, toGeoAddressFromNominatim, } from './NominatimAddressMapper.js';
 const DEFAULT_NOMINATIM_API = 'https://nominatim.openstreetmap.org';
 const DEFAULT_CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 /**

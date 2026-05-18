@@ -34,6 +34,7 @@ const MOCK_ERROR: GeoPositionError = { code: 2, message: 'Position unavailable' 
 class TrackingProvider extends GeolocationProvider {
 	private nextId = 1;
 	private activeWatches = new Set<number>();
+	lastIssuedId = 0;
 
 	getCurrentPosition(success: (pos: GeoPosition) => void): void {
 		success(MOCK_POSITION);
@@ -45,6 +46,7 @@ class TrackingProvider extends GeolocationProvider {
 		_options?: GeoPositionOptions,
 	): number {
 		const id = this.nextId++;
+		this.lastIssuedId = id;
 		this.activeWatches.add(id);
 		success(MOCK_POSITION);
 		return id;
@@ -111,7 +113,7 @@ describe('WatchPositionUseCase', () => {
 			const useCase = new WatchPositionUseCase(provider);
 
 			useCase.start(jest.fn(), jest.fn());
-			const firstWatchId = (useCase as unknown as { watchId: number }).watchId;
+			const firstWatchId = provider.lastIssuedId;
 			expect(provider.hasActiveWatch(firstWatchId)).toBe(true);
 
 			useCase.start(jest.fn(), jest.fn());
@@ -125,7 +127,7 @@ describe('WatchPositionUseCase', () => {
 			const useCase = new WatchPositionUseCase(provider);
 
 			useCase.start(jest.fn(), jest.fn());
-			const watchId = (useCase as unknown as { watchId: number }).watchId;
+			const watchId = provider.lastIssuedId;
 			expect(provider.hasActiveWatch(watchId)).toBe(true);
 
 			useCase.stop();
@@ -141,13 +143,17 @@ describe('WatchPositionUseCase', () => {
 	});
 
 	describe('isWatching', () => {
+		let useCase: WatchPositionUseCase;
+
+		beforeEach(() => {
+			useCase = new WatchPositionUseCase(new TrackingProvider());
+		});
+
 		it('is false before start() is called', () => {
-			const useCase = new WatchPositionUseCase(new TrackingProvider());
 			expect(useCase.isWatching).toBe(false);
 		});
 
 		it('is false after stop() is called', () => {
-			const useCase = new WatchPositionUseCase(new TrackingProvider());
 			useCase.start(jest.fn(), jest.fn());
 			useCase.stop();
 			expect(useCase.isWatching).toBe(false);

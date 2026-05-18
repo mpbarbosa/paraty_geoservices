@@ -37,6 +37,9 @@ jobs:
       - name: Verify publish file list
         run: npm pack --dry-run
 
+      - name: Verify packaged consumers
+        run: npm run verify:package
+
       - name: Publish to npm
         run: npm publish --access public
         env:

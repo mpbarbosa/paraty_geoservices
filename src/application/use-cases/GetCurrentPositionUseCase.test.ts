@@ -55,18 +55,13 @@ class FailureProvider extends GeolocationProvider {
 // ---------------------------------------------------------------------------
 
 describe('GetCurrentPositionUseCase', () => {
-	it('resolves with an output containing the acquired position', async () => {
+	it.each([
+		['without options', undefined],
+		['with options', MOCK_OPTIONS],
+	] as const)('resolves with position %s', async (_label, opts) => {
 		const useCase = new GetCurrentPositionUseCase(new SuccessProvider());
 
-		const output = await useCase.execute();
-
-		expect(output.position).toEqual(MOCK_POSITION);
-	});
-
-	it('resolves with position when options are provided', async () => {
-		const useCase = new GetCurrentPositionUseCase(new SuccessProvider());
-
-		const output = await useCase.execute(MOCK_OPTIONS);
+		const output = await useCase.execute(opts);
 
 		expect(output.position).toEqual(MOCK_POSITION);
 	});
