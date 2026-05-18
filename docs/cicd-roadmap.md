@@ -16,6 +16,7 @@ This document describes the recommended CI/CD pipeline for `paraty_geoservices`,
 | npm publish | **Phase 3 complete** — `.github/workflows/release.yml` on version tags |
 | Dependency auditing | **Phase 5 complete** — CI runs `npm audit --audit-level=high` and Dependabot opens weekly npm update PRs |
 | Public API surface | **Phase 6 complete** — `ChangeDetectionCoordinator` and its types are exported from the layer barrels and package root |
+| Packaged consumer verification | **Phase 7 complete** — `npm run verify:package` installs the packed tarball into isolated CJS, ESM, and TypeScript consumers |
 
 ---
 
@@ -362,6 +363,30 @@ After adding the export:
 
 ---
 
+## Phase 7 — Packaged Consumer Verification ✓ (shipped 2026-05-17)
+
+**Goal:** Prove that the published package works for real consumers through the package root, not just inside the repository checkout.
+
+This phase is now shipped. CI and release validation run `npm run verify:package`, which packs the repository tarball, installs it into isolated CommonJS, ESM, and TypeScript consumer projects under the system temp directory, and asserts named package-root imports resolve correctly.
+
+### Implemented changes
+
+- Added `scripts/verify-package-consumers.mjs` to exercise the packed artefact from isolated temporary consumers outside the repository tree, preventing accidental resolution from the repo's own `node_modules`.
+- Added `scripts/prepare-esm-package.mjs` and updated the ESM build to rewrite relative imports with `.js` extensions and emit `dist/esm/package.json` with `"type": "module"` so Node can load the packaged ESM entrypoint.
+- Added `prepack` and `verify:package` package scripts so local and CI validation follow the same package-consumer path.
+- Wired `npm run verify:package` into `.github/workflows/ci.yml` and `.github/workflows/release.yml` after `npm pack --dry-run`.
+
+### Why this matters
+
+- Catches broken `"exports"` / `"module"` wiring before publish.
+- Verifies that the tarball works for CommonJS, ESM, and TypeScript consumers rather than only from source checkout.
+- Prevents false positives caused by in-repo module resolution.
+- Closes the remaining validation gap behind the package-root entrypoint work from Phase 6.
+
+### Effort: Low (1–2 hours)
+
+---
+
 ## Recommended Implementation Order
 
 | Phase | Workflow file | Effort | Unblocks |
@@ -372,5 +397,6 @@ After adding the export:
 | 4 — Docs publishing | `release.yml` update | Shipped | Public API reference |
 | 5 — Security auditing | Shipped | Low | Dependency hygiene |
 | 6 — Public API surface hardening | Shipped | Low | Stable downstream consumption |
+| 7 — Packaged consumer verification | `ci.yml`, `release.yml`, package scripts | Shipped | Verified package-root consumption |
 
 Phases 1 and 2 can be shipped in a single PR. Phases 3–6 are independent of each other once Phase 1 is in place.

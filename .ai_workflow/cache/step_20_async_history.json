@@ -2,23 +2,31 @@
   "version": 1,
   "entries": {
     "docs/api/assets/hierarchy.js": {
-      "mtimeMs": 1778973509055,
+      "mtimeMs": 1779073145862,
       "hasAsyncPatterns": false
     },
     "docs/api/assets/icons.js": {
-      "mtimeMs": 1778973509534,
+      "mtimeMs": 1779073146153,
       "hasAsyncPatterns": true
     },
     "docs/api/assets/main.js": {
-      "mtimeMs": 1778973509536,
+      "mtimeMs": 1779073146154,
       "hasAsyncPatterns": true
     },
     "docs/api/assets/navigation.js": {
-      "mtimeMs": 1778973509079,
+      "mtimeMs": 1779073145862,
       "hasAsyncPatterns": false
     },
     "docs/api/assets/search.js": {
-      "mtimeMs": 1778973509079,
+      "mtimeMs": 1779073145862,
+      "hasAsyncPatterns": false
+    },
+    "scripts/prepare-esm-package.mjs": {
+      "mtimeMs": 1779073028444,
+      "hasAsyncPatterns": false
+    },
+    "scripts/verify-package-consumers.mjs": {
+      "mtimeMs": 1779073075163,
       "hasAsyncPatterns": false
     },
     "src/application/ObserverSubject.ts": {

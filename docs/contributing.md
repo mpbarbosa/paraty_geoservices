@@ -17,6 +17,7 @@ npm install
 | `npm test` | Run all unit tests with Jest |
 | `npm run test:coverage` | Run tests and produce an HTML coverage report |
 | `npm run build` | Compile TypeScript to `dist/` |
+| `npm run verify:package` | Pack the library and smoke-test isolated CJS, ESM, and TypeScript consumers |
 | `npm run docs` | Generate TypeDoc API reference into `docs/api/` |
 
 ---

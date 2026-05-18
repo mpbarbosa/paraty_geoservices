@@ -134,7 +134,7 @@
     "jest.config.js": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-05-16T23:43:47.398Z"
+      "lastAnalyzed": "2026-05-18T18:40:14.116Z"
     },
     "src/application/ObserverSubject.ts": {
       "score": 100,
@@ -150,6 +150,21 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-17T23:56:51.830Z"
+    },
+    "scripts/prepare-esm-package.mjs": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-18T18:40:14.116Z"
+    },
+    "scripts/verify-package-consumers.mjs": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-18T18:40:14.116Z"
+    },
+    "scripts/colors.sh": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-18T18:40:14.116Z"
     }
   }
 }
