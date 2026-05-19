@@ -9,7 +9,6 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 ## Architecture
 
 - Shared low-level utilities are in `src/utils/`.
-- Maintain clear separation of concerns when adding or modifying modules.
 
 ## Validation
 
@@ -19,10 +18,7 @@ This file provides durable, high-signal guidance for Copilot-assisted developmen
 ## Build Artifacts
 
 - Do not edit files in `dist/`; they are generated output.
-- Main entry points and types:
-  - CommonJS: `dist/index.js`
-  - ESM: `dist/esm/index.js`
-  - Types: `dist/index.d.ts`
+- Main package entry points and types are in `dist/index.js`, `dist/esm/index.js`, and `dist/index.d.ts`.
 
 ## Workflow Surfaces
 
