@@ -73,11 +73,24 @@ jobs:
       - name: Check docs build
         run: npm run docs
 
-      - name: Test
-        run: npm test
+      - name: Test with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-node-${{ matrix.node-version }}
+          path: .ai_workflow/coverage/
+          retention-days: 7
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
 
       - name: Verify publish file list
         run: npm pack --dry-run
+
+      - name: Verify packaged consumers
+        run: npm run verify:package
 ```
 
 ### Why `npx tsc` instead of `tsc`?

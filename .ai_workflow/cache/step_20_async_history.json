@@ -22,11 +22,11 @@
       "hasAsyncPatterns": false
     },
     "scripts/prepare-esm-package.mjs": {
-      "mtimeMs": 1779073028444,
+      "mtimeMs": 1779130033252,
       "hasAsyncPatterns": false
     },
     "scripts/verify-package-consumers.mjs": {
-      "mtimeMs": 1779073075163,
+      "mtimeMs": 1779130033252,
       "hasAsyncPatterns": false
     },
     "src/application/ObserverSubject.ts": {

@@ -165,6 +165,31 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-18T18:40:14.116Z"
+    },
+    "docs/api/assets/hierarchy.js": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-19T21:44:17.678Z"
+    },
+    "docs/api/assets/icons.js": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-19T21:44:17.678Z"
+    },
+    "docs/api/assets/main.js": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-19T21:44:17.678Z"
+    },
+    "docs/api/assets/navigation.js": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-19T21:44:17.678Z"
+    },
+    "docs/api/assets/search.js": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-19T21:44:17.678Z"
     }
   }
 }

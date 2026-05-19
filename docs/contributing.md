@@ -31,9 +31,11 @@ src/
 │   └── ports/             Abstract GeolocationProvider base class
 ├── application/
 │   ├── dtos/              Use-case output shapes
+│   ├── services/          GeolocationService, ChangeDetectionCoordinator
 │   └── use-cases/         GetCurrentPositionUseCase, WatchPositionUseCase
 ├── infrastructure/
 │   └── providers/         AwsGeocoder, BrowserGeolocationProvider, MockGeolocationProvider
+├── utils/                 throttle
 └── index.ts               Public barrel — re-exports everything
 test/
 └── infrastructure/
