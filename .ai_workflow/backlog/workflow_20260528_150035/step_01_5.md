@@ -1,0 +1,138 @@
+# Step 01_5 Report
+
+**Step:** Copilot_Instructions_Validation
+**Status:** 🤖
+**Timestamp:** 5/28/2026, 3:01:07 PM
+
+---
+
+## Summary
+
+## Step 1.5: GitHub Copilot Instructions Validation
+
+- **Target file**: `.github/copilot-instructions.md`
+- **Updated**: no
+- **Validation commands surfaced**: npm test, npm run build
+- **Reference docs surfaced**: `CHANGELOG.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `README.md`, `ROADMAP.md`
+- **Structured findings valid**: yes
+- **Corrected file trusted for write**: yes
+
+## Authoritative Repo Facts
+
+### Package Metadata
+- package.json present: yes
+- Package name: `paraty_geoservices`
+- Package version: `1.6.4`
+- Package description: A reverse geocoding service library developed in TypeScript and Node.js.
+
+### Copilot File Purpose
+- Keep `.github/copilot-instructions.md` focused on durable, high-signal guidance for Copilot-assisted edits.
+- Prefer links to authoritative docs over duplicated inventories, counts, status snapshots, or long command lists.
+
+### Validation Commands
+- Test: `npm test`
+- Build: `npm run build`
+
+### Stable Source Layers
+- `src/utils/` - Shared low-level utilities
+
+### Supporting Workflow Surfaces
+- `.workflow-config.yaml` - Project-local workflow configuration
+- `.ai_workflow/` - Runtime artifacts, cache, and checkpoints
+
+### Authoritative Reference Docs
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `CONTRIBUTING.md`
+- `README.md`
+- `ROADMAP.md`
+
+### Reference Doc Signals
+- CHANGELOG.md: All notable changes to this project will be documented in this file.
+- CLAUDE.md: This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+- CONTRIBUTING.md: Follow the inward-only dependency rule: Infrastructure → Application → Domain. New providers go in `src/infrastructure/providers/` and must extend `GeolocationProvider`. Domain and application layers must not import from infrastructure.
+- README.md: A reverse geocoding service library developed in TypeScript and Node.js.
+- ROADMAP.md: **Discovered:** 2026-05-16 **Severity:** High — breaks E2E geolocation tests in Docker when CDN hasn't propagated a new tag yet **Context:** guia_js (`vite.config.js`) includes a `resolveParatyGeoservicesCDN` Vite plugin that intercepts `di
+
+### Public Package Entry Points
+- `exports . -> types: ./dist/index.d.ts, import: ./dist/esm/index.js, require: ./dist/index.js, default: ./dist/index.js`
+- `exports ./package.json -> ./package.json`
+- `main -> dist/index.js`
+- `module -> dist/esm/index.js`
+- `types -> dist/index.d.ts`
+
+### Source Entry Signals
+- ./package.json: file present
+- dist/index.js: file present
+- dist/esm/index.js: paraty_geoservices — Public API Re-exports all public types, ports, use cases and infrastructure adapters
+- dist/index.d.ts: paraty_geoservices — Public API Re-exports all public types, ports, use cases and infrastructure adapters
+- src/index.ts: paraty_geoservices — Public API Re-exports all public types, ports, use cases and infrastructure adapters
+
+### Findings
+## Findings
+
+### Finding 1 - No corrections required
+- **Classification**: supported guidance
+- **Current file evidence**: The entire file content as provided.
+- **Repo-fact evidence**: All surfaced facts under "Authoritative Repo Facts" directly support the current file's content.
+- **Action**: keep
+- **Why this matters**: The file is already concise, durable, and fully aligned with all authoritative repo facts.
+
+### AI Response
+## Findings
+
+### Finding 1 - No corrections required
+- **Classification**: supported guidance
+- **Current file evidence**: The entire file content as provided.
+- **Repo-fact evidence**: All surfaced facts under "Authoritative Repo Facts" directly support the current file's content.
+- **Action**: keep
+- **Why this matters**: The file is already concise, durable, and fully aligned with all authoritative repo facts.
+
+## Corrected File
+```markdown
+# Copilot Guidance — paraty_geoservices
+
+This file provides durable, high-signal guidance for Copilot-assisted development in this repository.
+
+## Project Purpose
+
+`paraty_geoservices` is a reverse geocoding service library developed in TypeScript and Node.js.
+
+## Architecture
+
+- Shared low-level utilities are in `src/utils/`.
+
+## Validation
+
+- To test: `npm test`
+- To build: `npm run build`
+
+## Build Artifacts
+
+- Do not edit files in `dist/`; they are generated output.
+- Main package entry points and types are in `dist/index.js`, `dist/esm/index.js`, and `dist/index.d.ts`.
+
+## Workflow Surfaces
+
+- Workflow configuration: `.workflow-config.yaml`
+- Runtime artifacts and cache: `.ai_workflow/`
+
+## Reference Documentation
+
+For implementation details, design principles, and contribution rules, consult:
+- `README.md`
+- `CHANGELOG.md`
+- `CONTRIBUTING.md`
+- `CLAUDE.md`
+- `ROADMAP.md`
+
+When unsure about architecture, dependencies, or workflow, refer to these documents.
+```
+
+## Details
+
+No details available
+
+---
+
+Generated by AI Workflow Automation
