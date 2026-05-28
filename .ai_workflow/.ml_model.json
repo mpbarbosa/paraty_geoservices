@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "timestamp": 1779983198,
+  "timestamp": 1779991499,
   "config": {
     "MODEL_FILE": ".ml_model.json",
     "MIN_SAMPLES": 10,
@@ -10002,6 +10002,576 @@
       "confidence": 0,
       "outcome": "success",
       "timestamp": 1779983198868
+    },
+    {
+      "stepId": "step_00",
+      "features": {
+        "stepId": "step_00",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991242981
+    },
+    {
+      "stepId": "step_0b",
+      "features": {
+        "stepId": "step_0b",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991242998
+    },
+    {
+      "stepId": "step_01",
+      "features": {
+        "stepId": "step_01",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991243009
+    },
+    {
+      "stepId": "step_01_5",
+      "features": {
+        "stepId": "step_01_5",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991267401
+    },
+    {
+      "stepId": "step_02",
+      "features": {
+        "stepId": "step_02",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991297541
+    },
+    {
+      "stepId": "step_04",
+      "features": {
+        "stepId": "step_04",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991317433
+    },
+    {
+      "stepId": "step_05",
+      "features": {
+        "stepId": "step_05",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991319679
+    },
+    {
+      "stepId": "step_06",
+      "features": {
+        "stepId": "step_06",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991336615
+    },
+    {
+      "stepId": "step_07",
+      "features": {
+        "stepId": "step_07",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991347487
+    },
+    {
+      "stepId": "step_08",
+      "features": {
+        "stepId": "step_08",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0.2222222222222222,
+      "outcome": "success",
+      "timestamp": 1779991397419
+    },
+    {
+      "stepId": "step_09",
+      "features": {
+        "stepId": "step_09",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991398683
+    },
+    {
+      "stepId": "step_03",
+      "features": {
+        "stepId": "step_03",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991403045
+    },
+    {
+      "stepId": "step_10",
+      "features": {
+        "stepId": "step_10",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991456725
+    },
+    {
+      "stepId": "step_13",
+      "features": {
+        "stepId": "step_13",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991459729
+    },
+    {
+      "stepId": "step_02_5",
+      "features": {
+        "stepId": "step_02_5",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991459981
+    },
+    {
+      "stepId": "step_16",
+      "features": {
+        "stepId": "step_16",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991467798
+    },
+    {
+      "stepId": "step_21",
+      "features": {
+        "stepId": "step_21",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991467922
+    },
+    {
+      "stepId": "step_11",
+      "features": {
+        "stepId": "step_11",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991468184
+    },
+    {
+      "stepId": "step_18",
+      "features": {
+        "stepId": "step_18",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991470783
+    },
+    {
+      "stepId": "step_11_5",
+      "features": {
+        "stepId": "step_11_5",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991470807
+    },
+    {
+      "stepId": "step_19",
+      "features": {
+        "stepId": "step_19",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991473272
+    },
+    {
+      "stepId": "step_22",
+      "features": {
+        "stepId": "step_22",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991473309
+    },
+    {
+      "stepId": "step_11_6",
+      "features": {
+        "stepId": "step_11_6",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991473323
+    },
+    {
+      "stepId": "step_20",
+      "features": {
+        "stepId": "step_20",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991475376
+    },
+    {
+      "stepId": "step_23",
+      "features": {
+        "stepId": "step_23",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991475390
+    },
+    {
+      "stepId": "step_17",
+      "features": {
+        "stepId": "step_17",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991475400
+    },
+    {
+      "stepId": "step_14",
+      "features": {
+        "stepId": "step_14",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991475408
+    },
+    {
+      "stepId": "step_0f",
+      "features": {
+        "stepId": "step_0f",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991475473
+    },
+    {
+      "stepId": "step_15",
+      "features": {
+        "stepId": "step_15",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991475501
+    },
+    {
+      "stepId": "step_12",
+      "features": {
+        "stepId": "step_12",
+        "changePercentage": 100,
+        "filesChanged": 13,
+        "filesAdded": 0,
+        "filesModified": 13,
+        "filesDeleted": 0,
+        "hasCodeChanges": true,
+        "hasDocsChanges": true,
+        "hasTestChanges": false,
+        "previousStepSuccess": true
+      },
+      "prediction": "execute",
+      "confidence": 0,
+      "outcome": "success",
+      "timestamp": 1779991499385
     }
   ],
   "accuracy": {
@@ -10011,246 +10581,6 @@
     "totalPredictions": 100,
     "correctPredictions": 1,
     "predictions": [
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779062342560
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779062342595
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 7,
-        "actualOutcome": "success",
-        "timestamp": 1779062342610
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779062448142
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779062549808
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 7,
-        "actualOutcome": "success",
-        "timestamp": 1779062549820
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 7,
-        "actualOutcome": "success",
-        "timestamp": 1779062549830
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 7,
-        "actualOutcome": "success",
-        "timestamp": 1779062549900
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 7,
-        "actualOutcome": "success",
-        "timestamp": 1779062549915
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 7,
-        "actualOutcome": "success",
-        "timestamp": 1779062560041
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129149657
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129149735
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129247529
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129283417
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129336075
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129370623
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129397514
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129459189
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129498254
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0.11111111111111116,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129528428
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779129551295
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129560931
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779129614118
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779129647952
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129648542
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129658988
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129659470
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779129659945
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 9,
-        "actualOutcome": "success",
-        "timestamp": 1779129741146
-      },
-      {
-        "prediction": "execute",
-        "confidence": 0,
-        "reason": "insufficient_confidence",
-        "samplesUsed": 8,
-        "actualOutcome": "success",
-        "timestamp": 1779129741182
-      },
       {
         "prediction": "execute",
         "confidence": 0,
@@ -10810,6 +11140,246 @@
         "samplesUsed": 6,
         "actualOutcome": "success",
         "timestamp": 1779983198869
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991242981
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991242998
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991243009
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991267401
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991297541
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991317433
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991319679
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991336615
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991347487
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0.2222222222222222,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991397419
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 7,
+        "actualOutcome": "success",
+        "timestamp": 1779991398683
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991403045
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991456725
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991459729
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991459981
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991467799
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991467922
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991468184
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991470783
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991470807
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991473272
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991473309
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991473323
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991475376
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 9,
+        "actualOutcome": "success",
+        "timestamp": 1779991475390
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991475400
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 7,
+        "actualOutcome": "success",
+        "timestamp": 1779991475408
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991475473
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 7,
+        "actualOutcome": "success",
+        "timestamp": 1779991475501
+      },
+      {
+        "prediction": "execute",
+        "confidence": 0,
+        "reason": "insufficient_confidence",
+        "samplesUsed": 8,
+        "actualOutcome": "success",
+        "timestamp": 1779991499385
       }
     ]
   }
