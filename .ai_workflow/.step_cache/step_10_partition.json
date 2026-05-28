@@ -1,15 +1,14 @@
 {
   "version": 1,
   "partitionIndex": 1,
-  "totalPartitions": 6,
-  "filesHash": "7e9bed32",
+  "totalPartitions": 5,
+  "filesHash": "7c758a4a",
   "partitionLabels": [
-    "docs/api",
-    "src/domain",
+    "src/types, src/domain",
     "src/infrastructure",
     "src/infrastructure (2)",
     "src/infrastructure (3)",
     "src/utils"
   ],
-  "updatedAt": "2026-05-19T21:44:17.678Z"
+  "updatedAt": "2026-05-28T15:39:37.132Z"
 }

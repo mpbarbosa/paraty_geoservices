@@ -190,6 +190,16 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-19T21:44:17.678Z"
+    },
+    "src/types/paraty_geocore.d.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-28T15:39:37.129Z"
+    },
+    "src/domain/entities/GeoReverseGeocodeError.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-28T15:39:37.129Z"
     }
   }
 }

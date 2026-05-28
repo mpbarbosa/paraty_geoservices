@@ -1,34 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "docs/api/assets/hierarchy.js": {
-      "mtimeMs": 1779073145862,
-      "hasAsyncPatterns": false
-    },
-    "docs/api/assets/icons.js": {
-      "mtimeMs": 1779073146153,
-      "hasAsyncPatterns": true
-    },
-    "docs/api/assets/main.js": {
-      "mtimeMs": 1779073146154,
-      "hasAsyncPatterns": true
-    },
-    "docs/api/assets/navigation.js": {
-      "mtimeMs": 1779073145862,
-      "hasAsyncPatterns": false
-    },
-    "docs/api/assets/search.js": {
-      "mtimeMs": 1779073145862,
-      "hasAsyncPatterns": false
-    },
-    "scripts/prepare-esm-package.mjs": {
-      "mtimeMs": 1779130033252,
-      "hasAsyncPatterns": false
-    },
-    "scripts/verify-package-consumers.mjs": {
-      "mtimeMs": 1779130033252,
-      "hasAsyncPatterns": false
-    },
     "src/application/ObserverSubject.ts": {
       "mtimeMs": 1779062232766,
       "hasAsyncPatterns": true
@@ -107,7 +79,7 @@
     },
     "src/domain/ports/GeolocationPermissionReader.ts": {
       "mtimeMs": 1779062232783,
-      "hasAsyncPatterns": true
+      "hasAsyncPatterns": false
     },
     "src/domain/ports/GeolocationProvider.ts": {
       "mtimeMs": 1778543365155,
@@ -115,7 +87,7 @@
     },
     "src/domain/ports/ReverseGeocoder.ts": {
       "mtimeMs": 1779036724042,
-      "hasAsyncPatterns": true
+      "hasAsyncPatterns": false
     },
     "src/domain/ports/index.ts": {
       "mtimeMs": 1779036733015,
@@ -135,7 +107,7 @@
     },
     "src/infrastructure/createReverseGeocoderService.ts": {
       "mtimeMs": 1779037311881,
-      "hasAsyncPatterns": true
+      "hasAsyncPatterns": false
     },
     "src/infrastructure/index.ts": {
       "mtimeMs": 1778843286837,
@@ -159,7 +131,7 @@
     },
     "src/infrastructure/providers/MockReverseGeocoder.ts": {
       "mtimeMs": 1779036716642,
-      "hasAsyncPatterns": true
+      "hasAsyncPatterns": false
     },
     "src/infrastructure/providers/NominatimAddressMapper.ts": {
       "mtimeMs": 1779037243795,
