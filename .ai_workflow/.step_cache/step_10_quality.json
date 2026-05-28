@@ -200,6 +200,31 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-05-28T15:39:37.129Z"
+    },
+    "src/infrastructure/ObserverSubject.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-28T18:04:16.725Z"
+    },
+    "src/infrastructure/createBrowserGeolocationService.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-28T18:04:16.725Z"
+    },
+    "src/infrastructure/createReverseGeocoderService.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-28T18:04:16.725Z"
+    },
+    "src/infrastructure/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-28T18:04:16.725Z"
+    },
+    "src/infrastructure/providers/AwsAddressMapper.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-05-28T18:04:16.725Z"
     }
   }
 }

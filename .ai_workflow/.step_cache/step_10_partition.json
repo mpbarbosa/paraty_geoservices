@@ -1,14 +1,13 @@
 {
   "version": 1,
   "partitionIndex": 1,
-  "totalPartitions": 5,
-  "filesHash": "7c758a4a",
+  "totalPartitions": 4,
+  "filesHash": "db713a60",
   "partitionLabels": [
-    "src/types, src/domain",
     "src/infrastructure",
     "src/infrastructure (2)",
     "src/infrastructure (3)",
     "src/utils"
   ],
-  "updatedAt": "2026-05-28T15:39:37.132Z"
+  "updatedAt": "2026-05-28T18:04:16.725Z"
 }
