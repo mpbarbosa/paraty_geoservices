@@ -22,6 +22,10 @@
       "https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.16/dist/vite/index.mjs": [
         "../olinda_utils.js/dist/vite/index.d.ts",
         "./src/types/olinda_utils.d.ts"
+      ],
+      "https://cdn.jsdelivr.net/gh/mpbarbosa/paraty_geocore.js@0.17.0-alpha/dist/src/index.js": [
+        "../paraty_geocore.js/dist/types/src/index.d.ts",
+        "./src/types/paraty_geocore.d.ts"
       ]
     }
   },
